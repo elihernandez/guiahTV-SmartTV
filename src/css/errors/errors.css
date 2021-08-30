@@ -1,0 +1,67 @@
+.error-view{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.error-view.video-status{
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.error-view.session-failed{
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.error-view .container{
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.error-view .container h2{
+    font-size: 6vh;
+    font-weight: 400;
+    color: whitesmoke;
+}
+
+.error-view .container h4{
+    font-size: 3vh;
+    color: #9e9e9e;
+}
+
+.error-view .container span.button-back{
+    margin-top: 3vh;
+    font-size: 2.5vh;
+    padding: 1vh 4vh;
+    border: .5vh solid transparent;
+    border-radius: .5vh;
+    color: white;
+    font-weight: 500;
+}
+
+.error-view .container span.button-back:hover{
+    border: .5vh solid white;
+    cursor: pointer;
+}
+
+.error-view .container span.button-back:focus{
+    border: .5vh solid white;
+    cursor: pointer;
+}
+
+

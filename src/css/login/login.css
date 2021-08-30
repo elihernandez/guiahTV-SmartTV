@@ -1,0 +1,442 @@
+/* Estilos de la página principal */
+
+    .login-view{
+        position: absolute;
+        z-index: 30;
+        width: 100%;
+        height: 100%;
+        background-image: url('../app/assets/images/backgrounds/background-login.webp');
+        background-size: cover;
+    }
+
+    .login-view .container-section{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .login-view .info{
+        position: absolute;
+        width: 60%;
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #info-login-view .info.fadeOut{
+        opacity: 0;
+    }
+
+    .login-view .info .el.message{
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .login-view .info .el.message .el{
+        position: relative;
+        width: 100%;
+    }
+
+    .login-view .info .el.message .el.logo{
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .login-view .info .el.message .el.logo img{
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .login-view .info .el.message .el.message-text{
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        color: white;
+        text-align: center;
+    }
+
+    .login-view .info .el.message-text h2{
+        font-size: 55px;
+        font-weight: 700;
+    }
+
+    .login-view .info .el.message-text h4{
+        font-size: 28px;
+        font-weight: 400;
+    }
+
+    .login-view .info .el.buttons{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: white;
+        font-size: 3vh;
+        margin-top: 9vh;
+    }
+
+    .login-view .info .buttons span{
+        display: inline-flex;
+	    flex-direction: row;
+	    justify-content: center;
+	    align-items: center;
+	    align-content: center;
+	    border-radius: .5vh;
+	    text-align: center;
+	    margin: 0 1vh 0 1vh;
+	    padding: 12px;
+        background-color: rgba(255, 255, 255, 0.2);
+        min-width: 250px;
+    }
+
+    .login-view .info .buttons span h4{
+        font-weight: 400;
+        font-size: 25px;
+        color: whitesmoke;
+    }
+
+    .login-view .info .buttons span i{
+        color: white;
+        font-size: 2vh;
+        margin-right: 1vh;
+        font-weight: bold;
+    }
+
+    .login-view .info .buttons span:focus{
+        background-color: white;
+    }
+
+    .login-view .info .buttons span:focus h4{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: 700;
+    }
+
+    .login-view .info .buttons span:focus i{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: bold;
+    }
+
+    .login-view .info .buttons span:hover{
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .login-view .info .buttons span:hover h4{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: 700;
+    }
+
+    .login-view .info .buttons span:hover i{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: bold;
+    }
+
+    .login-view .footer-info{
+        position: absolute;
+        width: 100%;
+        height: 15%;
+        bottom: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .login-view .footer-info h5{
+        font-size: 18px;
+        color: white;
+        font-weight: 400;
+    }
+
+/* Estilos de la página principal */
+
+/* Estilos del form de login */
+    .login-view .info.form-login{
+        position: absolute;
+        width: 60%;
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: center;
+        align-items: center;
+        margin-top: 10vh;
+    }
+
+    .login-view .form-login .buttons{
+        height: 10vh;
+        align-self: flex-start;
+        margin-left: 10vh;
+        margin-bottom: 10vh;
+    }
+
+    .login-view .form-login .el.message{
+        width: 80%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 70px;
+    }
+
+    .login-view .form-login .logo img{
+       width: 100%;
+    }
+
+    .login-view .form-login .el.message .el.message-text{
+        /* padding-left: 1vw; */
+        margin-top: 0vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: start;
+    }
+
+    .form-login .message-text h2{
+        font-size: 4vh;
+    }
+
+    .form-login .message-text h4{
+        font-size: 2.5vh;
+        margin-top: -.5vh;
+    }
+
+    .login-view .form-login form{
+        width: 80%;
+        gap: 40px;
+    }
+
+    .login-view .input-group-form{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 50px;
+        gap: 40px;
+    }
+
+    .login-view .input-group-form .form-group{
+        width: 50%;
+    }
+
+    .login-view .form-group input{
+        padding: 30px 20px 0px 15px;
+        color: whitesmoke;
+        background-color: transparent !important;
+        border: .5vh solid rgba(255, 255, 255, 0.5);
+        height: 90px;
+        font-size:25px;
+        font-weight: 500; 
+    }
+
+    @media (min-width: 1280px){
+        .login-view .form-group input{
+            border: 5px solid rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    .login-view .form-group input:focus{
+        color: whitesmoke;
+        background-color: transparent;
+        border: .5vh solid rgba(255, 255, 255, 1);
+        box-shadow: 0px 0px .6vh #ffffff; 
+    }
+
+    @media (min-width: 1280px){
+        .login-view .form-group input:focus{
+            border: 5px solid rgba(255, 255, 255, 1);
+        }
+    }
+
+    .login-view .form-group label{
+        position: absolute;
+        padding: 5px 20px;
+    }
+
+    .login-view .form-group label h4{
+        font-size: 18px;
+        font-weight: 400; 
+        color: whitesmoke;
+        opacity: 0.8;
+    }
+
+    .login-view .info-web{
+        width: 50%;
+        text-align: right;
+    }
+
+    .login-view .info-web h4{
+        font-size: 20px;
+        color: whitesmoke;
+    }
+
+    .form-login form span{
+        width: 100%;
+        display: inline-flex;
+	    flex-direction: row;
+	    justify-content: center;
+	    align-items: center;
+	    align-content: center;
+	    border-radius: .5vh;
+	    text-align: center;
+	    padding: 12px;
+        background-color: rgba(255, 255, 255, 0.2);
+    } 
+
+    
+    .form-login form span h4{
+        font-size: 25px;
+        color: whitesmoke;
+    } 
+
+    .form-login form span:focus{
+        background-color: white;
+    }
+
+    .form-login form span:hover{
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .form-login form span:focus h4{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: 700;
+    }
+
+    .form-login form span:hover h4{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: 700;
+    }
+
+    .form-login .input-group-form.button{
+        margin-top: -2vh;
+    }
+
+    .form-login{
+        .logo{
+            width: 50% !important;
+        }
+    }
+
+
+/* Estilos del form de login */
+
+
+/* Estilos de la página de mensaje en error de login */
+
+    #message-login-failed-view{
+        width: 100%;
+        height: 100%;
+    }
+
+    #message-login-failed-view .container-section{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+    }
+
+    #message-login-failed-view .container-section .logo i{
+        color: white;
+        font-size: 4vh;
+        background-color: white;
+        color: black;
+        border-radius: 50%;
+        padding: .8vh 1.5vh;
+        margin-bottom: 1vh;
+    }
+
+    #message-login-failed-view .container-section .title h2{
+        color: whitesmoke;
+        font-size: 5vh;
+    }
+
+    #message-login-failed-view .container-section .subtitle h3{
+        color: #757575;
+        font-size: 3vh;
+        margin-bottom: 7vh;
+    }
+
+    #message-login-failed-view .buttons{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: white;
+        font-size: 3vh;
+        margin-top: 15vh;
+    }
+
+    #message-login-failed-view span{
+        display: inline-flex;
+	    flex-direction: row;
+	    justify-content: center;
+	    align-items: center;
+	    align-content: center;
+	    border-radius: .5vh;
+	    text-align: center;
+	    margin: 0 1vh 0 1vh;
+	    padding: .7vh 3vh;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #message-login-failed-view span h4{
+        font-weight: 700;
+        font-size: 2.5vh;
+    }
+
+    #message-login-failed-view span i{
+        color: white;
+        font-size: 2vh;
+        margin-right: 1vh;
+        font-weight: bold;
+    }
+
+    #message-login-failed-view span:focus{
+        background-color: white;
+    }
+
+    #message-login-failed-view span:focus h4{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: 700;
+    }
+
+    #message-login-failed-view span:focus i{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: bold;
+    }
+
+    #message-login-failed-view span:hover{
+        background-color: white;
+        cursor: pointer;
+    }
+
+    #message-login-failed-view span:hover h4{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: 700;
+    }
+
+    #message-login-failed-view span:hover i{
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: bold;
+    }
+    
+/* Estilos de la página de mensaje en error de login */

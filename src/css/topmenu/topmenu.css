@@ -1,0 +1,254 @@
+#top-menu{	
+	z-index: 21;
+	position: absolute;
+	width: 100%;
+	height: 10%;
+	background: linear-gradient(180deg, rgba(0,0,0,0.5), transparent);
+	padding: 2vh 0vw;
+}
+
+#top-menu .container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	color: white;
+	transition-property: top;
+	transition-duration: 400ms;
+	transition-timing-function: ease-in-out;
+	transition-delay: 0ms;
+}
+
+#top-menu .logo{
+	position: relative;
+	width: auto;
+	height: 100%;
+}
+
+#top-menu .logo img{
+	position: absolute;
+	height: 100%;
+	width: auto;
+}
+
+#top-menu .left{
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: center;
+}
+
+#top-menu .left ul.sections{
+	margin-left: 30px;
+	position: relative;
+	height: 100%;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 0px;
+}
+
+#top-menu .left .dropdown .btn.btn-secondary.dropdown-toggle{
+	margin-left: 30px;
+	min-width: 140px;
+	min-height: 40px;
+	position: relative;
+	border: 1px solid white;
+	border-radius: 25px;
+	background-color: transparent;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	color: white;
+}
+
+#top-menu .left .dropdown.open .btn.btn-secondary.dropdown-toggle{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+#top-menu .left .dropdown.open > .dropdown-menu{
+	display: flex;
+	flex-direction: column;
+}
+
+#top-menu .left .dropdown .dropdown-menu{
+	margin: 0px;
+	margin-left: 30px;
+	min-width: 140px;
+	padding: 0px;
+	background-clip: unset;
+	background-color: transparent;
+}
+
+#top-menu .left .dropdown .dropdown-menu a{
+	font-size: 17px;
+	font-weight: 400;
+	min-width: 140px;
+	min-height: 40px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+	align-content: center;
+	color: white
+}
+
+#top-menu .left .dropdown .dropdown-menu a:hover{
+	background-color: white;
+	color: black;
+	text-decoration: none;
+}
+
+
+#top-menu .left .dropdown .btn.btn-secondary.dropdown-toggle:hover{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+#top-menu .left .dropdown .btn.btn-secondary.dropdown-toggle:focus{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+
+}
+
+#top-menu .left ul.sections li{
+	border: 1px solid white;
+	border-radius: 25px;
+	font-size: 20px;
+	font-weight: 500;
+	min-width: 140px;
+	min-height: 40px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+	align-content: center;
+}
+
+#top-menu .left ul.sections li h4{
+	font-size: 20px;
+	font-weight: 500;
+	margin-left: 5px;
+}
+
+#top-menu .left ul.sections li.active{
+	display: flex;
+}
+
+#top-menu .left ul.sections li.active:hover{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+#top-menu .left ul.sections li.inactive{
+	display: none;
+}
+
+#top-menu .left ul.sections li i{
+	font-size: 1vh;
+	margin-top: 1px;
+}
+
+#top-menu .right{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: center;
+}
+
+#top-menu .right .item{
+	margin-left: 2vh;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+#top-menu .right i{
+	font-size: 25px;
+
+}
+
+#top-menu .right .user{
+	width: auto;
+	height: 40%;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	margin-right: 30px;
+}
+
+#top-menu .right .user h4{
+	font-size: 15px;
+	font-weight: 400;
+	margin-left: 15px;
+}
+
+
+#top-menu .right .user img{
+	position: relative;
+	height: 100%;
+	border-radius: 50%;
+}
+
+#top-menu .right .item:focus{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+#top-menu .right .right-menu-icon{
+	width: 5.5vh;
+	height: 5.5vh;
+	color: white;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: #5a308d;
+}
+
+#top-menu .right .right-menu-icon i{
+	font-size: 2.5vh;
+}
+
+#top-menu .right .right-menu-icon:focus{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+	outline: none !important;
+}
+
+#top-menu .right .right-menu-icon:hover{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+#top-menu .right .item .fa-search{
+	/*min-width: 50px;
+	min-height: 50px;*/
+	padding: 15px;
+}

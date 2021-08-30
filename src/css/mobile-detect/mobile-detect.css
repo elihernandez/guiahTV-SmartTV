@@ -1,0 +1,461 @@
+@media only screen and (max-width: 425px) {
+    .mobile-detect{
+        position: absolute;
+        z-index: 996;
+        height: auto;
+        width: 100%;
+        background-color: #494949;
+        padding: 1vh 2vh;
+    }
+
+    .mobile-detect .container{
+        position: relative;
+        top: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .mobile-detect .container .app-info{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+    }
+
+    .mobile-detect .container .app-info .logo img{
+        position: relative;
+        width: auto;
+        height: 35px;
+        border-radius: 5px;
+    }
+
+    .mobile-detect .container .app-info .info{
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .mobile-detect .container .app-info h3{
+        position: relative;
+        top: 0;
+        width: 100%;
+        font-size: 2vh;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .mobile-detect .container .app-info h4{
+        position: relative;
+        top: 0;
+        width: 100%;
+        font-size: 1.5vh;
+        font-weight: 400;
+        color: 757575;
+        margin: 0;
+        margin-top: 2px;
+        color: #bdbdbd;
+    }
+
+    .mobile-detect .container .link-app{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+    }
+
+    .mobile-detect .container .link-app a{
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-detect .container .link-app button{
+        border: none;
+        background-color:#00acec;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: .5vh 2vh;
+        border-radius: 50px;
+    }
+
+    .mobile-detect .container .link-app span{
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-left: 15px;
+    }
+
+    .mobile-detect .container .link-app span:hover{
+        background-color: white;
+    }
+
+    .mobile-detect .container .link-app span i{
+        color: #bdbdbd;
+        font-size: 10px;
+        margin-top: 0;
+    }
+
+    .mobile-detect .container .link-app span:hover i{
+       color: black;
+    }
+}
+
+@media only screen and (min-width: 426px) and (max-width:1023px) {
+    .mobile-detect{
+        position: absolute;
+        z-index: 996;
+        height: auto;
+        width: 100%;
+        background-color: #494949;
+        padding: 1vh 2vh;
+    }
+
+    .mobile-detect .container{
+        position: relative;
+        top: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .mobile-detect .container .app-info{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+    }
+
+    .mobile-detect .container .app-info .logo img{
+        position: relative;
+        width: auto;
+        height: 35px;
+        border-radius: 5px;
+    }
+
+    .mobile-detect .container .app-info .info{
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .mobile-detect .container .app-info h3{
+        position: relative;
+        top: 0;
+        width: 100%;
+        font-size: 2vh;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .mobile-detect .container .app-info h4{
+        position: relative;
+        top: 0;
+        width: 100%;
+        font-size: 1.5vh;
+        font-weight: 400;
+        color: 757575;
+        margin: 0;
+        margin-top: 2px;
+        color: #bdbdbd;
+    }
+
+    .mobile-detect .container .link-app{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+    }
+
+    .mobile-detect .container .link-app a{
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-detect .container .link-app button{
+        border: none;
+        background-color:#00acec;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: .5vh 2vh;
+        border-radius: 50px;
+    }
+
+    .mobile-detect .container .link-app span{
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-left: 15px;
+    }
+
+    .mobile-detect .container .link-app span:hover{
+        background-color: white;
+    }
+
+    .mobile-detect .container .link-app span i{
+        color: #bdbdbd;
+        font-size: 10px;
+        margin-top: 0;
+    }
+
+    .mobile-detect .container .link-app span:hover i{
+       color: black;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    .mobile-detect{
+        position: absolute;
+        z-index: 996;
+        height: auto;
+        width: 100%;
+        background-color: #494949;
+        padding: 1vh 2vh;
+    }
+
+    .mobile-detect .container{
+        position: relative;
+        top: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .mobile-detect .container .app-info{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+    }
+
+    .mobile-detect .container .app-info .logo img{
+        position: relative;
+        width: auto;
+        height: 35px;
+        border-radius: 5px;
+    }
+
+    .mobile-detect .container .app-info .info{
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .mobile-detect .container .app-info h3{
+        position: relative;
+        top: 0;
+        width: 100%;
+        font-size: 2vh;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .mobile-detect .container .app-info h4{
+        position: relative;
+        top: 0;
+        width: 100%;
+        font-size: 1.5vh;
+        font-weight: 400;
+        color: 757575;
+        margin: 0;
+        margin-top: 2px;
+        color: #bdbdbd;
+    }
+
+    .mobile-detect .container .link-app{
+        position: relative;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+    }
+
+    .mobile-detect .container .link-app a{
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-detect .container .link-app button{
+        border: none;
+        background-color:#00acec;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: .5vh 2vh;
+        border-radius: 50px;
+    }
+
+    .mobile-detect .container .link-app span{
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-left: 15px;
+    }
+
+    .mobile-detect .container .link-app span:hover{
+        background-color: white;
+    }
+
+    .mobile-detect .container .link-app span i{
+        color: #bdbdbd;
+        font-size: 10px;
+        margin-top: 0;
+    }
+
+    .mobile-detect .container .link-app span:hover i{
+       color: black;
+    }
+}
+
+.mobile-detect{
+    position: absolute;
+    z-index: 996;
+    height: auto;
+    width: 100%;
+    background-color: #494949;
+    padding: 1vh 2vh;
+}
+
+.mobile-detect .container{
+    position: relative;
+    top: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mobile-detect .container .app-info{
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+
+.mobile-detect .container .app-info .logo img{
+    position: relative;
+    width: auto;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.mobile-detect .container .app-info .info{
+    position: relative;
+    margin-left: 10px;
+}
+
+.mobile-detect .container .app-info h3{
+    position: relative;
+    top: 0;
+    width: 100%;
+    font-size: 2vh;
+    font-weight: 500;
+    margin: 0;
+}
+
+.mobile-detect .container .app-info h4{
+    position: relative;
+    top: 0;
+    width: 100%;
+    font-size: 1.5vh;
+    font-weight: 400;
+    color: 757575;
+    margin: 0;
+    margin-top: 2px;
+    color: #bdbdbd;
+}
+
+.mobile-detect .container .link-app{
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+}
+
+.mobile-detect .container .link-app a{
+    color: white;
+    text-decoration: none;
+}
+
+.mobile-detect .container .link-app button{
+    border: none;
+    background-color:#00acec;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: .5vh 2vh;
+    border-radius: 50px;
+}
+
+.mobile-detect .container .link-app span{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 15px;
+}
+
+.mobile-detect .container .link-app span:hover{
+    background-color: white;
+}
+
+.mobile-detect .container .link-app span i{
+    color: #bdbdbd;
+    font-size: 10px;
+    margin-top: 0;
+}
+
+.mobile-detect .container .link-app span:hover i{
+   color: black;
+}

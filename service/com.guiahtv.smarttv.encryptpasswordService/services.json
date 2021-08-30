@@ -1,0 +1,19 @@
+{
+    "id": "com.guiahtv.smarttv.encryptpasswordservice",
+    "description": "Encrypt Password Service",
+    "services": [
+        {
+            "name": "com.guiahtv.smarttv.encryptpasswordservice",
+            "description": "Encrypt Password Service",
+            "commands": [
+                {
+                    "name": "encryptPassword",
+                    "public": true
+                }
+                
+            ]
+            
+        }
+        
+    ]
+}

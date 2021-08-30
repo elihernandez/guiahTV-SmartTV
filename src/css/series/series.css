@@ -1,0 +1,224 @@
+#series{
+    position: absolute;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+}
+
+#series .background-section{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+#series .background-section img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+#series .catalogue-series{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#series .title-serie{
+    position: absolute;
+    font-size: 4vh;
+    color: white;
+    margin-bottom: 4vh;
+    margin-top: 4%;
+    padding-left: 4%;
+}
+
+#series .background-serie{
+    position: absolute;
+    width: 9%;
+    height: 23%;
+    top: 15%;
+    left: 4%;
+}
+
+#series .background-serie img{
+    width: 100%;
+    height: 100%;
+}
+
+#series .seasons{
+    position: absolute;
+    z-index: 3;
+    width: 30%;
+    height: 100%;
+    padding-right: 2vh;
+    padding-top: 22%;
+    padding-left: 4%;
+}
+
+#series .seasons ul{
+    list-style: none;
+    padding: 0;
+}
+
+#series .seasons li{
+    color: #bdbdbd;
+    font-size: 2.5vh;
+    font-weight: 400;
+    padding: 1vh 3vh;
+    border-radius: .5vh;
+    border: .5vh solid transparent;
+}
+
+#series .seasons li i{
+    margin-right: 2vh;
+    opacity: 0;
+}
+
+#series .seasons li.active{
+    font-weight: 700;
+    color: white;
+}
+
+#series .seasons li.active i{
+    opacity: 1;
+}
+
+#series .seasons li.active:hover{
+    font-weight: 700;
+    color: white;
+}
+
+#series .seasons li.active:focus{
+    font-weight: 700;
+    color: white;
+}
+
+#series .seasons li:hover{
+    color: white;
+    border: .5vh solid white;
+    cursor: pointer;
+}
+
+#series .seasons li:focus{
+    color: white;
+    border: .5vh solid white;
+}
+
+#series .chapters{
+    position: absolute;
+    z-index: 3;
+    left: 30%;
+    width: 70%;
+    height: 100%;
+    padding-left: 5vh;
+    margin-bottom: 5vh;
+    overflow: hidden;
+}
+
+#series .chapters ul{
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    top: 7vh;
+}
+
+#series .chapters ul li{
+    flex: 0 0 calc(100% / 3.5);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+#series .chapters ul li div{
+    display: flex;
+    flex-direction: column;
+}
+
+#series .chapters ul li .background-chapter{
+    position: absolute;
+    width: 35%;
+    height: 100%;
+    padding: 1vh;
+}
+
+#series .chapters ul li .image-chapter{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    outline: .5vh solid transparent;
+}
+
+#series .chapters ul li .background-progress{
+    position: absolute;
+    height: 50%;
+    width: 96%;
+    bottom: 3.5%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0));
+}
+
+#series .chapters ul li .progress-continued{
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    height: 2%;
+    bottom: 8%;
+}
+
+#series .chapters ul li .progress-total{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 1vh 1.5vh -.5vh #000000;
+}
+
+#series .chapters ul li .progress-actual{
+    position: absolute;
+    height: 100%;
+    background: #00aeef;
+}
+
+#series .chapters ul li:hover{
+    cursor: pointer;
+}
+
+#series .chapters ul li:focus{
+    outline: none !important;
+}
+
+#series .chapters ul li:hover .background-chapter .image-chapter{
+    outline: .5vh solid white;
+}
+
+#series .chapters ul li:focus .background-chapter .image-chapter{
+    outline: .5vh solid white;
+}
+
+#series .chapters ul li .info-chapter{
+    position: absolute;
+    left: 35%;
+    width: 60%;
+    height: 100%;
+    padding: 2vh;
+}
+
+#series .chapters ul li .info-chapter .title-chapter{
+    position: relative;
+    color: whitesmoke;
+    font-size: 3vh;
+    font-weight: 500;
+}
+
+#series .chapters ul li .info-chapter .description-chapter{
+    position: relative;
+    color: #9e9e9e;
+    font-size: 2.6vh;
+    font-weight: 400;
+}

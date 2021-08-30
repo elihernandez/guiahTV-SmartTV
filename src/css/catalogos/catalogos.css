@@ -1,0 +1,549 @@
+.background{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.background.full-width{
+    opacity: 0.8;
+}
+
+.background.medium-width{
+    width: 100%;
+    height: auto;
+    right: 0;
+    top: 0;
+}
+
+.background img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    opacity: 0.6;
+}
+
+.info-background{
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+}
+
+.info-background .info{
+    width: 100%;
+    height: 100%;
+}
+
+.info-background .text-group h3{
+    margin: 0;
+    padding: 0;
+    margin: .3vh 0;
+    font-size: 2.3vh;
+}
+
+
+.info-background .info .title{
+    font-size: 4vh;
+    font-weight: 900;
+    letter-spacing: .5px;
+    margin-bottom: 10px;
+    color: whitesmoke;
+}
+
+.info-background .info .group-1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}
+
+.info-background .info .imdb-movie{
+    width: 12%;
+    height: auto;
+}
+
+.info-background .info .line-space{
+    font-size: 2.5vh;
+    margin: 0;
+}
+
+.info-background .info .rating-movie{
+    font-size: 2.5vh;
+    margin: 0 1vh;
+    color: #bdbdbd;
+}
+
+.info-background .info .clasification-movie{
+    width: 12%;
+    height: auto;
+}
+
+.info-background .info .clock{
+    position: relative;
+}
+
+.info-background .info .duration-movie{
+    width: 7.5vh;
+    position: relative;
+}
+
+.info-background .info .date-movie{
+    position: relative;
+}
+
+.info-background .info .description-movie{
+    width: 50%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.background-black{
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    opacity: 0.98;
+    /* border: 1px solid blue; */
+}
+
+.background-black.to-top{
+    bottom: 0;
+}
+
+.background-black.to-top.to-2{
+    height: 30%;
+}
+
+.gradient-catalogue{
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.gradient-catalogue.to-top{
+    background: linear-gradient(0deg, rgba(0,0,0,1), transparent);
+}
+
+.gradient-catalogue.to-right{
+    background: linear-gradient(90deg, rgba(0,0,0,1), transparent);
+}
+
+.gradient-catalogue.to-top.gradient-1{
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.gradient-catalogue.to-top.gradient-2{
+    height: 80%;
+}
+
+.gradient-catalogue.to-top.gradient-3{
+    height: 70%;
+}
+
+.gradient-catalogue.to-top.gradient-4{
+    height: 80%;
+}
+
+.gradient-catalogue.to-top.gradient-5{
+    height: 70%;
+}
+
+.gradient-catalogue.to-top.gradient-6{
+    z-index: 4;
+    height: 15%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
+@media (min-width: 1280px) {
+    /* .gradient-catalogue.to-top.gradient-4{
+        height: 0;
+        background: none;
+    }
+    .gradient-catalogue.to-top.gradient-5{
+        height: 0;
+        background: none;
+    } */
+    .gradient-catalogue.to-top.gradient-6{
+        height: 0;
+        background: none;
+    }
+}
+
+.gradient-catalogue.to-right.gradient-1{
+    height: 100%;
+    width: 80%;
+}
+
+.gradient-catalogue.to-right.gradient-2{
+    height: 100%;
+    width: 80%;
+}
+
+.gradient-catalogue.to-right.gradient-3{
+    height: 100%;
+    width: 70%;
+}
+
+.gradient-catalogue.to-right.gradient-4{
+    height: 100%;
+    width: 60%;
+}
+
+.gradient-catalogue.to-right.gradient-5{
+    height: 100%;
+    width: 50%;
+}
+
+.rectangle-catalogue{
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    width: auto;
+    height: auto;
+}
+
+.rectangle-catalogue .rectangle-focus{
+    margin-top: 6.3vh;
+    outline: .5vh solid white;
+}
+
+.rectangle-catalogue .rectangle-focus.portrait{
+    width: 20vh;
+    height: 27.9vh;  
+}
+
+.rectangle-catalogue .rectangle-focus.landscape{
+    width: 31vh;
+    height: 18.5vh;
+}
+
+.catalogue{
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.catalogue .list{
+	width: 100%;
+    height: 100%;
+    margin-bottom: 5%;
+}
+
+.catalogue .list ul{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    /* padding-left: 4%; */
+}
+
+.catalogue .list ul .header-category{
+    position: relative;
+    width: 100%;
+    height: auto; 
+}
+
+.catalogue .list ul .header-category .name-category{
+    font-size: 2.5vh;
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin: 1vh 1vh 0 0vh;
+    color: whitesmoke;
+}
+
+.catalogue .list ul .header-category h3{
+    color: whitesmoke;
+}
+
+@media (max-width: 1280px) {
+    .catalogue .list ul .direction{
+        display: none;
+    }
+}
+
+@media (min-width: 1281px) {
+    .catalogue .list ul .direction:hover{
+        cursor: pointer;
+    }
+    
+    .catalogue .list ul .direction i:hover{
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 0 0px 5px rgba(255, 255, 255, 1);
+    }
+    
+    .catalogue .list ul .direction i{
+        font-size: 3.5vh;
+        color: rgba(255, 255, 255, 0.75);
+    }
+    
+    .catalogue .list ul .direction i:hover{
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 0 0px 5px rgba(255, 255, 255, 1);
+    }
+    
+    .catalogue .list ul.portrait .direction.left{
+        position: absolute;
+        left: -5%;
+        top: 17%;
+        height: 75%;
+        width: 4.9%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    }
+    
+    .catalogue .list ul.portrait .direction.right{
+        position: absolute;
+        right: 0;
+        top: 17%;
+        height: 75%;
+        width: 4.9%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background: linear-gradient(-90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    }
+
+    .catalogue .list ul.landscape .direction.left{
+        position: absolute;
+        left: -5%;
+        top: 22.5%;
+        height: 66%;
+        width: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    }
+    
+    .catalogue .list ul.landscape .direction.right{
+        position: absolute;
+        right: 0;
+        top: 22.6%;
+        height: 67%;
+        width: 4.8%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background: linear-gradient(-90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    }
+
+}
+
+.catalogue .list ul .movies{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.catalogue .list ul .movies li{
+    position: relative;
+    flex: 0 0 calc(100% / 9.2);
+    height: 28vh;
+    /* background-color: #757575; */
+    background-color: black;
+    margin: 1vh 0.5vh 3vh 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: .5vh solid transparent; */
+}
+
+.catalogue .list ul.portrait .movies li{
+    flex: 0 0 calc(100% / 8.5);
+    height: 28vh;
+}
+
+.catalogue .list ul.landscape .movies li{
+    flex: 0 0 calc(100% / 5.5);
+    height: 18.7vh;
+}
+
+@media (min-width: 1281px) {
+    .catalogue .list ul.portrait .movies li{
+        flex: 0 0 calc(100% / 8.8);
+        height: 28vh;
+    }
+
+    .catalogue .list ul.landscape .movies li{
+        flex: 0 0 calc(100% / 5.4);
+        height: 18.7vh;
+    }
+
+    .catalogue .list ul.landscape .movies li.item-radio{
+        flex: 0 0 calc(100% / 5.46);
+        height: 18.7vh;
+    }
+}
+
+.catalogue .list ul li:first-child{
+    margin-left: 0;
+}
+
+.catalogue .list ul .movies li:focus{
+    /* outline: .5vh solid #00aeef; */
+    outline: .5vh solid white;
+    /* border-image-source: linear-gradient(-45deg, #00acec, #5a308d); */
+}
+
+.catalogue .list ul .movies li:hover{
+    /* outline: .5vh solid #00aeef; */
+    outline: .5vh solid white;
+    cursor: pointer;
+}
+
+.catalogue .list ul .movies li.item-radio:focus{
+    outline: .5vh solid white;
+    background-color: white;
+}
+
+.catalogue .list ul .movies li.item-radio:hover{
+    outline: .5vh solid white;
+    background-color: white;
+}
+
+.catalogue .list ul .movies li.item-radio .background-buttons{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.catalogue .list ul .movies li.item-radio .background-buttons.active{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.catalogue .list ul .movies li.item-radio .background-buttons .button-play{
+    font-size: 4vh;
+    color: rgba(255, 255, 255, 0.75);
+    display: none;
+}
+
+.catalogue .list ul .movies li.item-radio .background-buttons .button-pause{
+    font-size: 4vh;
+    color: rgba(255, 255, 255, 0.75);
+    display: none;
+}
+
+.catalogue .list ul .movies li.item-radio .background-buttons.active.play .button-play{
+    display: initial;
+}
+
+.catalogue .list ul .movies li.item-radio .background-buttons.active.pause .button-pause{
+    display: initial;
+}
+
+.catalogue .list ul .movies li.item-radio:hover .background-buttons.active.play .button-play{
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+}
+
+.catalogue .list ul .movies li.item-radio:hover .background-buttons.active.pause .button-pause{
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+}
+
+
+.catalogue .list ul .movies li img{
+    height: 100%;
+    width: 100%;
+    /* background: rgba(39, 38, 38, 0); */
+    background: rgba(0, 0, 0, 0);
+}
+
+.catalogue .list ul .movies li .background-progress{
+    position: absolute;
+    height: 20%;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0));
+}
+
+.catalogue .list ul .movies li.item-radio .background-progress{
+    position: absolute;
+    height: 20%;
+    width: 100%;
+    bottom: 0;
+    background: none;
+}
+
+.catalogue .list ul .movies li .icon-continue-watching{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: whitesmoke;
+    font-size: 4vh;
+}
+
+/* .catalogue .list ul .movies li .icon-continue-watching i{
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+} */
+
+.catalogue .list ul.portrait .movies li .progress-continued{
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    height: 2%;
+    bottom: 4%;
+}
+
+.catalogue .list ul.landscape .movies li .progress-continued{
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    height: 3%;
+    bottom: 7%;
+}
+
+.catalogue .list ul .movies li .progress-total{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 1vh 1.5vh -.5vh #000000;
+}
+
+.catalogue .list ul .movies li .progress-actual{
+    position: absolute;
+    height: 100%;
+    /* background: linear-gradient(-45deg, #00acec, #5a308d); */
+    background: #00aeef;
+}
+

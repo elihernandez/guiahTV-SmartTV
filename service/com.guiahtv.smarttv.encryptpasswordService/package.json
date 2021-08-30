@@ -1,0 +1,14 @@
+{
+    "name": "com.guiahtv.smarttv.encryptpasswordservice",
+    "version": "1.0.0",
+    "description": "Encrypt Passsword Service",
+    "main": "encrypt_password_service.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "BSD",
+    "dependencies": {
+        "bcryptjs": "^2.4.3"
+    }
+}

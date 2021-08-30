@@ -1,0 +1,15 @@
+{
+    "name": "com.guiahtv.smarttv.updateversioncode",
+    "version": "1.0.0",
+    "description": "Update Version Code",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "BSD",
+    "dependencies": {
+        "axios": "^0.21.0",
+        "file-system": "^2.2.2"
+    }
+}
