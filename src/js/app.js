@@ -1,4 +1,5 @@
-// require('@babel/polyfill')
+"use strict"
+console.log(navigator.userAgent)
 
 var urlGetApi = 'https://lap55.com/json/api/',
 	timeoutGetApi = 15000,
@@ -45,6 +46,8 @@ var urlGetApi = 'https://lap55.com/json/api/',
 	sectionActiveId,
 	sectionErrorStatus,
 	passwordToken
+
+	const saludo = 'Hola'
 
 
 window.onload = function() {

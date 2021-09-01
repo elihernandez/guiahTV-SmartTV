@@ -1,3 +1,4 @@
+"use strict"
 class Carousel {
     constructor (elementId, timeInterval) {
         this.element = document.getElementById(elementId);

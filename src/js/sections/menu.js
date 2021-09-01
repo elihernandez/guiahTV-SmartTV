@@ -1,8 +1,7 @@
 var sectionMenuPrincipalActive = false,
     idSpotlight = "spotlight",
-    idSectionsMenu = "sections";
-
-const spotlight = null;
+    idSectionsMenu = "sections",
+    spotlight = null;
 
 // axios.interceptors.request.use(function (config) {
 //   // Do something before request is sent

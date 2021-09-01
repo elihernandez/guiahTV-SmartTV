@@ -22,10 +22,6 @@ function clickMagicButtonBack(){
 		// console.log("Series");
 		pressBackOnSectionSeries(461)
 	}
-
-  if(sectionMusicaActive){
-    clearSectionMusica()
-  }
 }
 
 function pressMagicButtonBack(e){
@@ -51,10 +47,6 @@ function pressMagicButtonBack(e){
 			// console.log("Series");
 			pressBackOnSectionSeries(461)
 		}
-
-    if(sectionMusicaActive){
-      clearSectionMusica()
-    }
 	}
 }
 

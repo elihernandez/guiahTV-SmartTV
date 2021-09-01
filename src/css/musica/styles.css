@@ -6,10 +6,12 @@
     .content-section{
         position: relative;
         width: 100%;
-        height: auto;
-        padding: 25px 80px;
-        top: 100px;
-
+        height: 100%;
+        padding: 25px 80px 55px 80px;
+        /* top: 100px; */
+        height: calc(100% - 10rem);
+        top: 10rem;
+        
         .music-menu{
             position: relative;
 
@@ -52,136 +54,463 @@
             }
         }
 
-        .catalogue-music{
-
-            >.slick-list {
-                overflow: inherit;
-
-                >.slick-track {
-        
-                    >.slick-slide {
-                        opacity: 0;
-                        width: 100%;
-                        transition: opacity 200ms ease;
-        
-                        &.slick-active{
-                            opacity: 1;
-                        }
-        
-                        &.slick-active + div{
-                            opacity: 1;
+        .content-section-music{
+    
+            .catalogue-music{
+    
+                >.slick-list {
+                    overflow: inherit;
+    
+                    >.slick-track {
+            
+                        >.slick-slide {
+                            opacity: 0;
+                            width: 100%;
+                            transition: opacity 200ms ease;
+            
+                            &.slick-active{
+                                opacity: 1;
+                            }
+            
+                            &.slick-active + div{
+                                opacity: 1;
+                            }
                         }
                     }
                 }
+                /* position: fixed; */
             }
-            /* position: fixed; */
-        }
-
-        .tracks-list, .playlists-list{
-            position: relative;
-            width: 100%;
-
-            &.list{
-                margin: 40px 0;
-                /* height: 450px; */
-            }
-
-            .name-list{
-                color: whitesmoke;
-                font-size: 28px;
-                margin-bottom: 3rem;
-            }
-
-            .carousel{
+    
+            .tracks-list, .playlists-list{
                 position: relative;
                 width: 100%;
-                height: auto;
-
-                .slick-track{
-                    margin: 0;
+    
+                &.list{
+                    margin: 40px 0;
+                    /* height: 450px; */
                 }
-
-                .slick-prev{
-                    left: -4.5rem;
+    
+                .name-list{
+                    color: whitesmoke;
+                    font-size: 28px;
+                    margin-bottom: 3rem;
                 }
-
-                .slick-arrow{
-                    &.slick-disabled{
-                        display: none !important;
-                    }
-
-                    &::before{
-                        font-size: 3rem;
-                    }
-                }
-
-                .slide{
+    
+                .carousel{
                     position: relative;
                     width: 100%;
-                    padding-right: 20px;
-
-                    .cover-slide{
+                    height: auto;
+    
+                    .slick-track{
+                        margin: 0;
+                    }
+    
+                    .slick-prev{
+                        left: -4.5rem;
+                    }
+    
+                    .slick-arrow{
+                        &.slick-disabled{
+                            display: none !important;
+                        }
+    
+                        &::before{
+                            font-size: 3rem;
+                        }
+                    }
+    
+                    .slide{
                         position: relative;
                         width: 100%;
-                        height: 100%;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: flex-start;
-
-                        img{
+                        height: 350px;
+                        padding-right: 20px;
+    
+                        .cover-slide{
                             position: relative;
                             width: 100%;
-                            height: 100%;
-                            border-radius: 3px;
+                            height: 270px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+    
+                            img{
+                                position: relative;
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 3px;
+                            }
+    
+                            &::after{
+                                content: '';
+                                position: absolute;
+                                inset: 0px;
+                                border: 7px solid transparent;
+                                border-radius: 3px;
+                            }
+                            
+                            &:hover, &:focus{
+                                &::after{
+                                    border: 7px solid whitesmoke;
+                                }
+                            }
+                        }
+    
+                        .info-slide{
+                            position: relative;
+                            width: 100%;
+    
+                            .title{
+                                color: whitesmoke;
+                                font-size: 18px;
+                            }
+    
+                            .album{
+                                color: #bdbdbd;
+                                font-size: 16px;
+                                margin-top: 0;
+                            }
+    
+                            .description{
+                                color: #bdbdbd;
+                                font-size: 16px;
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .content-section-album{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+
+            .left-content{
+                position: relative;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .info-album{
+                    position: relative;
+                    width: 75%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .cover{
+                        position: relative;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 60px;
+                        border-radius: 5px;
+    
+                        img{
+                            position: relative;
+                            width: 55%;
+                            height: auto;
+                            border-radius: 5px;
+                            width: 363px;
+                            height: 363px;
+                            background: #212121;
+                        }
+                    }
+
+                    .type{
+                        color: #757575;
+                        font-size: 25px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        margin-bottom: 15px;
+
+                        .album-title{
+                            color: whitesmoke;
+                            font-size: 25px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .info-track{
+                        min-height: 90px;
+                    }
+
+                    .song-title{
+                        color: whitesmoke;
+                        font-size: 40px;
+                        font-weight: 600;
+                        margin-bottom: 10px;
+                    }
+
+                    .song-artists{
+                        position: relative;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                        line-height: 20px;
+
+                        .artist-name{
+                            color: #757575;
+                            font-size: 25px;
+                            font-weight: 500
+                        }
+                    }
+
+                    .music-player{
+                        .progress-container{
+                            position: relative;
+                            width: 100%;
+                            height: 10px;
+                            margin-top: 50px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 28px;
+    
+                            .start-time, .end-time{
+                                position: relative;
+                                font-size: 18px;
+                                font-weight: 500;
+                                color: #757575;
+                                min-width: 60px;
+                            }
+
+                            .end-time{
+                                text-align: right;
+                            }
+    
+                            .progress-bar{
+                                position: relative;
+                                width: 100%;
+                                height: 100%;
+                                background: #424242;
+                                border-radius: 3px;
+    
+                                .current-progress{
+                                    position: absolute;
+                                    /* width: 50%; */
+                                    height: 100%;
+                                    background: whitesmoke;
+                                    border-radius: 3px;
+                                }
+                            }
+                        }
+
+                        .controls{
+                            position: relative;
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-around;
+                            margin-top: 50px;
+    
+                            .button{
+                                position: relative;
+                                width: 100px;
+                                height: 100px;
+                                border-radius: 50%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                cursor: pointer;
+    
+                                .icon{
+                                    position: relative;
+                                    color: #757575;
+                                    font-size: 40px;
+    
+                                    &.fa-backward{
+                                        right: 3px;
+                                    }
+    
+                                    &.fa-forward, &.fa-play{
+                                        left: 3px;
+                                    }
+                                }
+    
+                                &:hover, &:focus{
+                                    background: whitesmoke;
+    
+                                    .icon{
+                                        color: black;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right-content{
+                position: relative;
+                width: 50%;
+                height: 100%;
+                padding-top: 75px;
+
+                .loader{
+                    position: relative;
+                    width: 100%;
+                    height: 80%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .spinner{
+                        bottom: inherit;
+                        left: inherit;
+                    }
+                }
+
+                .button-play-list{
+                    width: auto;
+                    position: relative;
+                    color: whitesmoke;
+                    font-size: 22px;
+                    display: inline-block;
+                    padding: 15px 50px;
+                    font-weight: 500;
+                    background: #212121;
+                    border-radius: 40px;
+                    margin-bottom: 50px;
+
+                    &:hover, &:focus{
+                        background: whitesmoke;
+                        color: black;
+                        font-weight: 500;
+                    }
+                }
+
+                .list-tracks-album{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .slick-prev{
+                        left: 50%;
+                        top: -5%;
+
+                        &::before{
+                            content: '';
+                        }
+
+                        .icon{
+                            font-size: 35px;
+                            color: white;
+                        }
+
+                        &.slick-disabled{
+                            .icon{
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .slick-next{
+                        left: 50%;
+                        top: 103%;
+
+                        &::before{
+                            content: '';
+                        }
+
+                        .icon{
+                            font-size: 35px;
+                            color: white;
+                        }
+
+                        &.slick-disabled{
+                            .icon{
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .track{
+                        position: relative;
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 30px 30px;
+                        height: 110px;
+
+                        .track-index{
+                            color: whitesmoke;
+                            font-size: 22px;
+                            text-align: center;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            min-width: 50px;
+
+                            .button{
+                                position: relative;
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 50%;
+                                border: 3px solid whitesmoke;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+    
+                                .icon{
+                                    font-size: 20px;
+                                    color: whitesmoke;
+
+                                    &.fa-play{
+                                        position: relative;
+                                        left: 2px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .track-title{
+                            color: whitesmoke;
+                            font-size: 23px;
+                            text-align: left;
+                            min-width: 640px;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        .track-time{
+                            color: whitesmoke;
+                            font-size: 22px;
+                            display: flex;
+                            align-items: center;
                         }
 
                         &::after{
                             content: '';
                             position: absolute;
-                            width: 100%;
-                            height: 100%;
                             inset: 0px;
-                            border: 7px solid transparent;
-                            border-radius: 3px;
+                            border: 5px solid transparent;
+                            border-radius: 5px;
                         }
-                        
-                        &:hover, &:focus{
+
+                        &.active{
                             &::after{
-                                border: 7px solid whitesmoke;
+                                border: 5px solid #212121;
                             }
                         }
-                    }
 
-                    .info-slide{
-                        position: relative;
-                        width: 100%;
+                        &:hover, &:focus{
 
-                        .title{
-                            color: whitesmoke;
-                            font-size: 18px;
-                        }
-
-                        .album{
-                            color: #bdbdbd;
-                            font-size: 16px;
-                            margin-top: 0;
-                        }
-
-                        .description{
-                            color: #bdbdbd;
-                            font-size: 16px;
-                            margin-top: 0;
+                            &::after{
+                                border: 5px solid whitesmoke;
+                            }
                         }
                     }
                 }
             }
         }
-    }
-
-    .tracks{
-        position: relative;
-        width: 100%;
-        height: auto;
-        border: 1px solid red;
     }
 }

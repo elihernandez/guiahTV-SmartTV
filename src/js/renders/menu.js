@@ -1,140 +1,3 @@
-// function renderMenuPrincipal(spotlight, sections, callback){
-//     const element = (
-//         <div className="container-section">
-//             <Spotlight data={spotlight}/>
-//             <div id="secciones">
-//                 <div id="lista" className="lista">
-//                     <Sections data={sections}/>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-//     ReactDOM.render(element, document.getElementById(idMenuPrincipal));
-//     return callback();
-// }
-
-// function renderSpotlight(data){
-//     var element = (
-//        <Spotlight data={data}/>
-//     )   
-//     ReactDOM.render(element, document.getElementById(idSpotlight));
-// }
-
-// function Spotlight(props){
-//     return (
-//         <div id="spotlight" className="spotlight-control" tabIndex="-1" data-sn-left="#spolight" data-sn-right="#spotlight" onKeyDown={keyDownOnSpotlight}>
-//             <div id="carouselSpotlight" className="carousel slide" data-ride="carousel">
-//                 <ol className="carousel-indicators">
-//                     <CarouselIndicators data={props.data}/>
-//                 </ol>
-//                 <div className="carousel-inner" role="listbox">
-//                     <Images data={props.data}/>
-//                 </div>
-//                 <CarouselControls/>
-//             </div>
-//         </div>
-//     );
-// }
-
-// function CarouselIndicators(props){
-//     var indicators = props.data.map((image, index) =>
-//         <Indicator key={index} index={index}/>
-//     );
-//     return indicators;
-// }
-
-// function Indicator(props){
-//     var className = props.index === 0 ? 'active' : '';
-//     return <li key={props.index} data-target="#myCarousel" data-slide-to={props.index} className={className}></li>
-// }
-
-// function CarouselControls(){
-//     return (
-//         <div>
-//             <a className="left carousel-control focusable" data-sn-left="#buttonPrev" data-sn-up="#button-right-menu" href="#myCarousel" role="button" data-slide="prev" id="buttonPrev">
-//                 <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-//                 <span className="sr-only">Previous</span>
-//             </a>
-//             <a className="right carousel-control focusable" data-sn-right="#buttonNext" href="#myCarousel" role="button" data-slide="next" id="buttonNext">
-//                 <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-//                 <span className="sr-only">Next</span>
-//             </a>
-//         </div>
-//     );
-// }
-
-// function Images(props){
-//     var images = props.data.map((image, index) =>
-//         <Image key={index} data={image} index={index}/>
-//     );
-//     return images;
-// }
-
-// function Image(props){
-//     if(props){
-//         var className = props.index === 0 ? 'item active' : 'item ';
-//         return (
-//             <div className={className}>
-//                 <img src={props.data.ImgLandscape}/>
-//                 <div className="carousel-caption"></div>
-//             </div>
-//         );
-//     }
-// }
-
-// function renderSections(data){
-//     var element = (
-//         <div id="lista" className="lista">
-//             <Sections data={data}/>
-//         </div>
-//      );
-//     ReactDOM.render(element, document.getElementById(idSectionsMenu));
-// }
-
-// function Sections(props){
-//     var sections = props.data.map((section, index) =>
-//         <Section key={index} index={index} data={props.data} section={section}/>
-//     );
-//     return sections;
-// }
-
-// function Section(props){
-//     var lastItem = props.data.length - 1;
-//     var dataLeft = "#section-"+lastItem;
-//     var dataRight = "#section-0";
-//     var id = "section-"+props.index;
-//     var data = new Object();
-//     data['section'] = props.section;
-//     data['idSection'] = props.index;
-//     var data = escape(JSON.stringify(data));
-//     if(props.section.orden != 3){
-//         if (props.index == 0) {
-//             return (
-//                 <div className="item section-menu" id={id} tabIndex="-1" data-sn-up="#spotlight" data-sn-left={dataLeft} onKeyDown={keyDownSectionMenu} onClick={clickSectionMenu} data={data}>
-//                     <img src={props.section.PosterCardUrlLandscape} className="card-img-top"/>
-//                     <h3 className="text-section">{props.section.titulo}</h3>
-//                 </div>
-//             );
-//         }else if (props.index == lastItem) {
-//             return (
-//                 <div className="item section-menu" id={id} tabIndex="-1" data-sn-up="#spotlight" data-sn-right={dataRight} onKeyDown={keyDownSectionMenu} onClick={clickSectionMenu} data={data}>
-//                     <img src={props.section.PosterCardUrlLandscape} className="card-img-top"/>
-//                     <h3 className="text-section">{props.section.titulo}</h3>
-//                 </div>
-//             );
-//         }else{
-//             return (
-//                 <div className="item section-menu" id={id} tabIndex="-1" data-sn-up="#spotlight" onKeyDown={keyDownSectionMenu} onClick={clickSectionMenu} data={data}>
-//                     <img src={props.section.PosterCardUrlLandscape} className="card-img-top"/>
-//                     <h3 className="text-section">{props.section.titulo}</h3>
-//                 </div>
-//             ); 
-//         }
-//     }
-
-//     return "";
-// }
-
 class MenuPrincipal extends React.Component {
     render()  {
         return (
@@ -162,6 +25,15 @@ class Spotlight extends React.Component{
         
         spotlight.init();
         return false;
+    }
+
+    componentDidMount() {
+        spotlight = new Carousel("carousel-spotlight", "6500");
+        spotlight.init();
+    }
+
+    componentDidUpdate() {
+        spotlight.init();
     }
 
     render() {  
@@ -194,16 +66,7 @@ class Spotlight extends React.Component{
         )
 
         return element;
-    }
-
-    componentDidMount() {
-        spotlight = new Carousel("carousel-spotlight", "6500");
-        spotlight.init();
-    }
-
-    componentDidUpdate() {
-        spotlight.init();
-    }
+    }  
 }
 
 function CarouselContent(item, index){

@@ -30,18 +30,19 @@
     }
   }
 
-  .spinner {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    border: 5px solid whitesmoke;
-    border-left-color: transparent;
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    
-    animation: spin 1s linear infinite;
-  }
+}
+
+.spinner {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  border: 5px solid whitesmoke;
+  border-left-color: transparent;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  
+  animation: spin 1s linear infinite;
 }
 
 .loader-spinner{

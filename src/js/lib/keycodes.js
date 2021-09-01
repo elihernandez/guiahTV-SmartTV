@@ -8,7 +8,15 @@ function nativeEventValid(e){
 }
 
 function pressEnter(e){
-	if(e.keyCode == 13 || e == 13 || e == '13'){
+	if(e.keyCode === 13 || e === 13 || e === '13' || e.type === 'click'){
+		return true
+	}
+
+	return false
+}
+
+function isPressEnter(e){
+	if(e.keyCode === 13 || e === 13 || e === '13' || e.type === 'click'){
 		return true
 	}
 
@@ -55,6 +63,14 @@ function pressBack(e){
 		}
 		return true
 	}
+	return false
+}
+
+function isPressBack(e){
+	if(e.keyCode == 461 || e.keyCode == 8 || e.keyCode == 10009){
+		return true
+	}
+
 	return false
 }
 

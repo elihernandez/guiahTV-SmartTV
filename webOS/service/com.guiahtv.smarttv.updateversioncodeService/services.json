@@ -1,0 +1,19 @@
+{
+    "id": "com.guiahtv.smarttv.updateversioncode",
+    "description": "Update Version Code",
+    "services": [
+        {
+            "name": "com.guiahtv.smarttv.updateversioncode",
+            "description": "Update Version Code",
+            "commands": [
+                {
+                    "name": "updateVersion",
+                    "public": true
+                }
+                
+            ]
+            
+        }
+        
+    ]
+}
