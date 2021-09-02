@@ -18,7 +18,7 @@ function MusicHome({ data }){
                 verticalSwiping: false,
                 swipeToSlide: false,
                 focusOnSelect: false,
-                speed: 250,
+                speed: 0,
                 autoplay: false,
                 arrows: true,
                 variableWidth: false,
@@ -39,21 +39,27 @@ function MusicHome({ data }){
     }
 
     return (
-        <div className="catalogue-music">  
-            {
-                musicSections.map((section) => {
-                    const { contentType } = section
-        
-                    switch(contentType){
-                        case 'tracks':
-                        return <TracksList key={section.title} data={section} handleMove={handleMove} />
-                        case 'playlists':
-                        return <PlaylistsList key={section.title} data={section} handleMove={handleMove} />
-                        case 'myplaylists':
-                        return <MyPlaylistsList key={section.title} data={section} handleMove={handleMove} />
-                    }
-                })
-            }
-        </div>
+        <React.Fragment>
+            <div className="content-info-list">
+                <div className="content-title"></div>
+                <div className="content-subtitle"></div>
+            </div> 
+            <div className="catalogue-music"> 
+                {
+                    musicSections.map((section) => {
+                        const { contentType } = section
+            
+                        switch(contentType){
+                            case 'tracks':
+                            return <TracksList key={section.title} data={section} handleMove={handleMove} />
+                            case 'playlists':
+                            return <PlaylistsList key={section.title} data={section} handleMove={handleMove} />
+                            case 'myplaylists':
+                            return <MyPlaylistsList key={section.title} data={section} handleMove={handleMove} />
+                        }
+                    })
+                }
+            </div>
+        </React.Fragment>
     )
 }

@@ -143,7 +143,7 @@ function ListTracksAlbum({ albumID }){
     const handleClickPlayList = (e) => {
         if(isPressEnter(e.nativeEvent)){
             playTrackMusic(data.tracks[0], data.tracks[0].regID)
-            document.getElementsByClassName('track')[2].focus()
+            document.getElementsByClassName('track')[1].focus()
         }
     }
 

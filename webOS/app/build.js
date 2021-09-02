@@ -1,4 +1,4 @@
-var _div, _div2, _div3, _div4, _div5, _div6, _i4, _i5, _div7, _div8, _div9, _div10, _div11, _div12, _div13, _div14, _div15, _div16, _div17, _div18, _div19, _div20, _h, _h2, _img, _div21, _div22, _div23, _div24, _h3, _h4, _div25, _ContCategory, _IconsLive, _FullScreenIcon, _div26, _div27, _i6, _div28, _ul, _i7, _i8, _div29, _div30, _i9, _div31, _div32, _i10, _i11, _i12, _i13, _i14, _i15, _i16, _i17, _div33, _div34, _div35, _div36, _label, _input, _div37, _div38, _div39, _div40, _div41, _div42, _div43, _div44, _div45, _i18, _ul2, _h5, _i19, _i20, _ul3, _div46, _div47, _div48, _div49, _div50, _audio, _div51, _img2, _VolumeRadio, _i21, _div52, _div53, _div54, _BackgroundSeries, _div55, _img3, _img4, _i22, _div56, _div57, _InfoTrackAlbum, _MusicPlayer, _div58, _div59, _div60, _div61, _MusicMenu, _div62, _a, _a2, _div63, _div64, _div65, _div66, _div67, _InfoTrackPlaylist, _MusicPlayer2, _div68, _div69, _div70, _div71, _div72, _MainInfoLogin, _RegisterInfoLogin, _FormLogin, _MenuPrincipal;
+var _div, _div2, _div3, _div4, _div5, _div6, _i4, _i5, _div7, _div8, _div9, _div10, _div11, _div12, _div13, _div14, _div15, _div16, _div17, _div18, _div19, _div20, _h, _h2, _img, _div21, _div22, _div23, _div24, _h3, _h4, _div25, _ContCategory, _IconsLive, _FullScreenIcon, _div26, _div27, _i6, _div28, _ul, _i7, _i8, _div29, _div30, _i9, _div31, _div32, _i10, _i11, _i12, _i13, _i14, _i15, _i16, _i17, _div33, _div34, _div35, _div36, _label, _input, _div37, _div38, _div39, _div40, _div41, _div42, _div43, _div44, _div45, _i18, _ul2, _h5, _i19, _i20, _ul3, _div46, _div47, _div48, _div49, _div50, _audio, _div51, _img2, _VolumeRadio, _i21, _div52, _div53, _div54, _BackgroundSeries, _div55, _img3, _img4, _i22, _div56, _div57, _InfoTrackAlbum, _MusicPlayer, _div58, _div59, _div60, _div61, _div62, _MusicMenu, _div63, _a, _a2, _div64, _div65, _div66, _div67, _div68, _InfoTrackPlaylist, _MusicPlayer2, _div69, _div70, _div71, _div72, _div73, _MainInfoLogin, _RegisterInfoLogin, _FormLogin, _MenuPrincipal;
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -38894,7 +38894,14 @@ function iniciarSpatialNavigation() {
     window.addEventListener(type, eventHandler);
   });
   addNavigableElementsToSpatialNavigation(focusableElements);
-}
+} // function limitString(string, limit){
+// 	if (string.length > limit) {
+// 		string = string.substring(0, limit)
+// 		string = string + '...'
+// 	}
+// 	return string
+// }
+
 
 function transformSecondsToStringHour(duration) {
   var hours = Math.floor(duration / 3600);
@@ -40548,6 +40555,7 @@ function errorPosterChannel(e) {
 function limitString(string, limit) {
   if (string.length > limit) {
     string = string.substring(0, limit);
+    string = string + '...';
   }
 
   return string;
@@ -41954,7 +41962,7 @@ function ListTracksAlbum(_ref5) {
   var handleClickPlayList = function handleClickPlayList(e) {
     if (isPressEnter(e.nativeEvent)) {
       playTrackMusic(data.tracks[0], data.tracks[0].regID);
-      document.getElementsByClassName('track')[2].focus();
+      document.getElementsByClassName('track')[1].focus();
     }
   };
 
@@ -42090,7 +42098,7 @@ function MusicHome(_ref7) {
       verticalSwiping: false,
       swipeToSlide: false,
       focusOnSelect: false,
-      speed: 250,
+      speed: 0,
       autoplay: false,
       arrows: true,
       variableWidth: false,
@@ -42110,7 +42118,13 @@ function MusicHome(_ref7) {
     }
   };
 
-  return /*#__PURE__*/_jsx("div", {
+  return /*#__PURE__*/_jsx(React.Fragment, {}, void 0, _div62 || (_div62 = /*#__PURE__*/_jsx("div", {
+    className: "content-info-list"
+  }, void 0, /*#__PURE__*/_jsx("div", {
+    className: "content-title"
+  }), /*#__PURE__*/_jsx("div", {
+    className: "content-subtitle"
+  }))), /*#__PURE__*/_jsx("div", {
     className: "catalogue-music"
   }, void 0, musicSections.map(function (section) {
     var contentType = section.contentType;
@@ -42134,7 +42148,7 @@ function MusicHome(_ref7) {
           handleMove: handleMove
         }, section.title);
     }
-  }));
+  })));
 }
 
 function MusicPage(_ref8) {
@@ -42149,7 +42163,7 @@ function MusicPage(_ref8) {
     id: "content-section-music"
   }, void 0, /*#__PURE__*/_jsx(MusicHome, {
     data: data
-  }))), _div62 || (_div62 = /*#__PURE__*/_jsx("div", {
+  }))), _div63 || (_div63 = /*#__PURE__*/_jsx("div", {
     className: "content-section",
     id: "music-album"
   })));
@@ -42210,7 +42224,9 @@ function MusicMenu(_ref9) {
     }
   }, void 0, _a || (_a = /*#__PURE__*/_jsx("a", {
     href: "#"
-  }, void 0, "Inicio"))), /*#__PURE__*/_jsx("li", {
+  }, void 0, /*#__PURE__*/_jsx("div", {
+    className: "icon fas fa-home"
+  }), "Inicio"))), /*#__PURE__*/_jsx("li", {
     className: "link-music-menu ".concat(linkActive === 'playlists' ? 'active' : ''),
     tabIndex: "-1",
     onClick: function onClick(e) {
@@ -42221,7 +42237,9 @@ function MusicMenu(_ref9) {
     }
   }, void 0, _a2 || (_a2 = /*#__PURE__*/_jsx("a", {
     href: "#"
-  }, void 0, "Playlists")))));
+  }, void 0, /*#__PURE__*/_jsx("div", {
+    className: "icon fas fa-list-ul"
+  }), "Playlists")))));
 }
 
 function MyPlaylistsList(_ref10) {
@@ -42238,7 +42256,7 @@ function MyPlaylistsList(_ref10) {
         slidesToScroll: 1,
         swipeToSlide: false,
         focusOnSelect: false,
-        speed: 250,
+        speed: 0,
         autoplay: false,
         arrows: true,
         variableWidth: false,
@@ -42273,30 +42291,31 @@ function MyPlaylistsList(_ref10) {
         ReactDOM.render(_MusicPlaylist || (_MusicPlaylist = /*#__PURE__*/_jsx(MusicPlaylist, {
           data: track
         })), document.getElementById('music-album'));
-        fadeOutElement('music-home', '1', '0', '250ms');
-        fadeInElement('music-album', '0', '1', '250ms');
+        fadeOutElement('music-home', '1', '0', '150ms');
+        fadeInElement('music-album', '0', '1', '150ms');
       } else {
         handleMove(e);
       }
     };
 
+    var handleInfo = function handleInfo() {
+      document.querySelector('.content-title').innerHTML = title;
+      document.querySelector('.content-subtitle').innerHTML = description;
+    };
+
     return /*#__PURE__*/_jsx("div", {
       className: "slide",
       tabIndex: "-1",
-      onClick: handleKeyDown
+      onClick: handleKeyDown,
+      onMouseOver: handleInfo
     }, title, /*#__PURE__*/_jsx("div", {
       className: "cover-slide",
-      onKeyDown: handleKeyDown
+      onKeyDown: handleKeyDown,
+      onFocus: handleInfo
     }, void 0, /*#__PURE__*/_jsx("img", {
       src: portadaURL,
       alt: "Cover de ".concat(title)
-    })), /*#__PURE__*/_jsx("div", {
-      className: "info-slide"
-    }, void 0, /*#__PURE__*/_jsx("h2", {
-      className: "title"
-    }, void 0, title), /*#__PURE__*/_jsx("h3", {
-      className: "description"
-    }, void 0, description)));
+    })));
   })));
 }
 
@@ -42305,7 +42324,7 @@ function MusicPlayer() {
     SpatialNavigation.disable('controls-player-music');
     stateMusic.musicPlayer = document.getElementById('music-player-audio');
   }, []);
-  return _div63 || (_div63 = /*#__PURE__*/_jsx("div", {
+  return _div64 || (_div64 = /*#__PURE__*/_jsx("div", {
     className: "music-player"
   }, void 0, /*#__PURE__*/_jsx("audio", {
     id: "music-player-audio",
@@ -42405,9 +42424,9 @@ function ButtonPlay() {
     tabIndex: "-1",
     onClick: handlePress,
     onKeyDown: handlePress
-  }, void 0, !playing && (_div64 || (_div64 = /*#__PURE__*/_jsx("div", {
+  }, void 0, !playing && (_div65 || (_div65 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-play"
-  }))), playing && (_div65 || (_div65 = /*#__PURE__*/_jsx("div", {
+  }))), playing && (_div66 || (_div66 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-pause"
   }))));
 }
@@ -42429,7 +42448,7 @@ function ButtonBackward() {
     "data-sn-left": "#",
     onKeyDown: handlePress,
     onClick: handlePress
-  }, void 0, _div66 || (_div66 = /*#__PURE__*/_jsx("div", {
+  }, void 0, _div67 || (_div67 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-backward"
   })));
 }
@@ -42450,7 +42469,7 @@ function ButtonForward() {
     tabIndex: "-1",
     onKeyDown: handlePress,
     onClick: handlePress
-  }, void 0, _div67 || (_div67 = /*#__PURE__*/_jsx("div", {
+  }, void 0, _div68 || (_div68 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-forward"
   })));
 }
@@ -42558,7 +42577,7 @@ function ListTracksPlaylist(_ref13) {
   var handleClickPlayList = function handleClickPlayList(e) {
     if (isPressEnter(e.nativeEvent)) {
       playTrackMusic(data.tracks[0], data.tracks[0].regID);
-      document.getElementsByClassName('track')[1].focus();
+      document.getElementsByClassName('track')[2].focus();
     }
   };
 
@@ -42574,14 +42593,14 @@ function ListTracksPlaylist(_ref13) {
     tabIndex: "-1",
     onClick: handleClickPlayList,
     onKeyDown: handleClickPlayList
-  }, void 0, _div68 || (_div68 = /*#__PURE__*/_jsx("div", {
+  }, void 0, _div69 || (_div69 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-play"
   })), "Reproducir"), /*#__PURE__*/_jsx("div", {
     className: "track btn button-add-songs",
     tabIndex: "-1",
     onClick: handleClickPlayList,
     onKeyDown: handleClickPlayList
-  }, void 0, _div69 || (_div69 = /*#__PURE__*/_jsx("div", {
+  }, void 0, _div70 || (_div70 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-music"
   })), "Agregar canciones")), data && /*#__PURE__*/_jsx("div", {
     className: "list-tracks-album",
@@ -42592,9 +42611,9 @@ function ListTracksPlaylist(_ref13) {
       index: index,
       trackActive: trackActive
     }, track.regID);
-  }) : _div70 || (_div70 = /*#__PURE__*/_jsx("div", {
+  }) : _div71 || (_div71 = /*#__PURE__*/_jsx("div", {
     className: "no-songs-message"
-  }, void 0, "La playlist no tiene canciones agregadas"))), _div71 || (_div71 = /*#__PURE__*/_jsx("div", {
+  }, void 0, "La playlist no tiene canciones agregadas"))), _div72 || (_div72 = /*#__PURE__*/_jsx("div", {
     className: "loader",
     id: "loader-list-tracks-album"
   }, void 0, /*#__PURE__*/_jsx("div", {
@@ -42655,7 +42674,7 @@ function TrackPlaylist(_ref14) {
     "data-sn-left": "#button-play-music"
   }, void 0, /*#__PURE__*/_jsx("div", {
     className: "track-index"
-  }, void 0, trackActive === regID ? _div72 || (_div72 = /*#__PURE__*/_jsx("div", {
+  }, void 0, trackActive === regID ? _div73 || (_div73 = /*#__PURE__*/_jsx("div", {
     className: "button"
   }, void 0, /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-pause"
@@ -42680,7 +42699,7 @@ function PlaylistsList(_ref15) {
         slidesToScroll: 1,
         swipeToSlide: false,
         focusOnSelect: false,
-        speed: 250,
+        speed: 0,
         autoplay: false,
         arrows: true,
         variableWidth: false,
@@ -42715,30 +42734,31 @@ function PlaylistsList(_ref15) {
         ReactDOM.render(_MusicPlaylist2 || (_MusicPlaylist2 = /*#__PURE__*/_jsx(MusicPlaylist, {
           data: track
         })), document.getElementById('music-album'));
-        fadeOutElement('music-home', '1', '0', '250ms');
-        fadeInElement('music-album', '0', '1', '250ms');
+        fadeOutElement('music-home', '1', '0', '150ms');
+        fadeInElement('music-album', '0', '1', '150ms');
       } else {
         handleMove(e);
       }
     };
 
+    var handleInfo = function handleInfo() {
+      document.querySelector('.content-title').innerHTML = title;
+      document.querySelector('.content-subtitle').innerHTML = description;
+    };
+
     return /*#__PURE__*/_jsx("div", {
       className: "slide",
       tabIndex: "-1",
-      onClick: handleKeyDown
+      onClick: handleKeyDown,
+      onMouseOver: handleInfo
     }, title, /*#__PURE__*/_jsx("div", {
       className: "cover-slide",
-      onKeyDown: handleKeyDown
+      onKeyDown: handleKeyDown,
+      onFocus: handleInfo
     }, void 0, /*#__PURE__*/_jsx("img", {
       src: portadaURL,
       alt: "Cover de ".concat(title)
-    })), /*#__PURE__*/_jsx("div", {
-      className: "info-slide"
-    }, void 0, /*#__PURE__*/_jsx("h2", {
-      className: "title"
-    }, void 0, title), /*#__PURE__*/_jsx("h3", {
-      className: "description"
-    }, void 0, description)));
+    })));
   })));
 }
 
@@ -42756,7 +42776,7 @@ function TracksList(_ref16) {
         slidesToScroll: 1,
         swipeToSlide: false,
         focusOnSelect: false,
-        speed: 250,
+        speed: 0,
         autoplay: false,
         arrows: true,
         variableWidth: false,
@@ -42777,7 +42797,16 @@ function TracksList(_ref16) {
 
     var portadaURL = track.portadaURL,
         title = track.title,
-        albumTitle = track.albumTitle;
+        albumTitle = track.albumTitle,
+        artists = track.artists;
+
+    var getArtistsTrack = function getArtistsTrack(str) {
+      var array = [];
+      str.map(function (artist, index) {
+        return array.push(artist.title);
+      });
+      return array.join(', ');
+    };
 
     var handleKeyDown = function handleKeyDown(e) {
       if (nativeEventValid(e)) {
@@ -42786,30 +42815,31 @@ function TracksList(_ref16) {
         ReactDOM.render(_MusicAlbum || (_MusicAlbum = /*#__PURE__*/_jsx(MusicAlbum, {
           data: track
         })), document.getElementById('music-album'));
-        fadeOutElement('music-home', '1', '0', '250ms');
-        fadeInElement('music-album', '0', '1', '250ms');
+        fadeOutElement('music-home', '1', '0', '150ms');
+        fadeInElement('music-album', '0', '1', '150ms');
       } else {
         handleMove(e);
       }
     };
 
+    var handleInfo = function handleInfo() {
+      document.querySelector('.content-title').innerHTML = limitString(title, 40);
+      document.querySelector('.content-subtitle').innerHTML = "".concat(albumTitle, " - ").concat(getArtistsTrack(artists));
+    };
+
     return /*#__PURE__*/_jsx("div", {
       className: "slide",
       tabIndex: "-1",
-      onClick: handleKeyDown
+      onClick: handleKeyDown,
+      onMouseOver: handleInfo
     }, title, /*#__PURE__*/_jsx("div", {
       className: "cover-slide",
-      onKeyDown: handleKeyDown
+      onKeyDown: handleKeyDown,
+      onFocus: handleInfo
     }, void 0, /*#__PURE__*/_jsx("img", {
       src: portadaURL,
       alt: "Cover de ".concat(title)
-    })), /*#__PURE__*/_jsx("div", {
-      className: "info-slide"
-    }, void 0, /*#__PURE__*/_jsx("h2", {
-      className: "title"
-    }, void 0, title), /*#__PURE__*/_jsx("h3", {
-      className: "album"
-    }, void 0, albumTitle)));
+    })));
   })));
 } // Variables A la Carta
 
@@ -46270,8 +46300,8 @@ function handleMagicButton(e) {
 function cleanSectionMusic() {
   if (isMusicActive) {
     isMusicActive = false;
-    fadeInElement(idLoaderSpinner, "0", "1", "0.2s");
-    fadeOutElement(idMusica, "1", "0", "0.1s");
+    fadeInElement(idLoaderSpinner, "0", "1", "0.15s");
+    fadeOutElement(idMusica, "1", "0", "0.15s");
     getMenuPrincipal([idLoaderSpinner], false);
     hideMagicButtonBack();
     ReactDOM.render('', document.getElementById('musica'));
@@ -46281,8 +46311,8 @@ function cleanSectionMusic() {
   }
 
   if (isMusicAlbumActive) {
-    fadeOutElement('music-album', '1', '0', '250ms');
-    fadeInElement('music-home', '0', '1', '250ms');
+    fadeOutElement('music-album', '1', '0', '0.15s');
+    fadeInElement('music-home', '0', '1', '0.15s');
     SpatialNavigation.focus('musica');
     ReactDOM.render('', document.getElementById('music-album'));
     isMusicAlbumActive = false;

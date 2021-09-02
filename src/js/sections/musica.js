@@ -35,8 +35,8 @@ function handleMagicButton(e){
 function cleanSectionMusic(){
 	if(isMusicActive){
 		isMusicActive = false
-		fadeInElement(idLoaderSpinner, "0", "1", "0.2s")
-		fadeOutElement(idMusica, "1", "0", "0.1s")
+		fadeInElement(idLoaderSpinner, "0", "1", "0.15s")
+		fadeOutElement(idMusica, "1", "0", "0.15s")
 		getMenuPrincipal([idLoaderSpinner], false)
 		hideMagicButtonBack()
 		ReactDOM.render('', document.getElementById('musica'))
@@ -46,8 +46,8 @@ function cleanSectionMusic(){
 	}
 
 	if(isMusicAlbumActive){
-		fadeOutElement('music-album', '1', '0', '250ms')
-		fadeInElement('music-home', '0', '1', '250ms')
+		fadeOutElement('music-album', '1', '0', '0.15s')
+		fadeInElement('music-home', '0', '1', '0.15s')
 		SpatialNavigation.focus('musica')
 		ReactDOM.render('', document.getElementById('music-album'))	
 		isMusicAlbumActive = false

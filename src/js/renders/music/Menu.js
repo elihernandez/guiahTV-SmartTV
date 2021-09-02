@@ -35,10 +35,10 @@ function MusicMenu({ active }) {
       <div className="music-menu" id="music-menu">
         <ul>
             <li className={`link-music-menu ${linkActive === 'home' ? 'active' : ''}`} tabIndex="-1" onClick={(e) => handleClick(e, 'home')} onKeyDown={(e) => handleClick(e, 'home')}>
-                <a href="#">Inicio</a>
+                <a href="#"><div className="icon fas fa-home" />Inicio</a>
             </li>
             <li className={`link-music-menu ${linkActive === 'playlists' ? 'active' : ''}`} tabIndex="-1" onClick={(e) => handleClick(e, 'playlists')} onKeyDown={(e) => handleClick(e, 'playlists')}>
-                <a href="#">Playlists</a>
+                <a href="#"><div className="icon fas fa-list-ul" />Playlists</a>
             </li>
         </ul>
       </div>

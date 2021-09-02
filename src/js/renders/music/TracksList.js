@@ -10,7 +10,7 @@ function TracksList({ data, handleMove }){
                 slidesToScroll: 1,
                 swipeToSlide: false,
                 focusOnSelect: false,
-                speed: 250,
+                speed: 0,
                 autoplay: false,
                 arrows: true,
                 variableWidth: false,
@@ -27,7 +27,16 @@ function TracksList({ data, handleMove }){
             <div className="carousel">
                 {
                     tracks.map((track) => {
-                        const { portadaURL, title, albumTitle } = track
+                        const { portadaURL, title, albumTitle, artists } = track
+
+                        const getArtistsTrack = (str) => {
+                            const array = []
+                            str.map((artist, index) => {                               
+                                return array.push(artist.title)
+                            })
+
+                            return array.join(', ')
+                        }
 
                         const handleKeyDown = (e) => {
                             if(nativeEventValid(e)){
@@ -37,22 +46,27 @@ function TracksList({ data, handleMove }){
                                     <MusicAlbum data={track} />,
                                     document.getElementById('music-album')
                                 )
-                                fadeOutElement('music-home', '1', '0', '250ms')
-                                fadeInElement('music-album', '0', '1', '250ms')
+                                fadeOutElement('music-home', '1', '0', '150ms')
+                                fadeInElement('music-album', '0', '1', '150ms')
                             }else{
                                 handleMove(e)
                             }
                         }
 
+                        const handleInfo = () => {
+                            document.querySelector('.content-title').innerHTML = limitString(title, 40)
+                            document.querySelector('.content-subtitle').innerHTML = `${albumTitle} - ${getArtistsTrack(artists)}`
+                        }
+
                         return (
-                            <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown}>
-                                <div className="cover-slide" onKeyDown={handleKeyDown}>
+                            <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo}>
                                     <img src={portadaURL} alt={`Cover de ${title}`} />
                                 </div>
-                                <div className="info-slide">
+                                {/* <div className="info-slide">
                                     <h2 className="title">{title}</h2>
                                     <h3 className="album">{albumTitle}</h3>
-                                </div>
+                                </div> */}
                             </div>
                         )
                     })
