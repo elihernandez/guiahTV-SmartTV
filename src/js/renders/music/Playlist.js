@@ -58,6 +58,7 @@ function InfoTrackPlaylist(){
 
 function ListTracksPlaylist({ playlistID }){
     const [data, setData] = React.useState(null)
+    console.log(data)
     const [trackActive, setTrackActive] = React.useState(null)
 
     React.useEffect(() => {
@@ -65,7 +66,7 @@ function ListTracksPlaylist({ playlistID }){
         .then(response => {
             setData(response)
             stateMusic.listTracks = response
-            fadeOutElementDelay('loader-list-tracks-album', '1', '0', '0.2s', '0.25s')
+            fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s')
 
             setTimeout(() => {
                 document.getElementsByClassName('track')[0].focus()
@@ -115,16 +116,19 @@ function ListTracksPlaylist({ playlistID }){
                     </div>
                 </div>       
             }
-            <div className="list-tracks-album" id="list-tracks-album">
-                { data &&
-                    data.tracks ?
-                        data.tracks.map((track, index) => {
-                            return <TrackPlaylist key={track.regID} data={track} index={index} trackActive={trackActive} />
-                        })
-                    :
-                    <div className="no-songs-message">La playlist no tiene canciones agregadas</div>
-                }
-            </div>
+            { data &&
+                <div className="list-tracks-album" id="list-tracks-album">
+                    {
+                        data.tracks ? (
+                            data.tracks.map((track, index) => {
+                                return <TrackPlaylist key={track.regID} data={track} index={index} trackActive={trackActive} />
+                            })
+                        ) : (
+                            <div className="no-songs-message">La playlist no tiene canciones agregadas</div>
+                        )
+                    }
+                </div>
+            }
             <div className='loader' id='loader-list-tracks-album'>
                 <div className='spinner'></div>
             </div>

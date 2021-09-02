@@ -5,11 +5,19 @@ function MyPlaylistsList({ data, handleMove }){
     React.useEffect(() => {
         setTimeout(() => {
             $('.carousel').slick({
+                dots: false,
                 infinite: false,
                 slidesToShow: 6,
                 slidesToScroll: 1,
+                swipeToSlide: false,
+                focusOnSelect: false,
+                speed: 250,
                 autoplay: false,
-                speed: 350
+                arrows: true,
+                variableWidth: false,
+                adaptiveHeight: false,
+                prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-left"></div></div>',
+                nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-right"></div></div>'
             })
         }, 50)
     }, [])

@@ -41926,7 +41926,7 @@ function ListTracksAlbum(_ref5) {
     getMusicAlbum(albumID).then(function (response) {
       setData(response);
       stateMusic.listTracks = response;
-      fadeOutElementDelay('loader-list-tracks-album', '1', '0', '0.2s', '0.25s');
+      fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s');
       setTimeout(function () {
         document.getElementsByClassName('track')[0].focus();
       }, 250);
@@ -42090,11 +42090,13 @@ function MusicHome(_ref7) {
       verticalSwiping: false,
       swipeToSlide: false,
       focusOnSelect: false,
-      speed: 350,
+      speed: 250,
       autoplay: false,
-      arrows: false,
+      arrows: true,
       variableWidth: false,
-      adaptiveHeight: false
+      adaptiveHeight: false,
+      prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-up"></div></div>',
+      nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-down"></div></div>'
     });
   }, [data]);
 
@@ -42230,11 +42232,19 @@ function MyPlaylistsList(_ref10) {
   React.useEffect(function () {
     setTimeout(function () {
       $('.carousel').slick({
+        dots: false,
         infinite: false,
         slidesToShow: 6,
         slidesToScroll: 1,
+        swipeToSlide: false,
+        focusOnSelect: false,
+        speed: 250,
         autoplay: false,
-        speed: 350
+        arrows: true,
+        variableWidth: false,
+        adaptiveHeight: false,
+        prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-left"></div></div>',
+        nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-right"></div></div>'
       });
     }, 50);
   }, []);
@@ -42509,6 +42519,8 @@ function ListTracksPlaylist(_ref13) {
       data = _React$useState22[0],
       setData = _React$useState22[1];
 
+  console.log(data);
+
   var _React$useState23 = React.useState(null),
       _React$useState24 = _slicedToArray(_React$useState23, 2),
       trackActive = _React$useState24[0],
@@ -42518,7 +42530,7 @@ function ListTracksPlaylist(_ref13) {
     getMusicPlaylist(playlistID).then(function (response) {
       setData(response);
       stateMusic.listTracks = response;
-      fadeOutElementDelay('loader-list-tracks-album', '1', '0', '0.2s', '0.25s');
+      fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s');
       setTimeout(function () {
         document.getElementsByClassName('track')[0].focus();
       }, 250);
@@ -42571,10 +42583,10 @@ function ListTracksPlaylist(_ref13) {
     onKeyDown: handleClickPlayList
   }, void 0, _div69 || (_div69 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-music"
-  })), "Agregar canciones")), /*#__PURE__*/_jsx("div", {
+  })), "Agregar canciones")), data && /*#__PURE__*/_jsx("div", {
     className: "list-tracks-album",
     id: "list-tracks-album"
-  }, void 0, data && data.tracks ? data.tracks.map(function (track, index) {
+  }, void 0, data.tracks ? data.tracks.map(function (track, index) {
     return /*#__PURE__*/_jsx(TrackPlaylist, {
       data: track,
       index: index,
@@ -42662,11 +42674,19 @@ function PlaylistsList(_ref15) {
   React.useEffect(function () {
     setTimeout(function () {
       $('.carousel').slick({
+        dots: false,
         infinite: false,
         slidesToShow: 6,
         slidesToScroll: 1,
+        swipeToSlide: false,
+        focusOnSelect: false,
+        speed: 250,
         autoplay: false,
-        speed: 350
+        arrows: true,
+        variableWidth: false,
+        adaptiveHeight: false,
+        prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-left"></div></div>',
+        nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-right"></div></div>'
       });
     }, 50);
   }, []);
@@ -42730,12 +42750,19 @@ function TracksList(_ref16) {
   React.useEffect(function () {
     setTimeout(function () {
       $('.carousel').slick({
+        dots: false,
         infinite: false,
         slidesToShow: 6,
         slidesToScroll: 1,
-        autoplay: false,
+        swipeToSlide: false,
         focusOnSelect: false,
-        speed: 350
+        speed: 250,
+        autoplay: false,
+        arrows: true,
+        variableWidth: false,
+        adaptiveHeight: false,
+        prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-left"></div></div>',
+        nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-right"></div></div>'
       });
     }, 50);
   }, []);

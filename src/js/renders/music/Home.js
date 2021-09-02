@@ -18,11 +18,13 @@ function MusicHome({ data }){
                 verticalSwiping: false,
                 swipeToSlide: false,
                 focusOnSelect: false,
-                speed: 350,
+                speed: 250,
                 autoplay: false,
-                arrows: false,
+                arrows: true,
                 variableWidth: false,
                 adaptiveHeight: false,
+                prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-up"></div></div>',
+                nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-down"></div></div>'
             })
     }, [data])
 

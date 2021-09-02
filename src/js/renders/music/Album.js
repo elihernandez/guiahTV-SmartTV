@@ -113,7 +113,7 @@ function ListTracksAlbum({ albumID }){
         .then(response => {
             setData(response)
             stateMusic.listTracks = response
-            fadeOutElementDelay('loader-list-tracks-album', '1', '0', '0.2s', '0.25s')
+            fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s')
 
             setTimeout(() => {
                 document.getElementsByClassName('track')[0].focus()
