@@ -20,13 +20,13 @@
                 display: flex;
                 list-style: none;
                 padding: 0;
-                gap: 30px;
 
                 li{
                     padding: 7.5px;
                     min-width: 175px;
                     text-align: center;
                     border-radius: 5px;
+                    margin-right: 25px;
 
                     a{
                         text-decoration: none;
@@ -122,7 +122,7 @@
                     .slide{
                         position: relative;
                         width: 100%;
-                        height: 350px;
+                        height: 360px;
                         padding-right: 20px;
     
                         .cover-slide{
@@ -138,6 +138,7 @@
                                 width: 100%;
                                 height: 100%;
                                 border-radius: 3px;
+                                object-fit: cover;
                             }
     
                             &::after{
@@ -221,6 +222,7 @@
                             width: 363px;
                             height: 363px;
                             background: #212121;
+                            object-fit: cover;
                         }
                     }
 
@@ -230,13 +232,13 @@
                         font-weight: 500;
                         display: flex;
                         align-items: center;
-                        gap: 15px;
                         margin-bottom: 15px;
 
                         .album-title{
                             color: whitesmoke;
                             font-size: 25px;
                             font-weight: 600;
+                            margin-left: 15px;
                         }
                     }
 
@@ -353,7 +355,7 @@
                 position: relative;
                 width: 50%;
                 height: 100%;
-                padding-top: 75px;
+                padding-top: 65px;
 
                 .loader{
                     position: relative;
@@ -369,70 +371,98 @@
                     }
                 }
 
-                .button-play-list{
-                    width: auto;
+                .buttons-playlist{
                     position: relative;
-                    color: whitesmoke;
-                    font-size: 22px;
-                    display: inline-block;
-                    padding: 15px 50px;
-                    font-weight: 500;
-                    background: #212121;
-                    border-radius: 40px;
-                    margin-bottom: 50px;
+                    display: flex;
+                    margin-bottom: 70px;
 
-                    &:hover, &:focus{
-                        background: whitesmoke;
-                        color: black;
+                    .btn{
+                        width: auto;
+                        position: relative;
+                        color: whitesmoke;
+                        font-size: 22px;
+                        display: flex;
+                        align-items: center;
+                        padding: 15px 50px;
                         font-weight: 500;
+                        background: rgba(33,33,33, 0.5);
+                        color: #757575;
+                        border-radius: 40px;
+
+                        .icon{
+                            font-size: 18px;
+                            margin-right: 15px;
+                        }
+    
+                        &:hover, &:focus{
+                            background: whitesmoke;
+                            color: black;
+                            font-weight: 500;
+                        }
+
+                        &.button-play-list{
+                            margin-right: 15px;
+                        }
                     }
+
                 }
 
                 .list-tracks-album{
                     position: relative;
                     display: flex;
                     flex-direction: column;
-                    gap: 15px;
 
-                    .slick-prev{
-                        left: 50%;
-                        top: -5%;
+                    .no-songs-message{
+                        font-size: 35px;
+                        color: whitesmoke;
+                    }
 
-                        &::before{
-                            content: '';
-                        }
+                    .slick-arrow{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
 
-                        .icon{
-                            font-size: 35px;
-                            color: white;
-                        }
-
-                        &.slick-disabled{
+                        &.slick-prev{
+                            left: 50%;
+                            top: -5%;
+    
+                            &::before{
+                                content: '';
+                            }
+    
                             .icon{
-                                display: none;
+                                font-size: 35px;
+                                color: white;
+                            }
+    
+                            &.slick-disabled{
+                                .icon{
+                                    display: none;
+                                }
+                            }
+                        }
+    
+                        &.slick-next{
+                            left: 50%;
+                            top: 105%;
+    
+                            &::before{
+                                content: '';
+                            }
+    
+                            .icon{
+                                font-size: 35px;
+                                color: white;
+                            }
+    
+                            &.slick-disabled{
+                                .icon{
+                                    display: none;
+                                }
                             }
                         }
                     }
 
-                    .slick-next{
-                        left: 50%;
-                        top: 103%;
-
-                        &::before{
-                            content: '';
-                        }
-
-                        .icon{
-                            font-size: 35px;
-                            color: white;
-                        }
-
-                        &.slick-disabled{
-                            .icon{
-                                display: none;
-                            }
-                        }
-                    }
 
                     .track{
                         position: relative;
@@ -440,6 +470,7 @@
                         justify-content: space-between;
                         padding: 30px 30px;
                         height: 110px;
+                        margin: 5px 0;
 
                         .track-index{
                             color: whitesmoke;

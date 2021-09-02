@@ -1,5 +1,4 @@
 function MusicPlaylist({ data }){
-    console.log(data)
     const { regID } = data
     stateMusic.album = data
 
@@ -76,7 +75,7 @@ function ListTracksPlaylist({ playlistID }){
                 accessibility: false,
                 dots: false,
                 infinite: false,
-                slidesToShow: 6,
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 vertical: true,
                 verticalSwiping: false,
@@ -106,10 +105,15 @@ function ListTracksPlaylist({ playlistID }){
 
     return (
         <div className="right-content">
-            {data &&       
-                <div className="track button-play-list" tabIndex="-1" onClick={handleClickPlayList} onKeyDown={handleClickPlayList}>
-                    Reproducir
-                </div>
+            {data &&
+                <div className="buttons-playlist">
+                    <div className="track btn button-play-list" tabIndex="-1" onClick={handleClickPlayList} onKeyDown={handleClickPlayList}>
+                        <div className="icon fas fa-play" />Reproducir
+                    </div>
+                    <div className="track btn button-add-songs" tabIndex="-1" onClick={handleClickPlayList} onKeyDown={handleClickPlayList}>
+                    <div className="icon fas fa-music" />Agregar canciones
+                    </div>
+                </div>       
             }
             <div className="list-tracks-album" id="list-tracks-album">
                 { data &&
@@ -118,7 +122,7 @@ function ListTracksPlaylist({ playlistID }){
                             return <TrackPlaylist key={track.regID} data={track} index={index} trackActive={trackActive} />
                         })
                     :
-                    <h1>La playlist no tiene tracks</h1>
+                    <div className="no-songs-message">La playlist no tiene canciones agregadas</div>
                 }
             </div>
             <div className='loader' id='loader-list-tracks-album'>

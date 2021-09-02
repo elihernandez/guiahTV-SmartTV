@@ -123,7 +123,7 @@ function ListTracksAlbum({ albumID }){
                 accessibility: false,
                 dots: false,
                 infinite: false,
-                slidesToShow: 6,
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 vertical: true,
                 verticalSwiping: false,
@@ -143,7 +143,7 @@ function ListTracksAlbum({ albumID }){
     const handleClickPlayList = (e) => {
         if(isPressEnter(e.nativeEvent)){
             playTrackMusic(data.tracks[0], data.tracks[0].regID)
-            document.getElementsByClassName('track')[1].focus()
+            document.getElementsByClassName('track')[2].focus()
         }
     }
 
@@ -154,9 +154,11 @@ function ListTracksAlbum({ albumID }){
     return (
         <div className="right-content">
             {data &&       
-                <div className="track button-play-list" tabIndex="-1" onClick={handleClickPlayList} onKeyDown={handleClickPlayList}>
-                    Reproducir
-                </div>
+                <div className="buttons-playlist">
+                    <div className="track btn button-play-list" tabIndex="-1" onClick={handleClickPlayList} onKeyDown={handleClickPlayList}>
+                        <div className="icon fas fa-play"></div>Reproducir
+                    </div>
+                </div> 
             }
             <div className="list-tracks-album" id="list-tracks-album">
                 { data &&
