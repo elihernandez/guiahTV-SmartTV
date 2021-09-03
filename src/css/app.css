@@ -426,7 +426,7 @@ z-index: 2;
 	color: #9e9e9e;
 	margin-left: 7.5vh;
 	margin-top: 2vh;
-	font-size: 2.5vh;
+	font-size: 24px;
 	display: flex;
 	flex-direction: row;
 	align-content: center;
@@ -444,14 +444,14 @@ z-index: 2;
 }
 
 .magic-button-back span:focus{
-	transform: scale(1.2);
+	transform: scale(1.1);
 	margin-left: 8.5vh;
 	outline: none !important;
 	cursor: pointer;
 }
 
 .magic-button-back span h4{
-	font-size: 2vh;
+	font-size: 24px;
 	margin-left: 1vh;
 	font-weight: 600;
 	color: #9e9e9e;	
@@ -473,7 +473,7 @@ z-index: 2;
 }
 
 .magic-button-back span i{
-	font-size: 3.5vh;
+	font-size: 24px;
 }
 
 .magic-button-back span:hover i{

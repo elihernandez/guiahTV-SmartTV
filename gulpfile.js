@@ -81,6 +81,7 @@ function app(cb) {
 
 function build(cb) {
 	src([
+		// 'src/js/dist/bcrypt.js',
 		'src/js/lib/polyfill/*.js',
 		'output/dist.js',
 		'output/lib.js',

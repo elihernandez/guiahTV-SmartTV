@@ -21,7 +21,8 @@
                 list-style: none;
                 padding: 0;
 
-                li{
+                .link-music-menu{
+                    position: relative;
                     padding: 10px 40px;
                     min-width: 200px;
                     text-align: center;
@@ -29,9 +30,10 @@
                     margin-right: 25px;
 
                     a{
+                        position: relative;
                         text-decoration: none;
                         color: #9e9e9e;
-                        font-size: 28px;
+                        font-size: 24px;
                         font-weight: 600;
                         display: flex;
                         justify-content: center;
@@ -44,7 +46,15 @@
                     }
 
                     &.active{
-                        background: #424242;
+                        /* background: #424242; */
+
+                        &::after{
+                            position: absolute;
+                            width: 100%;
+                            content: '';
+                            inset: 0px;
+                            border-bottom: 4px solid whitesmoke;
+                        }
 
                         a{
                             color: whitesmoke;
@@ -53,9 +63,11 @@
 
                     &:hover, &:focus{
                         background: whitesmoke;
+                        border-radius: 5px;
 
                         a{
                             color: black;
+                            border-radius: 5px;
                         }
                     }
                 }
@@ -74,12 +86,12 @@
                 margin-top: 60px;
 
                 .content-title{
-                    font-size: 70px;
+                    font-size: 72px;
                     font-weight: 700;
                 }
 
                 .content-subtitle{
-                    font-size: 28px;
+                    font-size: 24px;
                     font-weight: 600;
                 }
             }
@@ -141,7 +153,7 @@
                     }
 
                     &.slick-next{
-                        top: 63%;
+                        top: 64%;
                         height: 17%;
                         width: 100%;
                         left: 0;
@@ -341,7 +353,7 @@
 
                     .type{
                         color: #757575;
-                        font-size: 25px;
+                        font-size: 24px;
                         font-weight: 500;
                         display: flex;
                         align-items: center;
@@ -349,7 +361,7 @@
 
                         .album-title{
                             color: whitesmoke;
-                            font-size: 25px;
+                            font-size: 24px;
                             font-weight: 600;
                             margin-left: 15px;
                         }
@@ -375,7 +387,7 @@
 
                         .artist-name{
                             color: #757575;
-                            font-size: 25px;
+                            font-size: 24px;
                             font-weight: 500
                         }
                     }
@@ -389,7 +401,6 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            gap: 28px;
     
                             .start-time, .end-time{
                                 position: relative;
@@ -494,29 +505,38 @@
                         width: auto;
                         position: relative;
                         color: whitesmoke;
-                        font-size: 22px;
+                        font-size: 24px;
                         display: flex;
                         align-items: center;
-                        padding: 15px 50px;
+                        padding: 16px 48px;
                         font-weight: 500;
-                        background: rgba(33,33,33, 0.5);
+                        /* background: rgba(33,33,33, 0.5); */
                         color: #757575;
                         border-radius: 40px;
 
                         .icon{
-                            font-size: 18px;
-                            margin-right: 15px;
+                            font-size: 16px;
+                            margin-right: 16px;
+                        }
+
+                        &.active{
+                            color: #00aeef;
                         }
     
                         &:hover, &:focus{
                             background: whitesmoke;
                             color: black;
                             font-weight: 500;
+
+                            &.active{
+                                color: black;
+                            }
                         }
 
                         &.button-play-list{
                             margin-right: 15px;
                         }
+
                     }
 
                 }
@@ -527,8 +547,20 @@
                     flex-direction: column;
 
                     .no-songs-message{
-                        font-size: 35px;
-                        color: whitesmoke;
+                    
+                        .title{
+                            font-size: 4rem;
+                            font-weight: 600;
+                            color: whitesmoke;
+                        }
+
+                        .subtitle{
+                            font-size: 32px;
+                            font-weight: 500;
+                            color: #757575;
+                            margin-top: 16px;
+                        }
+                        
                     }
 
                     .slick-arrow{
@@ -584,12 +616,12 @@
                         display: flex;
                         justify-content: space-between;
                         padding: 30px 30px;
-                        height: 110px;
+                        height: 90px;
                         margin: 5px 0;
 
                         .track-index{
                             color: whitesmoke;
-                            font-size: 22px;
+                            font-size: 24px;
                             text-align: center;
                             display: flex;
                             align-items: center;
@@ -598,8 +630,8 @@
 
                             .button{
                                 position: relative;
-                                width: 50px;
-                                height: 50px;
+                                width: 48px;
+                                height: 48px;
                                 border-radius: 50%;
                                 border: 3px solid whitesmoke;
                                 display: flex;
@@ -607,7 +639,7 @@
                                 align-items: center;
     
                                 .icon{
-                                    font-size: 20px;
+                                    font-size: 24px;
                                     color: whitesmoke;
 
                                     &.fa-play{
@@ -620,16 +652,16 @@
 
                         .track-title{
                             color: whitesmoke;
-                            font-size: 23px;
+                            font-size: 24px;
                             text-align: left;
-                            min-width: 640px;
+                            min-width: 680px;
                             display: flex;
                             align-items: center;
                         }
 
                         .track-time{
                             color: whitesmoke;
-                            font-size: 22px;
+                            font-size: 24px;
                             display: flex;
                             align-items: center;
                         }

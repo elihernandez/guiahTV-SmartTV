@@ -1,7 +1,8 @@
 var idMusica = 'musica',
 	isMusicActive = false,
 	isMusicHomeActive = false,
-	isMusicAlbumActive = false
+	isMusicAlbumActive = false,
+	musicAlbum = null
 
 function getMusica(response){
 	fadeOutElements([idTopMenu, idMenuPrincipal], '1', '0', '0.2s')

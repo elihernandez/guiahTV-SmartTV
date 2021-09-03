@@ -1,54 +1,6 @@
-const stateMusic = {
-    trackInPlay: null,
-    album: null,
-    listTracks: null,
-    musicPlayer: null,
-    infoTrackListener: function(val) {},
-    listTracksListener: function(val) {},
-    set setTrackInPlay(val) {
-      this.trackInPlay = val
-      this.listTracksListener(val)
-      this.infoTrackListener(val)
-    },
-    get prevTrack(){
-        const isTrack = (element) => element.regID === this.trackInPlay.regID
-        const index = this.listTracks.tracks.findIndex(isTrack)
-
-        if(index === 0){
-            this.musicPlayer.currentTime = 0
-            return
-        }
-
-        const length = this.listTracks.tracks.length - 1
-        const prevTrack = this.listTracks.tracks[index - 1]
-        
-        return prevTrack
-    },
-    get nextTrack(){
-        const isTrack = (element) => element.regID === this.trackInPlay.regID
-        const index = this.listTracks.tracks.findIndex(isTrack)  
-        const length = this.listTracks.tracks.length - 1
-
-        if(index === length){
-            this.musicPlayer.currentTime = 0
-            return
-        }
-
-        const nextTrack = this.listTracks.tracks[index + 1]
-
-        return nextTrack
-    },
-    changeInfoTrack: function(listener) {
-      this.infoTrackListener = listener
-    },
-    changeListTracks: function(listener) {
-        this.listTracksListener = listener
-    }
-}
-
 function MusicAlbum({ data }){
     const { albumID } = data
-    stateMusic.album = data
+    musicAlbum = new Album(data)
 
     return (
         <div className="content-section-album" id="content-section-album" >
@@ -80,7 +32,7 @@ function InfoMusicAlbum({ data }){
 function InfoTrackAlbum(){
     const [infoTrack, setInfoTrack] = React.useState(null)
    
-    stateMusic.changeInfoTrack(value => {
+    musicAlbum.changeInfoTrack(value => {
         setInfoTrack(value)
     })
 
@@ -88,7 +40,7 @@ function InfoTrackAlbum(){
         <div className="info-track">
             {infoTrack &&
                 <React.Fragment>
-                    <div className="song-title">{infoTrack.title}</div>
+                    <div className="song-title">{limitString(infoTrack.title, 30)}</div>
                     <div className="song-artists">
                         {
                             infoTrack.artists.map((artist, index) => {
@@ -112,7 +64,7 @@ function ListTracksAlbum({ albumID }){
         getMusicAlbum(albumID)
         .then(response => {
             setData(response)
-            stateMusic.listTracks = response
+            musicAlbum.listTracks = response
             fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s')
 
             setTimeout(() => {
@@ -123,7 +75,7 @@ function ListTracksAlbum({ albumID }){
                 accessibility: false,
                 dots: false,
                 infinite: false,
-                slidesToShow: 5,
+                slidesToShow: 6,
                 slidesToScroll: 1,
                 vertical: true,
                 verticalSwiping: false,
@@ -140,25 +92,14 @@ function ListTracksAlbum({ albumID }){
         })
     }, [])
 
-    const handleClickPlayList = (e) => {
-        if(isPressEnter(e.nativeEvent)){
-            playTrackMusic(data.tracks[0], data.tracks[0].regID)
-            document.getElementsByClassName('track')[1].focus()
-        }
-    }
-
-    stateMusic.changeListTracks(value => {
+    musicAlbum.changeListTracks(value => {
         setTrackActive(value.regID)
     })
 
     return (
         <div className="right-content">
             {data &&       
-                <div className="buttons-playlist">
-                    <div className="track btn button-play-list" tabIndex="-1" onClick={handleClickPlayList} onKeyDown={handleClickPlayList}>
-                        <div className="icon fas fa-play"></div>Reproducir
-                    </div>
-                </div> 
+                <ButtonsPlaylist />
             }
             <div className="list-tracks-album" id="list-tracks-album">
                 { data &&
@@ -171,6 +112,54 @@ function ListTracksAlbum({ albumID }){
                 <div className='spinner'></div>
             </div>
         </div>
+    )
+}
+
+function ButtonsPlaylist(){
+    const [randomActive, setRandomActive] = React.useState(false)
+    
+    const handlePlayPlaylist = (e) => {
+        if(isPressEnter(e.nativeEvent)){
+            if(!musicPlayer.random){
+                const tracks = musicAlbum.listTracks.tracks
+                playTrackMusic(tracks[0], tracks[0].regID)
+                document.getElementsByClassName('track')[2].focus()
+            }else{
+                musicAlbum.listRandom = []
+                const randomTrack = musicAlbum.randomTrack
+
+                if(randomTrack){
+                    playTrackMusic(randomTrack, randomTrack.regID)
+                }else{
+                    document.getElementsByClassName('track')[0].focus()
+                }
+            }
+        }
+    }
+
+    const handleRandomPlaylist = (e) => {
+        if(isPressEnter(e.nativeEvent)){
+            musicPlayer.setRandom(true)
+            musicAlbum.listRandom = []     
+    
+            if(musicPlayer.random){
+                setRandomActive(true)
+            }else{
+                setRandomActive(false)
+            }
+        }
+    }
+
+
+    return (
+        <div className="buttons-playlist">
+            <div className="track btn button-play-list" tabIndex="-1" onClick={handlePlayPlaylist} onKeyDown={handlePlayPlaylist}>
+                <div className="icon fas fa-play"></div>Reproducir
+            </div>
+            <div className={`track btn button-play-list ${randomActive ? 'active' : ''}`} tabIndex="-1" onClick={handleRandomPlaylist} onKeyDown={handleRandomPlaylist}>
+                <div className="icon fas fa-random"></div>Aleatorio
+            </div>
+        </div> 
     )
 }
 
@@ -205,8 +194,16 @@ function TrackAlbum({ data, index, trackActive }){
         handleMove(e.nativeEvent)
 
         if(isPressEnter(e.nativeEvent)){
-            SpatialNavigation.disable('controls-player-music')
-            playTrackMusic(data, regID)
+            if(musicAlbum.trackInPlay?.regID === regID){
+                if(musicPlayer.play){
+                    musicPlayer.setPause()
+                }else{
+                    musicPlayer.setPlay()
+                }
+            }else{
+                SpatialNavigation.disable('controls-player-music')
+                playTrackMusic(data, regID)
+            }
         }
     }
 
@@ -240,14 +237,15 @@ function playTrackMusic(track, trackID){
 
         const hls = new Hls()
         hls.detachMedia()
-        hls.attachMedia(document.getElementById('music-player-audio'))
+        hls.attachMedia(musicPlayer.element)
 
         hls.on(Hls.Events.MEDIA_ATTACHED, function () {
             hls.loadSource(url)
+            musicPlayer.muted = false
 
             hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) { 
                 SpatialNavigation.enable('controls-player-music')
-                stateMusic.setTrackInPlay = track
+                musicAlbum.setTrackInPlay(track)
             })
         })
     })

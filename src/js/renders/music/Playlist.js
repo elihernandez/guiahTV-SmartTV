@@ -1,6 +1,6 @@
 function MusicPlaylist({ data }){
     const { regID } = data
-    stateMusic.album = data
+    musicAlbum = new Album(data)
 
     return (
         <div className="content-section-album" id="content-section-album" >
@@ -32,7 +32,7 @@ function InfoMusicPlaylist({ data }){
 function InfoTrackPlaylist(){
     const [infoTrack, setInfoTrack] = React.useState(null)
    
-    stateMusic.changeInfoTrack(value => {
+    musicAlbum.changeInfoTrack(value => {
         setInfoTrack(value)
     })
 
@@ -65,7 +65,7 @@ function ListTracksPlaylist({ playlistID }){
         getMusicPlaylist(playlistID)
         .then(response => {
             setData(response)
-            stateMusic.listTracks = response
+            musicAlbum.listTracks = response
             fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s')
 
             setTimeout(() => {
@@ -93,28 +93,14 @@ function ListTracksPlaylist({ playlistID }){
         })
     }, [])
 
-    const handleClickPlayList = (e) => {
-        if(isPressEnter(e.nativeEvent)){
-            playTrackMusic(data.tracks[0], data.tracks[0].regID)
-            document.getElementsByClassName('track')[2].focus()
-        }
-    }
-
-    stateMusic.changeListTracks(value => {
+    musicAlbum.changeListTracks(value => {
         setTrackActive(value.regID)
     })
 
     return (
         <div className="right-content">
             {data &&
-                <div className="buttons-playlist">
-                    <div className="track btn button-play-list" tabIndex="-1" onClick={handleClickPlayList} onKeyDown={handleClickPlayList}>
-                        <div className="icon fas fa-play" />Reproducir
-                    </div>
-                    <div className="track btn button-add-songs" tabIndex="-1" onClick={handleClickPlayList} onKeyDown={handleClickPlayList}>
-                    <div className="icon fas fa-music" />Agregar canciones
-                    </div>
-                </div>       
+                <ButtonsPlaylist />     
             }
             { data &&
                 <div className="list-tracks-album" id="list-tracks-album">
@@ -124,7 +110,10 @@ function ListTracksPlaylist({ playlistID }){
                                 return <TrackPlaylist key={track.regID} data={track} index={index} trackActive={trackActive} />
                             })
                         ) : (
-                            <div className="no-songs-message">La playlist no tiene canciones agregadas</div>
+                            <div className="no-songs-message">
+                                <div className="title">La playlist no tiene canciones agregadas</div>
+                                <div className="subtitle">Navega en las secciones para agregar tus canciones favoritas</div>
+                            </div>
                         )
                     }
                 </div>

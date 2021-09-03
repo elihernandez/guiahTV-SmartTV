@@ -1,4 +1,4 @@
-var _div, _div2, _div3, _div4, _div5, _div6, _i4, _i5, _div7, _div8, _div9, _div10, _div11, _div12, _div13, _div14, _div15, _div16, _div17, _div18, _div19, _div20, _h, _h2, _img, _div21, _div22, _div23, _div24, _h3, _h4, _div25, _ContCategory, _IconsLive, _FullScreenIcon, _div26, _div27, _i6, _div28, _ul, _i7, _i8, _div29, _div30, _i9, _div31, _div32, _i10, _i11, _i12, _i13, _i14, _i15, _i16, _i17, _div33, _div34, _div35, _div36, _label, _input, _div37, _div38, _div39, _div40, _div41, _div42, _div43, _div44, _div45, _i18, _ul2, _h5, _i19, _i20, _ul3, _div46, _div47, _div48, _div49, _div50, _audio, _div51, _img2, _VolumeRadio, _i21, _div52, _div53, _div54, _BackgroundSeries, _div55, _img3, _img4, _i22, _div56, _div57, _InfoTrackAlbum, _MusicPlayer, _div58, _div59, _div60, _div61, _div62, _MusicMenu, _div63, _a, _a2, _div64, _div65, _div66, _div67, _div68, _InfoTrackPlaylist, _MusicPlayer2, _div69, _div70, _div71, _div72, _div73, _MainInfoLogin, _RegisterInfoLogin, _FormLogin, _MenuPrincipal;
+var _div, _div2, _div3, _div4, _div5, _div6, _i4, _i5, _div7, _div8, _div9, _div10, _div11, _div12, _div13, _div14, _div15, _div16, _div17, _div18, _div19, _div20, _h, _h2, _img, _div21, _div22, _div23, _div24, _h3, _h4, _div25, _ContCategory, _IconsLive, _FullScreenIcon, _div26, _div27, _i6, _div28, _ul, _i7, _i8, _div29, _div30, _i9, _div31, _div32, _i10, _i11, _i12, _i13, _i14, _i15, _i16, _i17, _div33, _div34, _div35, _div36, _label, _input, _div37, _div38, _div39, _div40, _div41, _div42, _div43, _div44, _div45, _i18, _ul2, _h5, _i19, _i20, _ul3, _div46, _div47, _div48, _div49, _div50, _audio, _div51, _img2, _VolumeRadio, _i21, _div52, _div53, _div54, _BackgroundSeries, _div55, _img3, _img4, _i22, _div56, _div57, _InfoTrackAlbum, _MusicPlayer, _ButtonsPlaylist, _div58, _div59, _div60, _div61, _div62, _div63, _MusicMenu, _div64, _a, _a2, _div65, _audio2, _div66, _div67, _div68, _div69, _div70, _InfoTrackPlaylist, _MusicPlayer2, _ButtonsPlaylist2, _div71, _div72, _div73, _MainInfoLogin, _RegisterInfoLogin, _FormLogin, _MenuPrincipal;
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -39,6 +39,144 @@ var REACT_ELEMENT_TYPE;
 function _jsx(type, props, key, children) { if (!REACT_ELEMENT_TYPE) { REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol["for"] && Symbol["for"]("react.element") || 0xeac7; } var defaultProps = type && type.defaultProps; var childrenLength = arguments.length - 3; if (!props && childrenLength !== 0) { props = { children: void 0 }; } if (childrenLength === 1) { props.children = children; } else if (childrenLength > 1) { var childArray = new Array(childrenLength); for (var i = 0; i < childrenLength; i++) { childArray[i] = arguments[i + 3]; } props.children = childArray; } if (props && defaultProps) { for (var propName in defaultProps) { if (props[propName] === void 0) { props[propName] = defaultProps[propName]; } } } else if (!props) { props = defaultProps || {}; } return { $$typeof: REACT_ELEMENT_TYPE, type: type, key: key === undefined ? null : "" + key, ref: null, props: props, _owner: null }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+// https://tc39.github.io/ecma262/#sec-array.prototype.find
+if (!Array.prototype.find) {
+  Object.defineProperty(Array.prototype, 'find', {
+    value: function value(predicate) {
+      // 1. Let O be ? ToObject(this value).
+      if (this == null) {
+        throw new TypeError('"this" is null or not defined');
+      }
+
+      var o = Object(this); // 2. Let len be ? ToLength(? Get(O, "length")).
+
+      var len = o.length >>> 0; // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+
+      if (typeof predicate !== 'function') {
+        throw new TypeError('predicate must be a function');
+      } // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+
+
+      var thisArg = arguments[1]; // 5. Let k be 0.
+
+      var k = 0; // 6. Repeat, while k < len
+
+      while (k < len) {
+        // a. Let Pk be ! ToString(k).
+        // b. Let kValue be ? Get(O, Pk).
+        // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+        // d. If testResult is true, return kValue.
+        var kValue = o[k];
+
+        if (predicate.call(thisArg, kValue, k, o)) {
+          return kValue;
+        } // e. Increase k by 1.
+
+
+        k++;
+      } // 7. Return undefined.
+
+
+      return undefined;
+    },
+    configurable: true,
+    writable: true
+  });
+} // https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
+
+
+if (!Array.prototype.findIndex) {
+  Object.defineProperty(Array.prototype, 'findIndex', {
+    value: function value(predicate) {
+      // 1. Let O be ? ToObject(this value).
+      if (this == null) {
+        throw new TypeError('"this" is null or not defined');
+      }
+
+      var o = Object(this); // 2. Let len be ? ToLength(? Get(O, "length")).
+
+      var len = o.length >>> 0; // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+
+      if (typeof predicate !== 'function') {
+        throw new TypeError('predicate must be a function');
+      } // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+
+
+      var thisArg = arguments[1]; // 5. Let k be 0.
+
+      var k = 0; // 6. Repeat, while k < len
+
+      while (k < len) {
+        // a. Let Pk be ! ToString(k).
+        // b. Let kValue be ? Get(O, Pk).
+        // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+        // d. If testResult is true, return k.
+        var kValue = o[k];
+
+        if (predicate.call(thisArg, kValue, k, o)) {
+          return k;
+        } // e. Increase k by 1.
+
+
+        k++;
+      } // 7. Return -1.
+
+
+      return -1;
+    },
+    configurable: true,
+    writable: true
+  });
+}
+
+if (!Array.prototype.includes) {
+  Object.defineProperty(Array.prototype, 'includes', {
+    value: function value(searchElement, fromIndex) {
+      if (this == null) {
+        throw new TypeError('"this" es null o no está definido');
+      } // 1. Dejar que O sea ? ToObject(this value).
+
+
+      var o = Object(this); // 2. Dejar que len sea ? ToLength(? Get(O, "length")).
+
+      var len = o.length >>> 0; // 3. Si len es 0, devuelve false.
+
+      if (len === 0) {
+        return false;
+      } // 4. Dejar que n sea ? ToInteger(fromIndex).
+      //    (Si fromIndex no está definido, este paso produce el valor 0.)
+
+
+      var n = fromIndex | 0; // 5. Si n ≥ 0, entonces
+      //  a. Dejar que k sea n.
+      // 6. Else n < 0,
+      //  a. Dejar que k sea len + n.
+      //  b. Si k < 0, Dejar que k sea 0.
+
+      var k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+
+      function sameValueZero(x, y) {
+        return x === y || typeof x === 'number' && typeof y === 'number' && isNaN(x) && isNaN(y);
+      } // 7. Repite, mientras k < len
+
+
+      while (k < len) {
+        // a. Dejar que elementK sea el resultado de ? Get(O, ! ToString(k)).
+        // b. Si SameValueZero(searchElement, elementK) es true, devuelve true.
+        if (sameValueZero(o[k], searchElement)) {
+          return true;
+        } // c. Incrementa k por 1.
+
+
+        k++;
+      } // 8. Devuelve false
+
+
+      return false;
+    }
+  });
+}
 
 (function (self, undefined) {
   function Call(t, l) {
@@ -432,51 +570,6 @@ if (!Element.prototype.closest) {
 
     return null;
   };
-} // https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
-
-
-if (!Array.prototype.findIndex) {
-  Object.defineProperty(Array.prototype, 'findIndex', {
-    value: function value(predicate) {
-      // 1. Let O be ? ToObject(this value).
-      if (this == null) {
-        throw new TypeError('"this" is null or not defined');
-      }
-
-      var o = Object(this); // 2. Let len be ? ToLength(? Get(O, "length")).
-
-      var len = o.length >>> 0; // 3. If IsCallable(predicate) is false, throw a TypeError exception.
-
-      if (typeof predicate !== 'function') {
-        throw new TypeError('predicate must be a function');
-      } // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
-
-
-      var thisArg = arguments[1]; // 5. Let k be 0.
-
-      var k = 0; // 6. Repeat, while k < len
-
-      while (k < len) {
-        // a. Let Pk be ! ToString(k).
-        // b. Let kValue be ? Get(O, Pk).
-        // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
-        // d. If testResult is true, return k.
-        var kValue = o[k];
-
-        if (predicate.call(thisArg, kValue, k, o)) {
-          return k;
-        } // e. Increase k by 1.
-
-
-        k++;
-      } // 7. Return -1.
-
-
-      return -1;
-    },
-    configurable: true,
-    writable: true
-  });
 }
 
 if (!String.prototype.includes) {
@@ -493,55 +586,6 @@ if (!String.prototype.includes) {
 
     return this.indexOf(search, start) !== -1;
   };
-} // https://tc39.github.io/ecma262/#sec-array.prototype.includes
-
-
-if (!Array.prototype.includes) {
-  Object.defineProperty(Array.prototype, 'includes', {
-    value: function value(searchElement, fromIndex) {
-      if (this == null) {
-        throw new TypeError('"this" es null o no está definido');
-      } // 1. Dejar que O sea ? ToObject(this value).
-
-
-      var o = Object(this); // 2. Dejar que len sea ? ToLength(? Get(O, "length")).
-
-      var len = o.length >>> 0; // 3. Si len es 0, devuelve false.
-
-      if (len === 0) {
-        return false;
-      } // 4. Dejar que n sea ? ToInteger(fromIndex).
-      //    (Si fromIndex no está definido, este paso produce el valor 0.)
-
-
-      var n = fromIndex | 0; // 5. Si n ≥ 0, entonces
-      //  a. Dejar que k sea n.
-      // 6. Else n < 0,
-      //  a. Dejar que k sea len + n.
-      //  b. Si k < 0, Dejar que k sea 0.
-
-      var k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
-
-      function sameValueZero(x, y) {
-        return x === y || typeof x === 'number' && typeof y === 'number' && isNaN(x) && isNaN(y);
-      } // 7. Repite, mientras k < len
-
-
-      while (k < len) {
-        // a. Dejar que elementK sea el resultado de ? Get(O, ! ToString(k)).
-        // b. Si SameValueZero(searchElement, elementK) es true, devuelve true.
-        if (sameValueZero(o[k], searchElement)) {
-          return true;
-        } // c. Incrementa k por 1.
-
-
-        k++;
-      } // 8. Devuelve false
-
-
-      return false;
-    }
-  });
 }
 
 if (!String.prototype.startsWith) {
@@ -41798,70 +41842,10 @@ function ProgressBarSerie(data) {
   }
 }
 
-var stateMusic = {
-  trackInPlay: null,
-  album: null,
-  listTracks: null,
-  musicPlayer: null,
-  infoTrackListener: function infoTrackListener(val) {},
-  listTracksListener: function listTracksListener(val) {},
-
-  set setTrackInPlay(val) {
-    this.trackInPlay = val;
-    this.listTracksListener(val);
-    this.infoTrackListener(val);
-  },
-
-  get prevTrack() {
-    var _this3 = this;
-
-    var isTrack = function isTrack(element) {
-      return element.regID === _this3.trackInPlay.regID;
-    };
-
-    var index = this.listTracks.tracks.findIndex(isTrack);
-
-    if (index === 0) {
-      this.musicPlayer.currentTime = 0;
-      return;
-    }
-
-    var length = this.listTracks.tracks.length - 1;
-    var prevTrack = this.listTracks.tracks[index - 1];
-    return prevTrack;
-  },
-
-  get nextTrack() {
-    var _this4 = this;
-
-    var isTrack = function isTrack(element) {
-      return element.regID === _this4.trackInPlay.regID;
-    };
-
-    var index = this.listTracks.tracks.findIndex(isTrack);
-    var length = this.listTracks.tracks.length - 1;
-
-    if (index === length) {
-      this.musicPlayer.currentTime = 0;
-      return;
-    }
-
-    var nextTrack = this.listTracks.tracks[index + 1];
-    return nextTrack;
-  },
-
-  changeInfoTrack: function changeInfoTrack(listener) {
-    this.infoTrackListener = listener;
-  },
-  changeListTracks: function changeListTracks(listener) {
-    this.listTracksListener = listener;
-  }
-};
-
 function MusicAlbum(_ref3) {
   var data = _ref3.data;
   var albumID = data.albumID;
-  stateMusic.album = data;
+  musicAlbum = new Album(data);
   return /*#__PURE__*/_jsx("div", {
     className: "content-section-album",
     id: "content-section-album"
@@ -41901,14 +41885,14 @@ function InfoTrackAlbum() {
       infoTrack = _React$useState2[0],
       setInfoTrack = _React$useState2[1];
 
-  stateMusic.changeInfoTrack(function (value) {
+  musicAlbum.changeInfoTrack(function (value) {
     setInfoTrack(value);
   });
   return /*#__PURE__*/_jsx("div", {
     className: "info-track"
   }, void 0, infoTrack && /*#__PURE__*/_jsx(React.Fragment, {}, void 0, /*#__PURE__*/_jsx("div", {
     className: "song-title"
-  }, void 0, infoTrack.title), /*#__PURE__*/_jsx("div", {
+  }, void 0, limitString(infoTrack.title, 30)), /*#__PURE__*/_jsx("div", {
     className: "song-artists"
   }, void 0, infoTrack.artists.map(function (artist, index) {
     return /*#__PURE__*/_jsx("div", {
@@ -41933,7 +41917,7 @@ function ListTracksAlbum(_ref5) {
   React.useEffect(function () {
     getMusicAlbum(albumID).then(function (response) {
       setData(response);
-      stateMusic.listTracks = response;
+      musicAlbum.listTracks = response;
       fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s');
       setTimeout(function () {
         document.getElementsByClassName('track')[0].focus();
@@ -41942,7 +41926,7 @@ function ListTracksAlbum(_ref5) {
         accessibility: false,
         dots: false,
         infinite: false,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
         vertical: true,
         verticalSwiping: false,
@@ -41958,29 +41942,12 @@ function ListTracksAlbum(_ref5) {
       });
     });
   }, []);
-
-  var handleClickPlayList = function handleClickPlayList(e) {
-    if (isPressEnter(e.nativeEvent)) {
-      playTrackMusic(data.tracks[0], data.tracks[0].regID);
-      document.getElementsByClassName('track')[1].focus();
-    }
-  };
-
-  stateMusic.changeListTracks(function (value) {
+  musicAlbum.changeListTracks(function (value) {
     setTrackActive(value.regID);
   });
   return /*#__PURE__*/_jsx("div", {
     className: "right-content"
-  }, void 0, data && /*#__PURE__*/_jsx("div", {
-    className: "buttons-playlist"
-  }, void 0, /*#__PURE__*/_jsx("div", {
-    className: "track btn button-play-list",
-    tabIndex: "-1",
-    onClick: handleClickPlayList,
-    onKeyDown: handleClickPlayList
-  }, void 0, _div58 || (_div58 = /*#__PURE__*/_jsx("div", {
-    className: "icon fas fa-play"
-  })), "Reproducir")), /*#__PURE__*/_jsx("div", {
+  }, void 0, data && (_ButtonsPlaylist || (_ButtonsPlaylist = /*#__PURE__*/_jsx(ButtonsPlaylist, {}))), /*#__PURE__*/_jsx("div", {
     className: "list-tracks-album",
     id: "list-tracks-album"
   }, void 0, data && data.tracks.map(function (track, index) {
@@ -41989,12 +41956,69 @@ function ListTracksAlbum(_ref5) {
       index: index,
       trackActive: trackActive
     }, track.regID);
-  })), _div59 || (_div59 = /*#__PURE__*/_jsx("div", {
+  })), _div58 || (_div58 = /*#__PURE__*/_jsx("div", {
     className: "loader",
     id: "loader-list-tracks-album"
   }, void 0, /*#__PURE__*/_jsx("div", {
     className: "spinner"
   }))));
+}
+
+function ButtonsPlaylist() {
+  var _React$useState7 = React.useState(false),
+      _React$useState8 = _slicedToArray(_React$useState7, 2),
+      randomActive = _React$useState8[0],
+      setRandomActive = _React$useState8[1];
+
+  var handlePlayPlaylist = function handlePlayPlaylist(e) {
+    if (isPressEnter(e.nativeEvent)) {
+      if (!musicPlayer.random) {
+        var tracks = musicAlbum.listTracks.tracks;
+        playTrackMusic(tracks[0], tracks[0].regID);
+        document.getElementsByClassName('track')[2].focus();
+      } else {
+        musicAlbum.listRandom = [];
+        var randomTrack = musicAlbum.randomTrack;
+
+        if (randomTrack) {
+          playTrackMusic(randomTrack, randomTrack.regID);
+        } else {
+          document.getElementsByClassName('track')[0].focus();
+        }
+      }
+    }
+  };
+
+  var handleRandomPlaylist = function handleRandomPlaylist(e) {
+    if (isPressEnter(e.nativeEvent)) {
+      musicPlayer.setRandom(true);
+      musicAlbum.listRandom = [];
+
+      if (musicPlayer.random) {
+        setRandomActive(true);
+      } else {
+        setRandomActive(false);
+      }
+    }
+  };
+
+  return /*#__PURE__*/_jsx("div", {
+    className: "buttons-playlist"
+  }, void 0, /*#__PURE__*/_jsx("div", {
+    className: "track btn button-play-list",
+    tabIndex: "-1",
+    onClick: handlePlayPlaylist,
+    onKeyDown: handlePlayPlaylist
+  }, void 0, _div59 || (_div59 = /*#__PURE__*/_jsx("div", {
+    className: "icon fas fa-play"
+  })), "Reproducir"), /*#__PURE__*/_jsx("div", {
+    className: "track btn button-play-list ".concat(randomActive ? 'active' : ''),
+    tabIndex: "-1",
+    onClick: handleRandomPlaylist,
+    onKeyDown: handleRandomPlaylist
+  }, void 0, _div60 || (_div60 = /*#__PURE__*/_jsx("div", {
+    className: "icon fas fa-random"
+  })), "Aleatorio"));
 }
 
 function TrackAlbum(_ref6) {
@@ -42005,10 +42029,10 @@ function TrackAlbum(_ref6) {
       title = data.title,
       length = data.length;
 
-  var _React$useState7 = React.useState(false),
-      _React$useState8 = _slicedToArray(_React$useState7, 2),
-      playing = _React$useState8[0],
-      setPlaying = _React$useState8[1];
+  var _React$useState9 = React.useState(false),
+      _React$useState10 = _slicedToArray(_React$useState9, 2),
+      playing = _React$useState10[0],
+      setPlaying = _React$useState10[1];
 
   var handlePlay = function handlePlay() {
     setPlaying(true);
@@ -42037,8 +42061,18 @@ function TrackAlbum(_ref6) {
     handleMove(e.nativeEvent);
 
     if (isPressEnter(e.nativeEvent)) {
-      SpatialNavigation.disable('controls-player-music');
-      playTrackMusic(data, regID);
+      var _musicAlbum$trackInPl;
+
+      if (((_musicAlbum$trackInPl = musicAlbum.trackInPlay) === null || _musicAlbum$trackInPl === void 0 ? void 0 : _musicAlbum$trackInPl.regID) === regID) {
+        if (musicPlayer.play) {
+          musicPlayer.setPause();
+        } else {
+          musicPlayer.setPlay();
+        }
+      } else {
+        SpatialNavigation.disable('controls-player-music');
+        playTrackMusic(data, regID);
+      }
     }
   };
 
@@ -42052,9 +42086,9 @@ function TrackAlbum(_ref6) {
     className: "track-index"
   }, void 0, trackActive === regID ? /*#__PURE__*/_jsx("div", {
     className: "button"
-  }, void 0, playing ? _div60 || (_div60 = /*#__PURE__*/_jsx("div", {
+  }, void 0, playing ? _div61 || (_div61 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-pause"
-  })) : _div61 || (_div61 = /*#__PURE__*/_jsx("div", {
+  })) : _div62 || (_div62 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-play"
   }))) : index + 1), /*#__PURE__*/_jsx("div", {
     className: "track-title"
@@ -42068,12 +42102,13 @@ function playTrackMusic(track, trackID) {
     var url = response.url;
     var hls = new Hls();
     hls.detachMedia();
-    hls.attachMedia(document.getElementById('music-player-audio'));
+    hls.attachMedia(musicPlayer.element);
     hls.on(Hls.Events.MEDIA_ATTACHED, function () {
       hls.loadSource(url);
+      musicPlayer.muted = false;
       hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
         SpatialNavigation.enable('controls-player-music');
-        stateMusic.setTrackInPlay = track;
+        musicAlbum.setTrackInPlay(track);
       });
     });
   });
@@ -42118,7 +42153,7 @@ function MusicHome(_ref7) {
     }
   };
 
-  return /*#__PURE__*/_jsx(React.Fragment, {}, void 0, _div62 || (_div62 = /*#__PURE__*/_jsx("div", {
+  return /*#__PURE__*/_jsx(React.Fragment, {}, void 0, _div63 || (_div63 = /*#__PURE__*/_jsx("div", {
     className: "content-info-list"
   }, void 0, /*#__PURE__*/_jsx("div", {
     className: "content-title"
@@ -42163,7 +42198,7 @@ function MusicPage(_ref8) {
     id: "content-section-music"
   }, void 0, /*#__PURE__*/_jsx(MusicHome, {
     data: data
-  }))), _div63 || (_div63 = /*#__PURE__*/_jsx("div", {
+  }))), _div64 || (_div64 = /*#__PURE__*/_jsx("div", {
     className: "content-section",
     id: "music-album"
   })));
@@ -42172,10 +42207,10 @@ function MusicPage(_ref8) {
 function MusicMenu(_ref9) {
   var active = _ref9.active;
 
-  var _React$useState9 = React.useState(active),
-      _React$useState10 = _slicedToArray(_React$useState9, 2),
-      linkActive = _React$useState10[0],
-      setLinkActive = _React$useState10[1];
+  var _React$useState11 = React.useState(active),
+      _React$useState12 = _slicedToArray(_React$useState11, 2),
+      linkActive = _React$useState12[0],
+      setLinkActive = _React$useState12[1];
 
   var handleClick = function handleClick(e, section) {
     if (nativeEventValid(e) && linkActive !== section) {
@@ -42196,6 +42231,7 @@ function MusicMenu(_ref9) {
           fadeInElement(idLoaderSpinner, "0", "1", "0.2s");
           getMyPlaylists().then(function (response) {
             setLinkActive('playlists');
+            console.log(response);
             var data = {
               musicSections: [response]
             };
@@ -42319,58 +42355,72 @@ function MyPlaylistsList(_ref10) {
   })));
 }
 
+var musicPlayer = null;
+
 function MusicPlayer() {
-  React.useEffect(function () {
-    SpatialNavigation.disable('controls-player-music');
-    stateMusic.musicPlayer = document.getElementById('music-player-audio');
-  }, []);
-  return _div64 || (_div64 = /*#__PURE__*/_jsx("div", {
+  return _div65 || (_div65 = /*#__PURE__*/_jsx("div", {
     className: "music-player"
-  }, void 0, /*#__PURE__*/_jsx("audio", {
+  }, void 0, /*#__PURE__*/_jsx(PlayerMusicAudio, {}), /*#__PURE__*/_jsx(ProgressBarMusic, {}), /*#__PURE__*/_jsx(PlayerMusicControls, {})));
+}
+
+function PlayerMusicAudio() {
+  var handleEnded = function handleEnded() {
+    var nextTrack = musicAlbum.nextTrack;
+
+    if (nextTrack) {
+      playTrackMusic(nextTrack, nextTrack.regID);
+    } else {
+      document.getElementsByClassName('track')[0].focus();
+    }
+  };
+
+  React.useEffect(function () {
+    var el = document.getElementById('music-player-audio');
+    musicPlayer = new Audio(el);
+    musicPlayer.element.addEventListener('ended', handleEnded);
+  }, []);
+  return _audio2 || (_audio2 = /*#__PURE__*/_jsx("audio", {
     id: "music-player-audio",
     type: "application/x-mpegURL",
     autoPlay: true
-  }), /*#__PURE__*/_jsx(ProgressBarMusic, {}), /*#__PURE__*/_jsx("div", {
-    className: "controls",
-    id: "controls-player-music"
-  }, void 0, /*#__PURE__*/_jsx(ButtonBackward, {}), /*#__PURE__*/_jsx(ButtonPlay, {}), /*#__PURE__*/_jsx(ButtonForward, {}))));
+  }));
 }
 
 function ProgressBarMusic() {
-  var _React$useState11 = React.useState('0:00'),
-      _React$useState12 = _slicedToArray(_React$useState11, 2),
-      duration = _React$useState12[0],
-      setDuration = _React$useState12[1];
-
   var _React$useState13 = React.useState('0:00'),
       _React$useState14 = _slicedToArray(_React$useState13, 2),
-      currentTime = _React$useState14[0],
-      setCurrentTime = _React$useState14[1];
+      duration = _React$useState14[0],
+      setDuration = _React$useState14[1];
 
-  var _React$useState15 = React.useState(0),
+  var _React$useState15 = React.useState('0:00'),
       _React$useState16 = _slicedToArray(_React$useState15, 2),
-      progress = _React$useState16[0],
-      setProgress = _React$useState16[1];
+      currentTime = _React$useState16[0],
+      setCurrentTime = _React$useState16[1];
+
+  var _React$useState17 = React.useState(0),
+      _React$useState18 = _slicedToArray(_React$useState17, 2),
+      progress = _React$useState18[0],
+      setProgress = _React$useState18[1];
 
   var handleDurationChange = function handleDurationChange() {
-    var seconds = document.getElementById('music-player-audio').duration;
+    var seconds = musicPlayer.element.duration;
     var duration = transformSecondsToStringHour(seconds);
     setDuration(duration);
   };
 
   var handleTimeUpdate = function handleTimeUpdate() {
-    var seconds = document.getElementById('music-player-audio').currentTime;
+    var seconds = musicPlayer.element.currentTime;
     var currentTime = transformSecondsToStringHour(seconds);
     setCurrentTime(currentTime);
-    var duration = document.getElementById('music-player-audio').duration;
-    var current = document.getElementById('music-player-audio').currentTime;
+    var duration = musicPlayer.element.duration;
+    var current = musicPlayer.element.currentTime;
     var progress = current / duration * 100;
     setProgress(progress);
   };
 
   React.useEffect(function () {
-    document.getElementById('music-player-audio').addEventListener('durationchange', handleDurationChange);
-    document.getElementById('music-player-audio').addEventListener('timeupdate', handleTimeUpdate);
+    musicPlayer.element.addEventListener('durationchange', handleDurationChange);
+    musicPlayer.element.addEventListener('timeupdate', handleTimeUpdate);
   }, []);
   return /*#__PURE__*/_jsx("div", {
     className: "progress-container"
@@ -42388,20 +42438,30 @@ function ProgressBarMusic() {
   }, void 0, duration));
 }
 
+function PlayerMusicControls() {
+  React.useEffect(function () {
+    SpatialNavigation.disable('controls-player-music');
+  }, []);
+  return _div66 || (_div66 = /*#__PURE__*/_jsx("div", {
+    className: "controls",
+    id: "controls-player-music"
+  }, void 0, /*#__PURE__*/_jsx(ButtonBackward, {}), /*#__PURE__*/_jsx(ButtonPlay, {}), /*#__PURE__*/_jsx(ButtonForward, {})));
+}
+
 function ButtonPlay() {
-  var _React$useState17 = React.useState(false),
-      _React$useState18 = _slicedToArray(_React$useState17, 2),
-      playing = _React$useState18[0],
-      setPlaying = _React$useState18[1];
+  var _React$useState19 = React.useState(false),
+      _React$useState20 = _slicedToArray(_React$useState19, 2),
+      playing = _React$useState20[0],
+      setPlaying = _React$useState20[1];
 
   var handlePress = function handlePress(e) {
-    var player = document.getElementById('music-player-audio');
+    var player = musicPlayer.element;
 
     if (isPressEnter(e.nativeEvent)) {
       if (player !== null && player !== void 0 && player.paused) {
-        player.play();
+        musicPlayer.setPlay();
       } else {
-        player.pause();
+        musicPlayer.setPause();
       }
     }
   };
@@ -42415,8 +42475,8 @@ function ButtonPlay() {
   };
 
   React.useEffect(function () {
-    document.getElementById('music-player-audio').addEventListener('play', handlePlay);
-    document.getElementById('music-player-audio').addEventListener('pause', handlePause);
+    musicPlayer.element.addEventListener('play', handlePlay);
+    musicPlayer.element.addEventListener('pause', handlePause);
   }, []);
   return /*#__PURE__*/_jsx("div", {
     className: "button",
@@ -42424,9 +42484,9 @@ function ButtonPlay() {
     tabIndex: "-1",
     onClick: handlePress,
     onKeyDown: handlePress
-  }, void 0, !playing && (_div65 || (_div65 = /*#__PURE__*/_jsx("div", {
+  }, void 0, !playing && (_div67 || (_div67 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-play"
-  }))), playing && (_div66 || (_div66 = /*#__PURE__*/_jsx("div", {
+  }))), playing && (_div68 || (_div68 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-pause"
   }))));
 }
@@ -42434,10 +42494,26 @@ function ButtonPlay() {
 function ButtonBackward() {
   var handlePress = function handlePress(e) {
     if (isPressEnter(e)) {
-      var prevTrack = stateMusic.prevTrack;
+      if (musicPlayer.element.currentTime < 5) {
+        if (musicPlayer.random) {
+          var randomTrack = musicAlbum.randomTrack;
 
-      if (prevTrack) {
-        playTrackMusic(prevTrack, prevTrack.regID);
+          if (randomTrack) {
+            playTrackMusic(randomTrack, randomTrack.regID);
+          } else {
+            document.getElementsByClassName('track')[0].focus();
+          }
+        } else {
+          var prevTrack = musicAlbum.prevTrack;
+
+          if (prevTrack) {
+            playTrackMusic(prevTrack, prevTrack.regID);
+          } else {
+            musicPlayer.element.currentTime = 0;
+          }
+        }
+      } else {
+        musicPlayer.element.currentTime = 0;
       }
     }
   };
@@ -42448,7 +42524,7 @@ function ButtonBackward() {
     "data-sn-left": "#",
     onKeyDown: handlePress,
     onClick: handlePress
-  }, void 0, _div67 || (_div67 = /*#__PURE__*/_jsx("div", {
+  }, void 0, _div69 || (_div69 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-backward"
   })));
 }
@@ -42456,10 +42532,20 @@ function ButtonBackward() {
 function ButtonForward() {
   var handlePress = function handlePress(e) {
     if (isPressEnter(e)) {
-      var nextTrack = stateMusic.nextTrack;
+      if (musicPlayer.random) {
+        var randomTrack = musicAlbum.randomTrack;
 
-      if (nextTrack) {
-        playTrackMusic(nextTrack, nextTrack.regID);
+        if (randomTrack) {
+          playTrackMusic(randomTrack, randomTrack.regID);
+        } else {
+          document.getElementsByClassName('track')[0].focus();
+        }
+      } else {
+        var nextTrack = musicAlbum.nextTrack;
+
+        if (nextTrack) {
+          playTrackMusic(nextTrack, nextTrack.regID);
+        }
       }
     }
   };
@@ -42469,7 +42555,7 @@ function ButtonForward() {
     tabIndex: "-1",
     onKeyDown: handlePress,
     onClick: handlePress
-  }, void 0, _div68 || (_div68 = /*#__PURE__*/_jsx("div", {
+  }, void 0, _div70 || (_div70 = /*#__PURE__*/_jsx("div", {
     className: "icon fas fa-forward"
   })));
 }
@@ -42477,7 +42563,7 @@ function ButtonForward() {
 function MusicPlaylist(_ref11) {
   var data = _ref11.data;
   var regID = data.regID;
-  stateMusic.album = data;
+  musicAlbum = new Album(data);
   return /*#__PURE__*/_jsx("div", {
     className: "content-section-album",
     id: "content-section-album"
@@ -42509,12 +42595,12 @@ function InfoMusicPlaylist(_ref12) {
 }
 
 function InfoTrackPlaylist() {
-  var _React$useState19 = React.useState(null),
-      _React$useState20 = _slicedToArray(_React$useState19, 2),
-      infoTrack = _React$useState20[0],
-      setInfoTrack = _React$useState20[1];
+  var _React$useState21 = React.useState(null),
+      _React$useState22 = _slicedToArray(_React$useState21, 2),
+      infoTrack = _React$useState22[0],
+      setInfoTrack = _React$useState22[1];
 
-  stateMusic.changeInfoTrack(function (value) {
+  musicAlbum.changeInfoTrack(function (value) {
     setInfoTrack(value);
   });
   return /*#__PURE__*/_jsx("div", {
@@ -42533,22 +42619,22 @@ function InfoTrackPlaylist() {
 function ListTracksPlaylist(_ref13) {
   var playlistID = _ref13.playlistID;
 
-  var _React$useState21 = React.useState(null),
-      _React$useState22 = _slicedToArray(_React$useState21, 2),
-      data = _React$useState22[0],
-      setData = _React$useState22[1];
+  var _React$useState23 = React.useState(null),
+      _React$useState24 = _slicedToArray(_React$useState23, 2),
+      data = _React$useState24[0],
+      setData = _React$useState24[1];
 
   console.log(data);
 
-  var _React$useState23 = React.useState(null),
-      _React$useState24 = _slicedToArray(_React$useState23, 2),
-      trackActive = _React$useState24[0],
-      setTrackActive = _React$useState24[1];
+  var _React$useState25 = React.useState(null),
+      _React$useState26 = _slicedToArray(_React$useState25, 2),
+      trackActive = _React$useState26[0],
+      setTrackActive = _React$useState26[1];
 
   React.useEffect(function () {
     getMusicPlaylist(playlistID).then(function (response) {
       setData(response);
-      stateMusic.listTracks = response;
+      musicAlbum.listTracks = response;
       fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s');
       setTimeout(function () {
         document.getElementsByClassName('track')[0].focus();
@@ -42573,36 +42659,12 @@ function ListTracksPlaylist(_ref13) {
       });
     });
   }, []);
-
-  var handleClickPlayList = function handleClickPlayList(e) {
-    if (isPressEnter(e.nativeEvent)) {
-      playTrackMusic(data.tracks[0], data.tracks[0].regID);
-      document.getElementsByClassName('track')[2].focus();
-    }
-  };
-
-  stateMusic.changeListTracks(function (value) {
+  musicAlbum.changeListTracks(function (value) {
     setTrackActive(value.regID);
   });
   return /*#__PURE__*/_jsx("div", {
     className: "right-content"
-  }, void 0, data && /*#__PURE__*/_jsx("div", {
-    className: "buttons-playlist"
-  }, void 0, /*#__PURE__*/_jsx("div", {
-    className: "track btn button-play-list",
-    tabIndex: "-1",
-    onClick: handleClickPlayList,
-    onKeyDown: handleClickPlayList
-  }, void 0, _div69 || (_div69 = /*#__PURE__*/_jsx("div", {
-    className: "icon fas fa-play"
-  })), "Reproducir"), /*#__PURE__*/_jsx("div", {
-    className: "track btn button-add-songs",
-    tabIndex: "-1",
-    onClick: handleClickPlayList,
-    onKeyDown: handleClickPlayList
-  }, void 0, _div70 || (_div70 = /*#__PURE__*/_jsx("div", {
-    className: "icon fas fa-music"
-  })), "Agregar canciones")), data && /*#__PURE__*/_jsx("div", {
+  }, void 0, data && (_ButtonsPlaylist2 || (_ButtonsPlaylist2 = /*#__PURE__*/_jsx(ButtonsPlaylist, {}))), data && /*#__PURE__*/_jsx("div", {
     className: "list-tracks-album",
     id: "list-tracks-album"
   }, void 0, data.tracks ? data.tracks.map(function (track, index) {
@@ -42613,7 +42675,11 @@ function ListTracksPlaylist(_ref13) {
     }, track.regID);
   }) : _div71 || (_div71 = /*#__PURE__*/_jsx("div", {
     className: "no-songs-message"
-  }, void 0, "La playlist no tiene canciones agregadas"))), _div72 || (_div72 = /*#__PURE__*/_jsx("div", {
+  }, void 0, /*#__PURE__*/_jsx("div", {
+    className: "title"
+  }, void 0, "La playlist no tiene canciones agregadas"), /*#__PURE__*/_jsx("div", {
+    className: "subtitle"
+  }, void 0, "Navega en las secciones para agregar tus canciones favoritas")))), _div72 || (_div72 = /*#__PURE__*/_jsx("div", {
     className: "loader",
     id: "loader-list-tracks-album"
   }, void 0, /*#__PURE__*/_jsx("div", {
@@ -42629,10 +42695,10 @@ function TrackPlaylist(_ref14) {
       title = data.title,
       length = data.length;
 
-  var _React$useState25 = React.useState(false),
-      _React$useState26 = _slicedToArray(_React$useState25, 2),
-      playing = _React$useState26[0],
-      setPlaying = _React$useState26[1];
+  var _React$useState27 = React.useState(false),
+      _React$useState28 = _slicedToArray(_React$useState27, 2),
+      playing = _React$useState28[0],
+      setPlaying = _React$useState28[1];
 
   var handlePlay = function handlePlay() {
     setPlaying(true);
@@ -46265,7 +46331,8 @@ function elementIsVisible(elementId) {
 var idMusica = 'musica',
     isMusicActive = false,
     isMusicHomeActive = false,
-    isMusicAlbumActive = false;
+    isMusicAlbumActive = false,
+    musicAlbum = null;
 
 function getMusica(response) {
   fadeOutElements([idTopMenu, idMenuPrincipal], '1', '0', '0.2s');
@@ -47185,6 +47252,162 @@ function getTrackLink(trackID) {
     return error;
   });
 }
+
+var Album = /*#__PURE__*/function () {
+  function Album(album) {
+    _classCallCheck(this, Album);
+
+    this.trackInPlay = null;
+    this.album = album;
+    this.listTracks = null;
+    this.listRandom = [];
+  }
+
+  _createClass(Album, [{
+    key: "infoTrackListener",
+    value: function infoTrackListener(val) {}
+  }, {
+    key: "listTracksListener",
+    value: function listTracksListener(val) {}
+  }, {
+    key: "setTrackInPlay",
+    value: function setTrackInPlay(val) {
+      this.trackInPlay = val;
+      this.listTracksListener(val);
+      this.infoTrackListener(val);
+    }
+  }, {
+    key: "prevTrack",
+    get: function get() {
+      var _this3 = this;
+
+      var isTrack = function isTrack(element) {
+        return element.regID === _this3.trackInPlay.regID;
+      };
+
+      var index = this.listTracks.tracks.findIndex(isTrack);
+
+      if (index === 0) {
+        return;
+      }
+
+      var length = this.listTracks.tracks.length - 1;
+      var prevTrack = this.listTracks.tracks[index - 1];
+      return prevTrack;
+    }
+  }, {
+    key: "nextTrack",
+    get: function get() {
+      var _this4 = this;
+
+      var isTrack = function isTrack(element) {
+        return element.regID === _this4.trackInPlay.regID;
+      };
+
+      var index = this.listTracks.tracks.findIndex(isTrack);
+      var length = this.listTracks.tracks.length - 1;
+
+      if (index === length) {
+        return;
+      }
+
+      var nextTrack = this.listTracks.tracks[index + 1];
+      return nextTrack;
+    }
+  }, {
+    key: "randomTrack",
+    get: function get() {
+      var _this5 = this;
+
+      var lengthTracks = this.listTracks.tracks.length;
+      var lengthRandom = this.listRandom.length;
+
+      if (lengthRandom !== lengthTracks) {
+        var _ret = function () {
+          var find;
+          var random;
+          var found = true;
+
+          while (found) {
+            random = Math.floor(Math.random() * lengthTracks);
+            find = _this5.listRandom.find(function (element) {
+              return element === random;
+            });
+
+            if (find === undefined) {
+              found = false;
+            }
+
+            console.log(random);
+            console.log(find);
+          }
+
+          _this5.listRandom.push(random);
+
+          var tracks = _this5.listTracks.tracks;
+          return {
+            v: tracks[random]
+          };
+        }();
+
+        if (_typeof(_ret) === "object") return _ret.v;
+      }
+
+      return;
+    }
+  }, {
+    key: "changeInfoTrack",
+    value: function changeInfoTrack(listener) {
+      this.infoTrackListener = listener;
+    }
+  }, {
+    key: "changeListTracks",
+    value: function changeListTracks(listener) {
+      this.listTracksListener = listener;
+    }
+  }]);
+
+  return Album;
+}();
+
+var Audio = /*#__PURE__*/function () {
+  function Audio(element) {
+    _classCallCheck(this, Audio);
+
+    this.element = element;
+    this.play = false;
+    this.pause = false;
+    this.random = false;
+    this.muted = false;
+  }
+
+  _createClass(Audio, [{
+    key: "setPlay",
+    value: function setPlay() {
+      this.element.play();
+      this.play = true;
+      this.pause = false;
+    }
+  }, {
+    key: "setPause",
+    value: function setPause() {
+      this.element.pause();
+      this.play = false;
+      this.pause = true;
+    }
+  }, {
+    key: "setRandom",
+    value: function setRandom() {
+      if (this.random) {
+        this.random = false;
+      } else {
+        this.random = true;
+      }
+    }
+  }]);
+
+  return Audio;
+}();
 
 "use strict";
 

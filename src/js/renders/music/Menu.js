@@ -19,6 +19,7 @@ function MusicMenu({ active }) {
                         getMyPlaylists()
                         .then(response => {
                             setLinkActive('playlists')
+                            console.log(response)
                             const data = {
                                 musicSections: [response]
                             }

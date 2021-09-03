@@ -1,22 +1,35 @@
+let musicPlayer = null
+
 function MusicPlayer(){
-
-    React.useEffect(() => {
-        SpatialNavigation.disable('controls-player-music')
-        stateMusic.musicPlayer = document.getElementById('music-player-audio')
-    }, [])
-
     return (
         <div className="music-player">
-            <audio id="music-player-audio" type="application/x-mpegURL" autoPlay />
+            <PlayerMusicAudio />
             <ProgressBarMusic />
-            <div className="controls" id="controls-player-music">
-                <ButtonBackward />
-               
-                <ButtonPlay />
-                <ButtonForward />
-            </div>
+            <PlayerMusicControls />
         </div>
     )
+}
+
+function PlayerMusicAudio(){
+
+    const handleEnded = () => {
+        const nextTrack = musicAlbum.nextTrack
+
+        if(nextTrack){
+            playTrackMusic(nextTrack, nextTrack.regID)
+        }else{
+            document.getElementsByClassName('track')[0].focus()
+        }
+    }
+
+    React.useEffect(() => {
+        const el = document.getElementById('music-player-audio')
+        musicPlayer = new Audio(el)
+
+        musicPlayer.element.addEventListener('ended', handleEnded)
+    }, [])
+
+    return <audio id="music-player-audio" type="application/x-mpegURL" autoPlay />
 }
 
 function ProgressBarMusic(){
@@ -25,25 +38,25 @@ function ProgressBarMusic(){
     const [progress, setProgress] = React.useState(0)
 
     const handleDurationChange = () => {
-        const seconds = document.getElementById('music-player-audio').duration
+        const seconds = musicPlayer.element.duration
         const duration = transformSecondsToStringHour(seconds)
         setDuration(duration)
     }
 
     const handleTimeUpdate = () => {
-        const seconds = document.getElementById('music-player-audio').currentTime
+        const seconds = musicPlayer.element.currentTime
         const currentTime = transformSecondsToStringHour(seconds)
         setCurrentTime(currentTime)
 
-        const duration = document.getElementById('music-player-audio').duration
-        const current = document.getElementById('music-player-audio').currentTime
+        const duration = musicPlayer.element.duration
+        const current = musicPlayer.element.currentTime
         const progress = (current / duration) * 100
         setProgress(progress)
     }
 
     React.useEffect(() => {
-        document.getElementById('music-player-audio').addEventListener('durationchange', handleDurationChange)
-        document.getElementById('music-player-audio').addEventListener('timeupdate', handleTimeUpdate)
+        musicPlayer.element.addEventListener('durationchange', handleDurationChange)
+        musicPlayer.element.addEventListener('timeupdate', handleTimeUpdate)
     }, [])
 
     return (
@@ -57,17 +70,32 @@ function ProgressBarMusic(){
     )
 }
 
+function PlayerMusicControls(){
+
+    React.useEffect(() => {
+        SpatialNavigation.disable('controls-player-music')
+    }, [])
+
+    return (
+        <div className="controls" id="controls-player-music">
+            <ButtonBackward />
+            <ButtonPlay />
+            <ButtonForward />
+        </div>
+    )
+}
+
 function ButtonPlay(){
     const [playing, setPlaying] = React.useState(false)
     
     const handlePress = (e) => {
-        const player = document.getElementById('music-player-audio')
+        const player = musicPlayer.element
 
         if(isPressEnter(e.nativeEvent)){
             if(player?.paused){
-                player.play()
+                musicPlayer.setPlay()
             }else{
-                player.pause()
+                musicPlayer.setPause()
             }
         }
     }
@@ -81,8 +109,8 @@ function ButtonPlay(){
     }
 
     React.useEffect(() => {
-        document.getElementById('music-player-audio').addEventListener('play', handlePlay)
-        document.getElementById('music-player-audio').addEventListener('pause', handlePause)
+        musicPlayer.element.addEventListener('play', handlePlay)
+        musicPlayer.element.addEventListener('pause', handlePause)
     }, [])
 
     return (
@@ -101,10 +129,26 @@ function ButtonBackward(){
 
     const handlePress = (e) => {
         if(isPressEnter(e)){
-            const prevTrack = stateMusic.prevTrack
-
-            if(prevTrack){
-                playTrackMusic(prevTrack, prevTrack.regID)
+            if(musicPlayer.element.currentTime < 5){
+                if(musicPlayer.random){
+                    const randomTrack = musicAlbum.randomTrack
+        
+                    if(randomTrack){
+                        playTrackMusic(randomTrack, randomTrack.regID)
+                    }else{
+                        document.getElementsByClassName('track')[0].focus()
+                    }
+                }else{
+                    const prevTrack = musicAlbum.prevTrack
+        
+                    if(prevTrack){
+                        playTrackMusic(prevTrack, prevTrack.regID)
+                    }else{
+                        musicPlayer.element.currentTime = 0
+                    }
+                }
+            }else{
+                musicPlayer.element.currentTime = 0
             }
         }
     }
@@ -120,10 +164,20 @@ function ButtonForward(){
 
     const handlePress = (e) => {
         if(isPressEnter(e)){
-            const nextTrack = stateMusic.nextTrack
-            
-            if(nextTrack){
-                playTrackMusic(nextTrack, nextTrack.regID)
+            if(musicPlayer.random){
+                const randomTrack = musicAlbum.randomTrack
+    
+                if(randomTrack){
+                    playTrackMusic(randomTrack, randomTrack.regID)
+                }else{
+                    document.getElementsByClassName('track')[0].focus()
+                }
+            }else{
+                const nextTrack = musicAlbum.nextTrack
+    
+                if(nextTrack){
+                    playTrackMusic(nextTrack, nextTrack.regID)
+                }
             }
         }
     }
