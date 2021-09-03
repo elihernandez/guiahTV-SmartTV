@@ -19,7 +19,15 @@ function MusicMenu({ active }) {
                         getMyPlaylists()
                         .then(response => {
                             setLinkActive('playlists')
-                            console.log(response)
+                            const element = {
+                                contentType: 'add-playlist' ,
+                                title: 'Nueva playlist',
+                                description: 'Cree una nueva playlist en su perfil'
+
+                            }
+    
+                            response.playLists = [element].concat(response.playLists)
+                            
                             const data = {
                                 musicSections: [response]
                             }

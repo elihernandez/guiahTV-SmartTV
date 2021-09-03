@@ -257,6 +257,31 @@
                             display: flex;
                             flex-direction: row;
                             justify-content: flex-start;
+
+                            &.button-add-playlist{
+                                position: relative;
+                                background: #212121;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                .container-button{
+                                    position: relative;
+                                    width: 64px;
+                                    height: 64px;
+                                    background: #424242;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    border-radius: 50%;
+
+                                    .icon{
+                                        position: relative;
+                                        font-size: 32px;
+                                        color: white;
+                                    }
+                                }
+                            }
     
                             img{
                                 position: relative;

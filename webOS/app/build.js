@@ -1,4 +1,4 @@
-var _div, _div2, _div3, _div4, _div5, _div6, _i4, _i5, _div7, _div8, _div9, _div10, _div11, _div12, _div13, _div14, _div15, _div16, _div17, _div18, _div19, _div20, _h, _h2, _img, _div21, _div22, _div23, _div24, _h3, _h4, _div25, _ContCategory, _IconsLive, _FullScreenIcon, _div26, _div27, _i6, _div28, _ul, _i7, _i8, _div29, _div30, _i9, _div31, _div32, _i10, _i11, _i12, _i13, _i14, _i15, _i16, _i17, _div33, _div34, _div35, _div36, _label, _input, _div37, _div38, _div39, _div40, _div41, _div42, _div43, _div44, _div45, _i18, _ul2, _h5, _i19, _i20, _ul3, _div46, _div47, _div48, _div49, _div50, _audio, _div51, _img2, _VolumeRadio, _i21, _div52, _div53, _div54, _BackgroundSeries, _div55, _img3, _img4, _i22, _div56, _div57, _InfoTrackAlbum, _MusicPlayer, _ButtonsPlaylist, _div58, _div59, _div60, _div61, _div62, _div63, _MusicMenu, _div64, _a, _a2, _div65, _audio2, _div66, _div67, _div68, _div69, _div70, _InfoTrackPlaylist, _MusicPlayer2, _ButtonsPlaylist2, _div71, _div72, _div73, _MainInfoLogin, _RegisterInfoLogin, _FormLogin, _MenuPrincipal;
+var _div, _div2, _div3, _div4, _div5, _div6, _i4, _i5, _div7, _div8, _div9, _div10, _div11, _div12, _div13, _div14, _div15, _div16, _div17, _div18, _div19, _div20, _h, _h2, _img, _div21, _div22, _div23, _div24, _h3, _h4, _div25, _ContCategory, _IconsLive, _FullScreenIcon, _div26, _div27, _i6, _div28, _ul, _i7, _i8, _div29, _div30, _i9, _div31, _div32, _i10, _i11, _i12, _i13, _i14, _i15, _i16, _i17, _div33, _div34, _div35, _div36, _label, _input, _div37, _div38, _div39, _div40, _div41, _div42, _div43, _div44, _div45, _i18, _ul2, _h5, _i19, _i20, _ul3, _div46, _div47, _div48, _div49, _div50, _audio, _div51, _img2, _VolumeRadio, _i21, _div52, _div53, _div54, _BackgroundSeries, _div55, _img3, _img4, _i22, _div56, _div57, _InfoTrackAlbum, _MusicPlayer, _ButtonsPlaylist, _div58, _div59, _div60, _div61, _div62, _div63, _MusicMenu, _div64, _a, _a2, _div65, _audio2, _div66, _div67, _div68, _div69, _div70, _InfoTrackPlaylist, _MusicPlayer2, _ButtonsPlaylist2, _div71, _div72, _div73, _div74, _MainInfoLogin, _RegisterInfoLogin, _FormLogin, _MenuPrincipal;
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -42231,7 +42231,12 @@ function MusicMenu(_ref9) {
           fadeInElement(idLoaderSpinner, "0", "1", "0.2s");
           getMyPlaylists().then(function (response) {
             setLinkActive('playlists');
-            console.log(response);
+            var element = {
+              contentType: 'add-playlist',
+              title: 'Nueva playlist',
+              description: 'Cree una nueva playlist en su perfil'
+            };
+            response.playLists = [element].concat(response.playLists);
             var data = {
               musicSections: [response]
             };
@@ -42789,7 +42794,8 @@ function PlaylistsList(_ref15) {
   }, void 0, playLists.map(function (track) {
     var _MusicPlaylist2;
 
-    var portadaURL = track.portadaURL,
+    var contentType = track.contentType,
+        portadaURL = track.portadaURL,
         title = track.title,
         description = track.description;
 
@@ -42807,12 +42813,29 @@ function PlaylistsList(_ref15) {
       }
     };
 
+    var handleAddPlaylist = function handleAddPlaylist() {
+      alert('Crear nueva playlist');
+    };
+
     var handleInfo = function handleInfo() {
       document.querySelector('.content-title').innerHTML = title;
       document.querySelector('.content-subtitle').innerHTML = description;
     };
 
-    return /*#__PURE__*/_jsx("div", {
+    return /*#__PURE__*/_jsx(React.Fragment, {}, void 0, contentType === 'add-playlist' ? /*#__PURE__*/_jsx("div", {
+      className: "slide",
+      tabIndex: "-1",
+      onClick: handleAddPlaylist,
+      onMouseOver: handleInfo
+    }, title, /*#__PURE__*/_jsx("div", {
+      className: "cover-slide button-add-playlist",
+      onKeyDown: handleAddPlaylist,
+      onFocus: handleInfo
+    }, void 0, _div74 || (_div74 = /*#__PURE__*/_jsx("div", {
+      className: "container-button"
+    }, void 0, /*#__PURE__*/_jsx("div", {
+      className: "icon fas fa-plus"
+    }))))) : /*#__PURE__*/_jsx("div", {
       className: "slide",
       tabIndex: "-1",
       onClick: handleKeyDown,
@@ -42824,7 +42847,7 @@ function PlaylistsList(_ref15) {
     }, void 0, /*#__PURE__*/_jsx("img", {
       src: portadaURL,
       alt: "Cover de ".concat(title)
-    })));
+    }))));
   })));
 }
 

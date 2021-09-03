@@ -31,7 +31,7 @@ function PlaylistsList({ data, handleMove }){
             <div className="carousel">
                 {
                     playLists.map((track) => {
-                        const { portadaURL, title, description } = track
+                        const { contentType, portadaURL, title, description } = track
 
                         const handleKeyDown = (e) => {
                             if(nativeEventValid(e)){
@@ -48,21 +48,33 @@ function PlaylistsList({ data, handleMove }){
                             }
                         }
 
+                        const handleAddPlaylist = () => {
+                            alert('Crear nueva playlist')
+                        }
+
                         const handleInfo = () => {
                             document.querySelector('.content-title').innerHTML = title
                             document.querySelector('.content-subtitle').innerHTML = description
                         }
 
                         return (
-                            <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
-                                <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo}>
-                                    <img src={portadaURL} alt={`Cover de ${title}`} />
-                                </div>
-                                {/* <div className="info-slide">
-                                    <h2 className="title">{title}</h2>
-                                    <h3 className="description">{description}</h3>
-                                </div> */}
-                            </div>
+                            <React.Fragment>
+                                {contentType === 'add-playlist' ? (
+                                    <div key={title} className="slide" tabIndex="-1" onClick={handleAddPlaylist} onMouseOver={handleInfo}>
+                                        <div className="cover-slide button-add-playlist" onKeyDown={handleAddPlaylist} onFocus={handleInfo}>
+                                            <div className="container-button">
+                                                <div className="icon fas fa-plus"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                        <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo}>
+                                            <img src={portadaURL} alt={`Cover de ${title}`} />
+                                        </div>
+                                    </div>
+                                )}
+                            </React.Fragment>
                         )
                     })
                 }
