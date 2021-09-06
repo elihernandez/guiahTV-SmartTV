@@ -140,5 +140,8 @@ $RECYCLE.BIN/
 
 # Build Web App
 output/
+webOS/*.ipk
+webOS/app/build.js
+webOS/app/build.css
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,node
