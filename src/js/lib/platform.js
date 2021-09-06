@@ -24,7 +24,8 @@ function generatePlatformCookies(){
 	}
 
 	if(Cookies.get('type') === undefined){
-		deviceType = bowser.name+' '+bowser.version
+		// deviceType = bowser.name+' '+bowser.version
+		deviceType = ''
 		Cookies.set('type', deviceType)
 	}else{
 		deviceType = Cookies.get('type')

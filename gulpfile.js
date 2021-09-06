@@ -10,13 +10,13 @@ const postcss = require('gulp-postcss')
 function dist(cb) {
 	src([
 		'src/js/dist/axios.js',
-		// 'src/js/dist/bcrypt.js',
+		'src/js/dist/bcrypt.js',
 		'src/js/dist/hls.js',
 		'src/js/dist/jquery.js',
 		// 'src/js/dist/popper.js',
 		'src/js/dist/bootstrap.js',
 		'src/js/dist/js-cookie.js',
-		'src/js/dist/bowser.js',
+		// 'src/js/dist/bowser.js',
 		'src/js/dist/moment.js',
 		'src/js/dist/moment-timezone-with-data.js',
 		'src/js/dist/spatial-navigation.js',
