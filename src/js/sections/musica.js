@@ -8,13 +8,14 @@ function getMusica(response){
 	fadeOutElements([idTopMenu, idMenuPrincipal], '1', '0', '0.2s')
 	fadeInTranslateXElement(idMusica, '0', '1', '.2s', '0', '0', '.3s')
 	fadeOutElementDelay(idLoaderSpinner, '1', '0', '0.2s', '0.5s')
-
+	
 	renderHome(response)
 	isMusicActive = true
 	showMagicButtonBack()
 	document.getElementById('musica').addEventListener('keydown', handlePress)
 	document.getElementById('magic-button-back').addEventListener('keydown', handleMagicButton)
 	document.getElementById('magic-button-back').addEventListener('click', handleMagicButton)
+	fadeOutElement('loader-music', "0", "1", "0.2s")
 }
 
 function renderHome(response){

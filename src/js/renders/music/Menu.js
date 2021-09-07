@@ -5,17 +5,17 @@ function MusicMenu({ active }) {
         if(nativeEventValid(e) && linkActive !== section){
             switch(section){
                 case 'home':
-                    fadeInElement(idLoaderSpinner, "0", "1", "0.2s")
+                    fadeInElement('loader-music', "0", "1", "0.2s")
                     getMusicHome()
                     .then(response => {
                         setLinkActive('home')
                         ReactDOM.render("", document.getElementById('content-section-music'))
                         ReactDOM.render(<MusicHome data={response} />, document.getElementById('content-section-music'))
-                        fadeOutElementDelay(idLoaderSpinner, "1", "0", "0.2s", "0.5s")
+                        fadeOutElementDelay('loader-music', "1", "0", "0.2s", "0.5s")
                     })
                     break
                     case 'playlists':
-                        fadeInElement(idLoaderSpinner, "0", "1", "0.2s")
+                        fadeInElement('loader-music', "0", "1", "0.2s")
                         getMyPlaylists()
                         .then(response => {
                             setLinkActive('playlists')
@@ -33,7 +33,7 @@ function MusicMenu({ active }) {
                             }
                         ReactDOM.render("", document.getElementById('content-section-music'))
                         ReactDOM.render(<MusicHome data={data} />, document.getElementById('content-section-music'))
-                        fadeOutElementDelay(idLoaderSpinner, "1", "0", "0.2s", "0.5s")
+                        fadeOutElementDelay('loader-music', "1", "0", "0.2s", "0.5s")
                     })
                     break
             }

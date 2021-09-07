@@ -91,8 +91,36 @@
                 }
 
                 .content-subtitle{
+                    margin-top: 15px;
                     font-size: 24px;
                     font-weight: 600;
+                }
+
+                .form-add-playlist{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+
+                    .input{
+                        font-size: 32px;
+                        background: none;
+                        border: 3px solid transparent;
+                        border-radius: 5px;
+                        padding: 24px;
+                        width: 50%;
+
+                        &.title-playlist{ 
+                        }
+        
+                        &.description-playlist{
+                            margin-top: 24px;
+                        }
+
+                        &:hover, &:focus{
+                            border: 3px solid whitesmoke;
+                        }
+                    }
+    
                 }
             }
 
@@ -183,8 +211,8 @@
                 width: 100%;
     
                 &.list{
-                    margin-top: 35px;
-                    margin-bottom: 85px;
+                    margin-top: 56px;
+                    margin-bottom: 80px;
                 }
     
                 .name-list{
@@ -712,6 +740,27 @@
                             }
                         }
                     }
+                }
+            }
+        }
+
+        &.loader{
+            position: absolute;
+            background: black;
+            z-index: 1;
+            height: calc(100% - 20rem);
+            top: 20rem;
+
+            .loader{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+
+                .spinner{
+                    bottom: inherit;
+                    left: inherit;
                 }
             }
         }

@@ -48,8 +48,11 @@ function PlaylistsList({ data, handleMove }){
                             }
                         }
 
-                        const handleAddPlaylist = () => {
-                            alert('Crear nueva playlist')
+                        const handleAddPlaylist = (e) => {
+                            if(isPressEnter(e)){
+                                fadeOutElement('music-home', '1', '0', '150ms')
+                                fadeInElement('add-playlist', '0', '1', '150ms')
+                            }
                         }
 
                         const handleInfo = () => {

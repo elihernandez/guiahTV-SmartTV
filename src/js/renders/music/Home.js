@@ -44,7 +44,7 @@ function MusicHome({ data }){
                 <div className="content-title"></div>
                 <div className="content-subtitle"></div>
             </div> 
-            <div className="catalogue-music"> 
+            <div className="catalogue-music" id="catalogue-music"> 
                 {
                     musicSections.map((section) => {
                         const { contentType } = section
