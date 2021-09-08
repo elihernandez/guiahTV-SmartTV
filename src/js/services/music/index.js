@@ -78,3 +78,21 @@ function postMusicTrackToPlaylist(playlistID, trackID){
         return error
     })
 }
+
+function deleteMusicTrackToPlaylist(playlistID, trackID){
+
+    const body = {
+        "PlayListID": playlistID,
+        "TrackID": trackID    
+    }
+
+    return axios.delete(`https://api.guiah.tv/delete/track/${suscriberId}/1`, {
+        data: body
+    })
+    .then(response => {
+        return response.data
+    })
+    .catch(error => {
+        return error
+    })
+}

@@ -535,6 +535,25 @@
                     margin-bottom: 70px;
                 }
 
+                .buttons{
+                    position: relative;
+                    display: flex;
+
+                    .button{
+                        font-size: 24px;
+                        font-weight: 500;
+                        color: #757575;
+                        padding: 16px 48px;
+                        border-radius: 50px;
+                        margin-right: 16px;
+
+                        &:hover, &:focus{
+                            background: whitesmoke;
+                            color: black;
+                        }
+                    }
+                }
+
                 .buttons-playlist{
                     position: relative;
                     display: flex;
@@ -586,6 +605,7 @@
                     flex-direction: column;
 
                     .no-songs-message{
+                        flex-direction: column;
                     
                         .title{
                             font-size: 4rem;
@@ -1036,7 +1056,7 @@
                 color: white;
                 font-size: 24px;
                 font-weight: 600;
-                max-width: 320px;
+                max-width: 480px;
             }
         }
     }

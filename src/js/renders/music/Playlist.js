@@ -5,6 +5,7 @@ function MusicPlaylist({ data }){
     return (
         <div className="content-section-album" id="content-section-album" >
             <InfoMusicPlaylist data={data} />
+            <DeleteTrackPlaylist playlistID={regID} />
             <ListTracksPlaylist playlistID={regID} />
         </div>
     )
@@ -66,7 +67,11 @@ function ListTracksPlaylist({ playlistID }){
             setData(response)
             musicAlbum.listTracks = response
             fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s')
+        })
+    }, [])
 
+    React.useEffect(() => {
+        if(data){   
             setTimeout(() => {
                 document.getElementsByClassName('track')[0].focus()
             }, 250)
@@ -89,15 +94,23 @@ function ListTracksPlaylist({ playlistID }){
                 prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-up"></div></div>',
                 nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-down"></div></div>'
             })
-        })
-    }, [])
+        }
+    }, [data])
 
     musicAlbum.changeListTracks(value => {
         setTrackActive(value.regID)
     })
 
+    musicAlbum.changeDeleteTrack(value => {
+        console.log(value)
+        setData(null)
+        setTimeout(() => {
+            setData(value)
+        }, 100)
+    })
+
     return (
-        <div className="right-content">
+        <div className="right-content" id="list-album">
             {data &&
                 <ButtonsPlaylist />     
             }
@@ -170,7 +183,12 @@ function TrackPlaylist({ data, index, trackActive }){
 
     const handleRemoveTrackPlaylilst = (e) => {
         if(isPressEnter(e.nativeEvent)){
-
+            isAddToPlaylistActive = true
+            isMusicAlbumActive = false
+            musicAlbum.trackDelete = regID
+            fadeOutElement("list-album", "1", "0", "0.15s")
+            fadeInElement("list-add-playlist", "0", "1", "0.15s")
+            SpatialNavigation.focus('list-add-playlist')
         }
     }
 
@@ -197,6 +215,47 @@ function TrackPlaylist({ data, index, trackActive }){
             </div>
             <div class="track button-playlists dropdown-toggle" tabIndex="-1" onClick={handleRemoveTrackPlaylilst} onKeyDown={handleRemoveTrackPlaylilst}>
                 <div className="icon fas fa-minus"></div>
+            </div>
+        </div>
+    )
+}
+
+function DeleteTrackPlaylist({ playlistID }){
+
+    const handleCancel = (e) => {
+        if(isPressEnter(e.nativeEvent)){
+            cleanSectionMusic()
+        }
+    }
+
+    const handleDelete = () => {
+        const trackID = musicAlbum.trackDelete
+        deleteMusicTrackToPlaylist(playlistID, trackID)
+        .then(response => {
+            musicAlbum.setDeleteTrack(trackID)
+            showToastMessage('toast-message', 'La canción se eliminó de la playlist')
+            cleanSectionMusic()
+        })
+    }
+
+    return (
+        <div className="right-content list-add-playlist" id="list-add-playlist" style={{ "opacity": "0"}}>
+            <div className="header-text">Se va a eliminar la canción de esta playlist</div>
+            <div className="buttons">
+                <div
+                    tabIndex="-1"
+                    className="playlist button delete-button"
+                    onClick={handleDelete}
+                    onKeyDown={handleDelete}>
+                    Eliminar
+                </div>
+                <div
+                    tabIndex="-1"
+                    className="playlist button cancel-button"
+                    onClick={handleCancel}
+                    onKeyDown={handleCancel}>
+                    Cancelar
+                </div>
             </div>
         </div>
     )

@@ -316,6 +316,7 @@ function PlaylistsToAdd({ index, title, playlistID }){
             postMusicTrackToPlaylist(playlistID, trackID)
             .then(response => {
                 showToastMessage('toast-message', 'La canción se agregó a la playlist')
+                cleanSectionMusic()
             })
         }
     }

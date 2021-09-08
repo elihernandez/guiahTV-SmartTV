@@ -5,15 +5,30 @@ class Album {
         this.listTracks = null
         this.listRandom = []
         this.trackToPlaylist = null
+        this.trackDelete = null
     }
 
     infoTrackListener(val) {}
     listTracksListener(val) {}
+    deleteTrackListener(val) {}
 
     setTrackInPlay(val) {
       this.trackInPlay = val
       this.listTracksListener(val)
       this.infoTrackListener(val)
+    }
+
+    setDeleteTrack(val){
+        const tracks = this.listTracks.tracks
+        const index = tracks.findIndex(element => element.regID === val)
+        const newList = tracks.filter( function( e ) {
+            return e.regID !== val
+        })
+
+        this.listTracks.tracks = newList
+        this.listTracks.totalItems = this.listTracks.totalItems - 1
+
+        this.deleteTrackListener(this.listTracks)
     }
 
     get prevTrack(){
@@ -77,5 +92,9 @@ class Album {
 
     changeListTracks(listener) {
         this.listTracksListener = listener
+    }
+
+    changeDeleteTrack(listener) {
+        this.deleteTrackListener = listener
     }
 }
