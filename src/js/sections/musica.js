@@ -2,7 +2,10 @@ var idMusica = 'musica',
 	isMusicActive = false,
 	isMusicHomeActive = false,
 	isMusicAlbumActive = false,
-	musicAlbum = null
+	isCreatePlaylistActive = false,
+	musicAlbum = null,
+	isAddToPlaylistActive = false,
+	classMusic
 
 function getMusica(response){
 	fadeOutElements([idTopMenu, idMenuPrincipal], '1', '0', '0.2s')
@@ -11,15 +14,15 @@ function getMusica(response){
 	
 	renderHome(response)
 	isMusicActive = true
+	// classMusic = new Music(response)
 	showMagicButtonBack()
 	document.getElementById('musica').addEventListener('keydown', handlePress)
 	document.getElementById('magic-button-back').addEventListener('keydown', handleMagicButton)
 	document.getElementById('magic-button-back').addEventListener('click', handleMagicButton)
-	fadeOutElement('loader-music', "0", "1", "0.2s")
 }
 
 function renderHome(response){
-    ReactDOM.render(<MusicPage data={response} />, document.getElementById('musica'))
+	ReactDOM.render(<MusicPage data={response} />, document.getElementById('musica'))
 }
 
 function handlePress(e){
@@ -55,4 +58,21 @@ function cleanSectionMusic(){
 		isMusicAlbumActive = false
 		isMusicActive = true
 	}	
+
+	if(isCreatePlaylistActive){
+		fadeOutElement('add-playlist', '1', '0', '0.15s')
+		fadeInElement('music-home', '0', '1', '0.15s')
+		clearFormCreatePlaylist()
+		SpatialNavigation.focus('musica')
+		isCreatePlaylistActive = false
+		isMusicActive = true
+	}
+
+	if(isAddToPlaylistActive){
+		isAddToPlaylistActive = false
+		isMusicAlbumActive = true
+		fadeOutElement("list-add-playlist", "1", "0", "0.15s")
+		fadeInElement("list-album", "0", "1", "0.15s")
+		SpatialNavigation.focus('list-tracks-album')
+	}
 }

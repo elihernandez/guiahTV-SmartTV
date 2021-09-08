@@ -33,7 +33,9 @@ focusableElements = [
 	{ section: 'musica', selector: '.cover-slide', defaultElement: ''},
 	{ section: 'music-menu', selector: '.link-music-menu', defaultElement: ''},
 	{ section: 'list-tracks-album', selector: '.track', defaultElement: ''},
-	{ section: 'controls-player-music', selector: '.button', defaultElement: ''}
+	{ section: 'controls-player-music', selector: '.button', defaultElement: ''},
+	{ section: 'add-playlist', selector: '.button', defaultElement: ''},
+	{ section: 'list-add-playlist', selector: '.playlist', defaultElement: ''}
 ] 
 
 function makeNavigableSections(sections){

@@ -95,33 +95,6 @@
                     font-size: 24px;
                     font-weight: 600;
                 }
-
-                .form-add-playlist{
-                    position: relative;
-                    display: flex;
-                    flex-direction: column;
-
-                    .input{
-                        font-size: 32px;
-                        background: none;
-                        border: 3px solid transparent;
-                        border-radius: 5px;
-                        padding: 24px;
-                        width: 50%;
-
-                        &.title-playlist{ 
-                        }
-        
-                        &.description-playlist{
-                            margin-top: 24px;
-                        }
-
-                        &:hover, &:focus{
-                            border: 3px solid whitesmoke;
-                        }
-                    }
-    
-                }
             }
 
             .catalogue-music{
@@ -534,6 +507,12 @@
                 height: 100%;
                 padding-top: 65px;
 
+                &.list-add-playlist{
+                    position: absolute;
+                    right: 0;
+                    height: 920px;
+                }
+
                 .loader{
                     position: absolute;
                     width: 100%;
@@ -547,6 +526,13 @@
                         bottom: inherit;
                         left: inherit;
                     }
+                }
+
+                .header-text{
+                    font-size: 32px;
+                    font-weight: 600;
+                    color: whitesmoke;
+                    margin-bottom: 70px;
                 }
 
                 .buttons-playlist{
@@ -594,7 +580,7 @@
 
                 }
 
-                .list-tracks-album{
+                .list-tracks-album, .list-playlists-add{
                     position: relative;
                     display: flex;
                     flex-direction: column;
@@ -663,84 +649,339 @@
                         }
                     }
 
-
-                    .track{
-                        position: relative;
+                    .slick-slide{
                         display: flex;
-                        justify-content: space-between;
-                        padding: 30px 30px;
-                        height: 90px;
-                        margin: 5px 0;
 
-                        .track-index{
-                            color: whitesmoke;
-                            font-size: 24px;
-                            text-align: center;
+                        .info-track{
+                            position: relative;
                             display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            min-width: 50px;
-
-                            .button{
-                                position: relative;
-                                width: 48px;
-                                height: 48px;
-                                border-radius: 50%;
-                                border: 3px solid whitesmoke;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
+                            justify-content: space-between;
+                            padding: 30px 30px;
+                            height: 90px;
+                            margin: 5px 0;
+                            width: 90%;
     
-                                .icon{
-                                    font-size: 24px;
-                                    color: whitesmoke;
+                            .track-index{
+                                color: whitesmoke;
+                                font-size: 24px;
+                                text-align: center;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                min-width: 50px;
+    
+                                .button{
+                                    position: relative;
+                                    width: 48px;
+                                    height: 48px;
+                                    border-radius: 50%;
+                                    border: 3px solid whitesmoke;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+        
+                                    .icon{
+                                        font-size: 24px;
+                                        color: whitesmoke;
+    
+                                        &.fa-play{
+                                            position: relative;
+                                            left: 2px;
+                                        }
+                                    }
+                                }
+                            }
+    
+                            .track-title{
+                                color: whitesmoke;
+                                font-size: 24px;
+                                text-align: left;
+                                min-width: 560px;
+                                display: flex;
+                                align-items: center;
+                            }
+    
+                            .track-time{
+                                color: whitesmoke;
+                                font-size: 24px;
+                                display: flex;
+                                align-items: center;
+                            }
+    
+                            &::after{
+                                content: '';
+                                position: absolute;
+                                inset: 0px;
+                                border: 5px solid transparent;
+                                border-radius: 5px;
+                            }
+    
+                            &.active{
+                                &::after{
+                                    border: 5px solid #212121;
+                                }
+                            }
+    
+                            &:hover, &:focus{
+    
+                                &::after{
+                                    border: 5px solid whitesmoke;
+                                }
+                            }
+                        }
 
-                                    &.fa-play{
-                                        position: relative;
-                                        left: 2px;
+                        .btn-group{
+                            position: relative;
+                            display: flex !important;
+                            justify-content: center;
+                            align-items: center;
+
+                            .dropdown-menu{
+                                position: absolute;
+                                transform: translate3d(-792px, 0px, 0px) !important;
+                                top: 0px;
+                                left: 0px;
+                                will-change: transform;
+                                width: 792px;
+                                padding: 25px;
+                                background: #212121;
+
+                                .text{
+                                    font-size: 32px;
+                                    color: white;
+                                    font-weight: 600;
+                                    margin-bottom: 16px;
+                                    padding: 0 24px;
+                                }
+
+                                .dropdown-divider{
+                                    width: 100%;
+                                    height: 3px;
+                                    background: #424242;
+                                    margin-bottom: 8px;
+                                }
+
+                                .dropdown-item{
+                                    font-size: 2.4rem;
+                                    width: 100%;
+                                    background: 0 0;
+                                    border: none;
+                                    color: #f5f5f5;
+                                    text-align: left;
+                                    margin: 8px 0;
+                                    padding: 16px 24px;
+                                    border-radius: 4px;
+                                    font-weight: 500;
+
+                                    &:hover, &:focus{
+                                        background: whitesmoke;
+                                        color: black;
                                     }
                                 }
                             }
                         }
 
-                        .track-title{
-                            color: whitesmoke;
-                            font-size: 24px;
-                            text-align: left;
-                            min-width: 680px;
-                            display: flex;
-                            align-items: center;
-                        }
-
-                        .track-time{
-                            color: whitesmoke;
+                        .button-playlists{
                             font-size: 24px;
                             display: flex;
+                            justify-content: center;
                             align-items: center;
-                        }
+                            width: 10%;
+                            background: transparent;
+                            border: none;
 
-                        &::after{
-                            content: '';
-                            position: absolute;
-                            inset: 0px;
-                            border: 5px solid transparent;
-                            border-radius: 5px;
-                        }
-
-                        &.active{
-                            &::after{
-                                border: 5px solid #212121;
+                            .icon{
+                                color: whitesmoke;
+                                background: transparent;
+                                border-radius: 50%;
+                                padding: 16px;
                             }
-                        }
 
-                        &:hover, &:focus{
-
-                            &::after{
-                                border: 5px solid whitesmoke;
+                            &:hover, &:focus{
+                                .icon{
+                                    color: black;
+                                    background: whitesmoke;
+                                }
                             }
                         }
                     }
                 }
+            }
+        }
+
+        .form-add-playlist{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            .header{
+                position: relative;
+
+                .title{
+                    color: whitesmoke;
+                    font-size: 72px;
+                    font-weight: 600;
+                }
+            }
+
+            .form-content{
+                position: relative;
+                display: flex;
+                margin-top: 100px;
+
+                .left-content{
+                    position: relative;
+                    width: 40%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+    
+                    .info-album{
+                        position: relative;
+                        width: 75%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+    
+                        .cover{
+                            position: relative;
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            margin-bottom: 60px;
+                            border-radius: 5px;
+        
+                            img{
+                                position: relative;
+                                border-radius: 5px;
+                                width: 363px;
+                                height: 363px;
+                                background: #212121;
+                                object-fit: cover;
+                            }
+
+                            .info-cover{
+                                position: absolute;
+                                top: 0;
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+
+                                .icon{
+                                    font-size: 60px;
+                                    color: whitesmoke;
+                                }
+
+                                .text{
+                                    position: relative;
+                                    font-size: 32px;
+                                    color: whitesmoke;
+                                    top: 88px;
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                .right-content{
+                    position: relative;
+                    width: 60%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+    
+                    .input{
+                        font-size: 32px;
+                        background: none;
+                        border: 4px solid #212121;
+                        border-radius: 4px;
+                        padding: 24px 40px;
+                        font-weight: 500;
+                        border: 4px solid transparent;
+                        color: whitesmoke;
+
+                        &::placeholder {
+                            color: #616161;
+                        }
+        
+                        &.title-playlist{ 
+                        }
+        
+                        &.description-playlist{
+                            margin-top: 24px;
+                        }
+        
+                        &:hover, &:focus{
+                            border: 4px solid whitesmoke;
+                        }
+                    }
+
+                    .group-public{
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        padding: 2.4rem 4rem;
+                        margin-top: 24px;
+                        border: 4px solid transparent;
+
+                        input{
+                            width: 36px;
+                            height: 24px;
+                            border: none;
+                        }
+
+                        .text{
+                            font-size: 3.2rem;
+                            font-weight: 500;
+                            color: #616161;
+                            margin-left: 24px;
+                        }
+
+                        &:hover, &:focus{
+                            border: 4px solid whitesmoke;
+                        }
+                    }
+
+                    .buttons{
+                        position: relative;
+                        display: flex;
+                        margin-top: 56px;
+
+                        .button{
+                            position: relative;
+                            font-size: 3.2rem;
+                            color: whitesmoke;
+                            padding: 24px;
+                            width: auto;
+                            border-radius: 60px;
+                            min-width: 320px;
+                            text-align: center;
+                            font-weight: 500;
+
+                            &.create-button{
+                                background: #212121;
+                            }
+
+                            &.cancel-button{
+                                margin-left: 24px;
+                                color: #616161;
+                            }
+
+                            &:hover, &:focus{
+                                background: whitesmoke;
+                                color: black;
+                            }
+                        }
+                    }
+                }
+    
             }
         }
 

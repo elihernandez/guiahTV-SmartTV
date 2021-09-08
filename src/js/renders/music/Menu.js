@@ -31,10 +31,11 @@ function MusicMenu({ active }) {
                             const data = {
                                 musicSections: [response]
                             }
-                        ReactDOM.render("", document.getElementById('content-section-music'))
-                        ReactDOM.render(<MusicHome data={data} />, document.getElementById('content-section-music'))
-                        fadeOutElementDelay('loader-music', "1", "0", "0.2s", "0.5s")
-                    })
+                            
+                            ReactDOM.render("", document.getElementById('content-section-music'))
+                            ReactDOM.render(<MusicHome data={data} />, document.getElementById('content-section-music'))
+                            fadeOutElementDelay('loader-music', "1", "0", "0.2s", "0.5s")
+                        })
                     break
             }
         }

@@ -5,6 +5,7 @@ function MusicAlbum({ data }){
     return (
         <div className="content-section-album" id="content-section-album" >
             <InfoMusicAlbum data={data} />
+            <ListAddTrackPlaylist />
             <ListTracksAlbum albumID={albumID} />
         </div>
     )
@@ -97,7 +98,7 @@ function ListTracksAlbum({ albumID }){
     })
 
     return (
-        <div className="right-content">
+        <div className="right-content" id="list-album">
             {data &&       
                 <ButtonsPlaylist />
             }
@@ -207,24 +208,104 @@ function TrackAlbum({ data, index, trackActive }){
         }
     }
 
+
+    const handleAddToPlaylist = (e) => {
+        if(isPressEnter(e.nativeEvent)){
+            isAddToPlaylistActive = true
+            isMusicAlbumActive = false
+            fadeOutElement("list-album", "1", "0", "0.15s")
+            fadeInElement("list-add-playlist", "0", "1", "0.15s")
+            SpatialNavigation.focus('list-add-playlist')
+        }
+    }
+
     return (
-        <div className={`track ${trackActive === regID ? 'active' : ''}`} tabIndex="-1" onKeyDown={handlePress} onClick={handlePress} data-sn-left="#button-play-music">
-            <div className="track-index">
-                {trackActive === regID ?
-                    <div className="button">
-                        {playing ?
-                            <div className="icon fas fa-pause" />
-                            :
-                            <div className="icon fas fa-play" />
-                        }
-                    </div>
-                    :
-                    index + 1
+        <div>
+            <div className={"track info-track `${trackActive === regID ? 'active' : ''}`"} tabIndex="-1" onKeyDown={handlePress} onClick={handlePress} data-sn-left="#button-play-music">
+                <div className="track-index">
+                    {trackActive === regID ?
+                        <div className="button">
+                            {playing ?
+                                <div className="icon fas fa-pause" />
+                                :
+                                <div className="icon fas fa-play" />
+                            }
+                        </div>
+                        :
+                        index + 1
+                    }
+                </div>
+                <div className="track-title">{limitString(title, 48)}</div>
+                <div className="track-time">
+                    {transformSecondsToStringHour(length)}
+                </div>
+            </div>
+            <div class="track button-playlists dropdown-toggle" tabIndex="-1" onClick={handleAddToPlaylist} onKeyDown={handleAddToPlaylist}>
+                <div className="icon fas fa-list"></div>
+            </div>
+        </div>
+    )
+}
+
+function ListAddTrackPlaylist(){
+    const [data, setData] = React.useState(null)
+
+    React.useEffect(() => {
+        getMyPlaylists()
+        .then(response => {
+            setData(response)
+
+            $('.list-playlists-add').slick({
+                accessibility: false,
+                dots: false,
+                infinite: false,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                vertical: true,
+                verticalSwiping: false,
+                swipeToSlide: false,
+                focusOnSelect: false,
+                speed: 0,
+                autoplay: false,
+                arrows: true,
+                variableWidth: false,
+                adaptiveHeight: false,
+                prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-up"></div></div>',
+                nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-down"></div></div>'
+            })
+        })
+    }, [])
+    
+    return (
+        <div className="right-content list-add-playlist" id="list-add-playlist" style={{ "opacity": "0"}}>
+            <div className="header-text">Agregar canción a playlist</div>
+            <div className="list-playlists-add" id="list-playlists-add">
+                { data &&
+                    data.playLists.map((playlist, index) => {
+                        return <PlaylistsToAdd key={playlist.regID} title={playlist.title} index={index} />
+                    })
                 }
             </div>
-            <div className="track-title">{title}</div>
-            <div className="track-time">
-                {transformSecondsToStringHour(length)}
+        </div>
+    )
+}
+
+function PlaylistsToAdd({ index, title}){
+
+    const handleMove = (e) => {
+        if(pressDown(e)){
+            $('.list-playlists-add').slick('slickNext')
+        }
+
+        if(pressUp(e)){
+            $('.list-playlists-add').slick('slickPrev')
+        }
+    }
+
+    return (
+        <div>
+            <div className="playlist info-track" tabIndex="-1" onKeyDown={handleMove}>
+                <div className="track-title">{limitString(title, 48)}</div>
             </div>
         </div>
     )

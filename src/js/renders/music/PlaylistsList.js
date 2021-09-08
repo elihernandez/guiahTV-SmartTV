@@ -50,8 +50,11 @@ function PlaylistsList({ data, handleMove }){
 
                         const handleAddPlaylist = (e) => {
                             if(isPressEnter(e)){
+                                isCreatePlaylistActive = true
+                                isMusicActive = false 
                                 fadeOutElement('music-home', '1', '0', '150ms')
                                 fadeInElement('add-playlist', '0', '1', '150ms')
+                                document.querySelector('#add-playlist .button').focus()
                             }
                         }
 

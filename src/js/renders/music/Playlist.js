@@ -58,7 +58,6 @@ function InfoTrackPlaylist(){
 
 function ListTracksPlaylist({ playlistID }){
     const [data, setData] = React.useState(null)
-    console.log(data)
     const [trackActive, setTrackActive] = React.useState(null)
 
     React.useEffect(() => {

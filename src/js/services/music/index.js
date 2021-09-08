@@ -47,3 +47,18 @@ function getTrackLink(trackID){
         return error
     })
 }
+
+function createMusicPlaylist(title, description, isPublic){
+
+    const body = {
+        title, description, isPublic
+    }
+
+    return axios.post(`https://api.guiah.tv/post/playlist/${suscriberId}/1`, body)
+    .then(response => {
+        return response.data
+    })
+    .catch(error => {
+        return error
+    })
+}
