@@ -62,3 +62,19 @@ function createMusicPlaylist(title, description, isPublic){
         return error
     })
 }
+
+function postMusicTrackToPlaylist(playlistID, trackID){
+    
+    const body = {
+        "PlayListID": playlistID,
+        "TrackID": trackID    
+    }
+
+    return axios.post(`https://api.guiah.tv/post/track/${suscriberId}/1`, body)
+    .then(response => {
+        return response.data
+    })
+    .catch(error => {
+        return error
+    })
+}

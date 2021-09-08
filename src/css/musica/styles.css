@@ -1006,4 +1006,38 @@
             }
         }
     }
+
+    .toast-container{
+        position: absolute;
+        top: 24px;
+        right: 24px;
+
+        .toast-wrapper{
+            position: relative;
+            background: #212121;
+            padding: 32px 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+
+            .toast-head{
+                color: white;
+                font-size: 32px;
+                display: flex;
+                justify-content: flex-end; 
+                margin-right: 24px;
+
+                .icon{
+                    font-size: 32px;
+                }
+            }
+
+            .toast-message{
+                color: white;
+                font-size: 24px;
+                font-weight: 600;
+                max-width: 320px;
+            }
+        }
+    }
 }

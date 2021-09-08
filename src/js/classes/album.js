@@ -4,6 +4,7 @@ class Album {
         this.album = album
         this.listTracks = null
         this.listRandom = []
+        this.trackToPlaylist = null
     }
 
     infoTrackListener(val) {}

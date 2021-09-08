@@ -208,11 +208,11 @@ function TrackAlbum({ data, index, trackActive }){
         }
     }
 
-
     const handleAddToPlaylist = (e) => {
         if(isPressEnter(e.nativeEvent)){
             isAddToPlaylistActive = true
             isMusicAlbumActive = false
+            musicAlbum.trackToPlaylist = regID
             fadeOutElement("list-album", "1", "0", "0.15s")
             fadeInElement("list-add-playlist", "0", "1", "0.15s")
             SpatialNavigation.focus('list-add-playlist')
@@ -221,7 +221,7 @@ function TrackAlbum({ data, index, trackActive }){
 
     return (
         <div>
-            <div className={"track info-track `${trackActive === regID ? 'active' : ''}`"} tabIndex="-1" onKeyDown={handlePress} onClick={handlePress} data-sn-left="#button-play-music">
+            <div className={`track info-track ${trackActive === regID ? 'active' : ''}`} tabIndex="-1" onKeyDown={handlePress} onClick={handlePress} data-sn-left="#button-play-music">
                 <div className="track-index">
                     {trackActive === regID ?
                         <div className="button">
@@ -282,7 +282,12 @@ function ListAddTrackPlaylist(){
             <div className="list-playlists-add" id="list-playlists-add">
                 { data &&
                     data.playLists.map((playlist, index) => {
-                        return <PlaylistsToAdd key={playlist.regID} title={playlist.title} index={index} />
+                        return <PlaylistsToAdd
+                            key={playlist.regID}
+                            playlistID={playlist.regID}
+                            title={playlist.title}
+                            index={index}    
+                        />
                     })
                 }
             </div>
@@ -290,7 +295,7 @@ function ListAddTrackPlaylist(){
     )
 }
 
-function PlaylistsToAdd({ index, title}){
+function PlaylistsToAdd({ index, title, playlistID }){
 
     const handleMove = (e) => {
         if(pressDown(e)){
@@ -302,9 +307,22 @@ function PlaylistsToAdd({ index, title}){
         }
     }
 
+    const handlePress = (e) =>{
+        handleMove(e.nativeEvent)
+
+        if(isPressEnter(e.nativeEvent)){
+            const trackID = musicAlbum.trackToPlaylist
+      
+            postMusicTrackToPlaylist(playlistID, trackID)
+            .then(response => {
+                showToastMessage('toast-message', 'La canción se agregó a la playlist')
+            })
+        }
+    }
+
     return (
         <div>
-            <div className="playlist info-track" tabIndex="-1" onKeyDown={handleMove}>
+            <div className="playlist info-track" tabIndex="-1" onKeyDown={handlePress} onClick={handlePress}>
                 <div className="track-title">{limitString(title, 48)}</div>
             </div>
         </div>

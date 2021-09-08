@@ -155,25 +155,48 @@ function TrackPlaylist({ data, index, trackActive }){
         handleMove(e.nativeEvent)
 
         if(isPressEnter(e.nativeEvent)){
-            SpatialNavigation.disable('controls-player-music')
-            playTrackMusic(data, regID)
+            if(musicAlbum.trackInPlay?.regID === regID){
+                if(musicPlayer.play){
+                    musicPlayer.setPause()
+                }else{
+                    musicPlayer.setPlay()
+                }
+            }else{
+                SpatialNavigation.disable('controls-player-music')
+                playTrackMusic(data, regID)
+            }
+        }
+    }
+
+    const handleRemoveTrackPlaylilst = (e) => {
+        if(isPressEnter(e.nativeEvent)){
+
         }
     }
 
     return (
-        <div className={`track ${trackActive === regID ? 'active' : ''}`} tabIndex="-1" onKeyDown={handlePress} onClick={handlePress} data-sn-left="#button-play-music">
-            <div className="track-index">
-                {trackActive === regID ?
-                    <div className="button">
-                        <div className="icon fas fa-pause" />
-                    </div>
-                    :
-                    index + 1
-                }
+        <div>
+            <div className={`track info-track ${trackActive === regID ? 'active' : ''}`} tabIndex="-1" onKeyDown={handlePress} onClick={handlePress} data-sn-left="#button-play-music">
+                <div className="track-index">
+                    {trackActive === regID ?
+                        <div className="button">
+                            {playing ?
+                                <div className="icon fas fa-pause" />
+                                :
+                                <div className="icon fas fa-play" />
+                            }
+                        </div>
+                        :
+                        index + 1
+                    }
+                </div>
+                <div className="track-title">{limitString(title, 48)}</div>
+                <div className="track-time">
+                    {transformSecondsToStringHour(length)}
+                </div>
             </div>
-            <div className="track-title">{title}</div>
-            <div className="track-time">
-                {transformSecondsToStringHour(length)}
+            <div class="track button-playlists dropdown-toggle" tabIndex="-1" onClick={handleRemoveTrackPlaylilst} onKeyDown={handleRemoveTrackPlaylilst}>
+                <div className="icon fas fa-minus"></div>
             </div>
         </div>
     )
