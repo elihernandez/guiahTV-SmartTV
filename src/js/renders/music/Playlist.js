@@ -102,7 +102,6 @@ function ListTracksPlaylist({ playlistID }){
     })
 
     musicAlbum.changeDeleteTrack(value => {
-        console.log(value)
         setData(null)
         setTimeout(() => {
             setData(value)
@@ -229,13 +228,15 @@ function DeleteTrackPlaylist({ playlistID }){
     }
 
     const handleDelete = () => {
-        const trackID = musicAlbum.trackDelete
-        deleteMusicTrackToPlaylist(playlistID, trackID)
-        .then(response => {
-            musicAlbum.setDeleteTrack(trackID)
-            showToastMessage('toast-message', 'La canción se eliminó de la playlist')
-            cleanSectionMusic()
-        })
+        if(isPressEnter(e.nativeEvent)){
+            const trackID = musicAlbum.trackDelete
+            deleteMusicTrackToPlaylist(playlistID, trackID)
+            .then(response => {
+                musicAlbum.setDeleteTrack(trackID)
+                showToastMessage('toast-message', 'La canción se eliminó de la playlist')
+                cleanSectionMusic()
+            })
+        }
     }
 
     return (
