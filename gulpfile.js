@@ -10,7 +10,7 @@ const postcss = require('gulp-postcss')
 function dist(cb) {
 	src([
 		'src/js/dist/axios.js',
-		// 'src/js/dist/bcrypt.js',
+		'src/js/dist/bcrypt.js',
 		'src/js/dist/hls.js',
 		'src/js/dist/jquery.js',
 		// 'src/js/dist/popper.js',
@@ -27,6 +27,7 @@ function dist(cb) {
 		'src/js/dist/react.js',	
 		'src/js/dist/react-dom.js',
 		'src/js/dist/slick.js',
+		'src/js/dist/store.js'
 	])
 		.pipe(concat('dist.js'))
 		.pipe(dest('output/'))

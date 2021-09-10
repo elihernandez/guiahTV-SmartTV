@@ -1,5 +1,5 @@
-function isTizenOS(){
-    if(typeof webapis !== 'undefined'){
+function isTizenOS() {
+    if (typeof webapis !== 'undefined') 
         // var downloadRequest = new tizen.DownloadRequest('http://download.tizen.org/tools/README.txt', 'downloads');
 
         // tizen.systeminfo.getPropertyValue('NETWORK', function(networkInfo) {
@@ -50,7 +50,7 @@ function isTizenOS(){
         //         var successCallback = function() {
         //             webapis.avplay.play(); 
         //         }
-                
+
         //         var errorCallback = function() {
         //         console.log('The media has failed to prepare');
         //         }
@@ -58,7 +58,7 @@ function isTizenOS(){
         //         webapis.avplay.prepare(successCallback,errorCallback);
         //     },
         //     error: function() {
-             
+
         //     }
         // }); 
         tizen.tvinputdevice.registerKey('ColorF0Red');
@@ -68,16 +68,16 @@ function isTizenOS(){
     return false;
 }
 
-function getInfoTizen(callback){
+function getInfoTizen(callback) {
     try {
         listenerID = webapis.network.addNetworkStateChangeListener(onChange);
     } catch (e) {
         console.log("addNetworkStateChangeListener exception [" + e.code
-         + "] name: " + e.name + " message: " + e.message);
+            + "] name: " + e.name + " message: " + e.message);
     }
-    
+
     if (listenerID > -1) {
-        console.log("addNetworkStateChangeListener success listener ID ["+ listenerID + "] ");
+        console.log("addNetworkStateChangeListener success listener ID [" + listenerID + "] ");
     }
 
     validateNetwork();
@@ -88,7 +88,7 @@ function getInfoTizen(callback){
     return callback();
 }
 
-function getTizenUUID(){
+function getTizenUUID() {
     try {
         var value = webapis.appcommon.getUuid();
         console.log("Uuid value = " + value);
@@ -101,10 +101,10 @@ function getTizenUUID(){
             // Older firmware and models do not support this method
             // Consider using a legacy method
         }
-    }   
+    }
 }
 
-function getTizenDeviceInfo(){
+function getTizenDeviceInfo() {
     try {
         deviceType = webapis.productinfo.getModel();
         deviceFirmwareVersion = webapis.productinfo.getFirmware();
@@ -116,11 +116,11 @@ function getTizenDeviceInfo(){
     }
 }
 
-var onChange = function(data) {
+var onChange = function (data) {
     console.log("[NetworkStateChangedCallback] data :" + data + " changed");
 }
 
-function getConnectionType(){
+function getConnectionType() {
     var connType = null;
     var retVal = null;
     var data = null;
@@ -128,26 +128,26 @@ function getConnectionType(){
     try {
         retVal = webapis.network.getActiveConnectionType();
     } catch (e) {
-        console.error("getActiveConnectionType exception [" + e.code + "] message: " + e.message );
+        console.error("getActiveConnectionType exception [" + e.code + "] message: " + e.message);
     }
 
     if (null != retVal) {
-        switch(retVal) {
-            case webapis.network.NetworkActiveConnectionType.DISCONNECTED :
+        switch (retVal) {
+            case webapis.network.NetworkActiveConnectionType.DISCONNECTED:
                 connType = "DISCONNECTED";
-                data = {value: 0, type: connType}
+                data = { value: 0, type: connType }
                 break;
-            case webapis.network.NetworkActiveConnectionType.WIFI :
+            case webapis.network.NetworkActiveConnectionType.WIFI:
                 connType = "WIFI";
-                data = {value: 1, type: connType}
+                data = { value: 1, type: connType }
                 break;
-            case webapis.network.NetworkActiveConnectionType.CELLULAR :
+            case webapis.network.NetworkActiveConnectionType.CELLULAR:
                 connType = "CELLULAR";
-                data = {value: 2, type: connType}
+                data = { value: 2, type: connType }
                 break;
-            case webapis.network.NetworkActiveConnectionType.ETHERNET :
+            case webapis.network.NetworkActiveConnectionType.ETHERNET:
                 connType = "ETHERNET";
-                data = {value: 3, type: connType}
+                data = { value: 3, type: connType }
                 break;
             default:
                 connType = "Error";
@@ -157,11 +157,11 @@ function getConnectionType(){
 }
 
 var validate = 0;
-function validateNetwork(){
-    if(isTizenOS()){
+function validateNetwork() {
+    if (isTizenOS()) {
         var data = getConnectionType();
-        console.log("Active Connection Type: "+ data.type);
-        switch(data.value){
+        console.log("Active Connection Type: " + data.type);
+        switch (data.value) {
             case 0:
                 return false;
             case 1:

@@ -1,6 +1,28 @@
 "use strict"
 console.log(navigator.userAgent)
 
+const initialStore = { 
+	count: 0 
+}
+
+const store = Kel(initialStore)
+
+const COUNT_CHANGE = 'countChange'
+
+store.on(COUNT_CHANGE, ({ count }) => {
+	console.log(count)
+})
+
+// window.addEventListener("click", function () {
+// 	store.emit(COUNT_CHANGE, ({ count }) => 
+// 		({ count: count + 1 })
+// 	)
+// })
+
+// window.addEventListener("click", function () {
+//   store.emit(COUNT_CHANGE, ({ count }) => ({ count: count - 1 }))
+// })
+
 var urlGetApi = 'https://lap55.com/json/api/',
 	timeoutGetApi = 15000,
 	minTime = 2000,
