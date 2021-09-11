@@ -117,7 +117,7 @@ function pressButtonLogin(e) {
 				showMainPageLogin(13)
 			}
 		}
-
+		
 		if(pressBack(e.nativeEvent)){
 			if(button.classList.contains('button-username') || button.classList.contains('button-password')){
 				if(isWebOS() && !keyboardStateEvent.visibility){

@@ -10,7 +10,6 @@ const postcss = require('gulp-postcss')
 function dist(cb) {
 	src([
 		'src/js/dist/axios.js',
-		'src/js/dist/bcrypt.js',
 		'src/js/dist/hls.js',
 		'src/js/dist/jquery.js',
 		// 'src/js/dist/popper.js',
@@ -91,6 +90,9 @@ function build(cb) {
 		'output/classes.js',
 		'output/app.js'
 	])
+		.pipe(babel().on('error', function(error){
+			console.log(error)
+		}))
 		.pipe(concat('build.js'))
 		.pipe(dest('output/'))
 		.on('end', () => cb())
@@ -98,11 +100,9 @@ function build(cb) {
 
 function dev(cb) {
 	src([
-		'output/build.js'
+		'output/build.js',
+		'src/js/dist/bcrypt.js',
 	])
-		.pipe(babel().on('error', function(error){
-			console.log(error)
-		}))
 		.pipe(concat('build.js'))
 		.pipe(dest('webOS/app/'))
 		.on('end', () => cb())
@@ -110,11 +110,9 @@ function dev(cb) {
 
 function prod(cb) {
 	src([
-		'output/build.js'
+		'output/build.js',
+		'src/js/dist/bcrypt.js',
 	])
-		.pipe(babel().on('error', function(error){
-			console.log(error)
-		}))
 		.pipe(concat('build.js'))
 		.pipe(uglify())
 		.pipe(dest('webOS/app/'))

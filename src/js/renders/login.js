@@ -122,14 +122,14 @@ function FormLogin() {
 	)
 }
 
-function LoginMessageFailed() {
+function LoginMessageFailed({ message }) {
 	return (
 		<div className="container-section">
 			<div className="logo">
 				<i className="fas fa-times"></i>
 			</div>
 			<div className="title">
-				<h2 id="message-failed-login" className="fw-700 message-failed">{this.props.message}</h2>
+				<h2 id="message-failed-login" className="fw-700 message-failed">{message}</h2>
 			</div>
 			<div className="subtitle">
 				<h3 className="fw-400">Lo sentimos, tu nombre de usuario o contraseña es incorrecto. <br/>Por favor intenta otra vez.</h3>

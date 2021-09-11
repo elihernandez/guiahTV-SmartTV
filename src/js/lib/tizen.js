@@ -1,5 +1,5 @@
 function isTizenOS() {
-    if (typeof webapis !== 'undefined') 
+    if (typeof webapis !== 'undefined') {
         // var downloadRequest = new tizen.DownloadRequest('http://download.tizen.org/tools/README.txt', 'downloads');
 
         // tizen.systeminfo.getPropertyValue('NETWORK', function(networkInfo) {
