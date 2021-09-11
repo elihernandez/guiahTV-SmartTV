@@ -1,0 +1,16 @@
+{
+  "id": "com.guiahtv.smarttv",
+  "version": "2.0.1",
+  "versioncode": 2,
+  "vendor": "Leon Rev SA de CV",
+  "type": "web",
+  "main": "index.html",
+  "title": "Guíah TV",
+  "bgColor": "#00acec",
+  "iconColor": "#00acec",
+  "icon": "assets/images/iconcolor80x80.png",
+  "largeIcon": "assets/images/iconcolor130x130.png",
+  "resolution": "1920x1080",
+  "disableBackHistoryAPI": false,
+  "handlesRelaunch": true
+}

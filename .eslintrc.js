@@ -1,7 +1,7 @@
 module.exports = {
 	'env': {
 		'browser': true,
-		'es2021': false,
+		'es2021': true,
 		'node': true
 	},
 	'extends': [
@@ -10,10 +10,10 @@ module.exports = {
 	],
 	'parserOptions': {
 		'ecmaFeatures': {
-			'jsx': false
+			'jsx': true
 		},
-		// 'ecmaVersion': 12,
-		// 'sourceType': 'module'
+		'ecmaVersion': 12,
+		'sourceType': 'module'
 	},
 	'plugins': [
 		'react'
@@ -38,6 +38,7 @@ module.exports = {
 		'react/prop-types': [
 			'off'
 		],
+		'react/react-in-jsx-scope': 'off',
 		'no-mixed-spaces-and-tabs': 0
 	}
 }

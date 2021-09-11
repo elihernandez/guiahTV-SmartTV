@@ -1,16 +1,43 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtract = require('mini-css-extract-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const RemoveStrictPlugin = require('remove-strict-webpack-plugin' )
-// const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-// const CompressionPlugin = require('compression-webpack-plugin')
 
 const javascriptRules = {
 	test: /\.(js|jsx|ts|tsx)$/,
 	exclude: /node_modules/,
 	use: {
-		loader: 'babel-loader'
+		loader: 'babel-loader',
+		options: {
+			presets: [
+				'@babel/preset-react',
+				[
+					'@babel/preset-env',
+					{
+						'useBuiltIns': 'entry',
+						'targets': {
+							chrome: 18
+						},
+						'modules': false,
+						'forceAllTransforms': true
+					}
+				],
+				['minify', { builtIns: false }]
+				
+			],
+			plugins: [
+				'@babel/transform-runtime',
+				'@babel/plugin-proposal-optional-chaining',
+				'@babel/plugin-transform-react-constant-elements',
+				'@babel/plugin-transform-react-inline-elements',
+				['@babel/plugin-transform-modules-commonjs', {
+					'strictMode': false
+				}],
+			]
+		}
 	}
 }
 
@@ -50,17 +77,22 @@ const fontsRules = {
 }
 
 const developmentPlugins = [
-	new RemoveStrictPlugin()
+	new CssMinimizerPlugin(),
+	new RemoveStrictPlugin(),
 ]
 
 const productionPlugins = [
 	new RemoveStrictPlugin(),
-	new CssMinimizerPlugin()
+	new CleanWebpackPlugin(),
+	new CompressionPlugin(),
+	new CssMinimizerPlugin(),
 ]
 
 module.exports = (_env, { mode }) => ({
+	entry: 'src/main.js',
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(process.cwd(), __dirname + '/build'),
+		publicPath: 'build/',
 	},
 	watch: (mode === 'production' ? false : true),
 	optimization: {
@@ -75,16 +107,15 @@ module.exports = (_env, { mode }) => ({
 		]
 	},
 	devServer: {
-		overlay: true,
-		compress: true
+		historyApiFallback: false
 	},
-	// devtool: 'source-map',
 	plugins: [
 		...(mode === 'production' ? productionPlugins : developmentPlugins),
 		new HtmlWebpackPlugin({
-			favicon: 'src/assets/images/logos/guiahtv/favicon.ico',
+			favicon: './src/assets/images/logos/guiahtv/favicon.ico',
 			title: 'Guíah TV | Un espacio de fe',
-			template: 'src/index.html'
+			template: './src/index.html',
+			filename: '../index.html',
 		}),
 		new MiniCSSExtract({
 			filename: '[name].min.css',
