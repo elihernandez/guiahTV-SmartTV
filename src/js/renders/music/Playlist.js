@@ -227,7 +227,7 @@ function DeleteTrackPlaylist({ playlistID }){
         }
     }
 
-    const handleDelete = () => {
+    const handleDelete = (e) => {
         if(isPressEnter(e.nativeEvent)){
             const trackID = musicAlbum.trackDelete
             deleteMusicTrackToPlaylist(playlistID, trackID)
