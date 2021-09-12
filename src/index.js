@@ -10,7 +10,7 @@ require('./js/dist/hls')
 require('./js/dist/js-cookie')
 require('./js/dist/spatial-navigation')
 require('./js/dist/transition')
-require('./js/dist/slick')
+// require('./js/dist/slick')
 
 ReactDOM.render(
 	<App />,

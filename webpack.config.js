@@ -62,7 +62,7 @@ module.exports = (_env, { mode }) => ({
 	output: {
 		path: path.resolve(__dirname, 'build'),
 	},
-	watch: (mode === 'production' ? false : true),
+	// watch: (mode === 'production' ? false : true),
 	optimization: {
 		minimize:  (mode === 'production' ? true : false),
 	},
@@ -75,8 +75,9 @@ module.exports = (_env, { mode }) => ({
 		]
 	},
 	devServer: {
-		overlay: true,
-		compress: true
+		compress: true,
+		open: true,
+		port: 9000
 	},
 	// devtool: 'source-map',
 	plugins: [
