@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
 import iconColor80 from './assets/iconcolor80x80.png'
 import iconColor130 from './assets/iconcolor130x130.png'
 import './styles.css'
