@@ -9,7 +9,7 @@ import VodPage from './pages/Vod'
 import RadioPage from './pages/Radio'
 import MusicPage from './pages/Music'
 import ZonaKids from './pages/ZonaKids'
-
+import { MainLoader } from './components/Loader'
 export const App = () => {
 
 	useEffect(() => {
@@ -21,7 +21,7 @@ export const App = () => {
 	}
 
 	return (
-		<>
+		<div className="main-section">
 			<div className="top-menu">
 				<ul className="list-links">
 					<li className="link-menu" onClick={() => handleClick('home')}>Home</li>
@@ -38,7 +38,8 @@ export const App = () => {
 			<RadioPage />
 			<MusicPage />
 			<ZonaKids />
-		</>
+			<MainLoader />
+		</div>
 	)
 }
 

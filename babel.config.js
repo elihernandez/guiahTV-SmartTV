@@ -6,9 +6,9 @@ module.exports = function(api) {
 		[
 			'@babel/preset-env',
 			{
-				'useBuiltIns': 'entry',
+				// 'useBuiltIns': 'usage',
 				// 'corejs': '3.6.4',
-				'modules': false,
+				'modules': 'auto',
 				// 'forceAllTransforms': true,
 				'targets': {
 					chrome: '28',
@@ -26,11 +26,17 @@ module.exports = function(api) {
 	]
 
 	const plugins = [
-		// '@babel/transform-runtime',
 		'transform-remove-strict-mode',
+		// ['@babel/transform-runtime',
+		// 	{
+		// 		'regenerator': true
+		// 	}
+		// ],
+		'@babel/plugin-transform-async-to-generator',
 		'@babel/plugin-proposal-optional-chaining',
 		'@babel/plugin-transform-react-constant-elements',
 		'@babel/plugin-transform-react-inline-elements',
+		'@babel/plugin-proposal-export-default-from'
 		// ['@babel/plugin-transform-modules-commonjs', {
 		//   'strictMode': false
 		// }],

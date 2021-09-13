@@ -2,6 +2,7 @@
 let topMenu = document.getElementById('top-menu')
 topMenu.parentNode.removeChild(topMenu)
 
+import 'babel-polyfill'
 import ReactDOM from 'react-dom'
 import App from './App'
 

@@ -1,22 +1,21 @@
 import { useEffect } from 'react'
-import { router } from '../../router'
-import { $ } from '../../utils/dom'
+import useRouter from '../../hooks/useRouter'
+import useAxios from '../../hooks/useAxios'
 import { fadeInElement, fadeOutElement } from '../../utils/transition'
+import { $ } from '../../utils/dom'
 
 export default function HomePage(){
+	const axios = useAxios()
+	useRouter({ route: 'home', el: '#home', 'loader': '.main-loader'})
 
 	useEffect(() => {
-		const el = $('#home')
-	
-		router.on('/home', () => {}, {
-			after() {
-				fadeInElement(el, '0', '1', '.1s')
-			},
-			leave(done){
-				fadeOutElement(el, '1', '0', '.1s')
-				done()
-			}
-		})
+		const domLoader  = $('.main-loader')
+		fadeInElement(domLoader, '0', '1', '150ms')
+		axios.fetchData({ section: 'spotlight' })
+			.then(response => {
+				console.log(response)
+				fadeOutElement(domLoader, '1', '0', '150ms')
+			})
 	}, [])
 
 	return (
