@@ -5,6 +5,12 @@ import './styles.css'
 import { $ } from './utils/dom'
 import Navigo from 'navigo'
 const router = new Navigo('/')
+import HomePage from './pages/Home'
+import LiveTvPage from './pages/LiveTv'
+import VodPage from './pages/Vod'
+import RadioPage from './pages/Radio'
+import MusicPage from './pages/Music'
+import ZonaKids from './pages/ZonaKids'
 
 export const App = () => {
 	const { pathname } = window.location
@@ -54,24 +60,12 @@ export const App = () => {
 					<li className="link-menu" onClick={() => handleClick('zonakids')}>Zona kids</li>
 				</ul>
 			</div>
-			<div id="home" style={{ 'opacity': '0', 'display': 'none'}}>
-				<div className="welcome-message">Home</div>
-			</div>
-			<div id="livetv" style={{ 'opacity': '0', 'display': 'none'}}>
-				<div className="welcome-message">Live TV</div>
-			</div>
-			<div id="vod" style={{ 'opacity': '0', 'display': 'none'}}>
-				<div className="welcome-message">Vod</div>
-			</div>
-			<div id="radio" style={{ 'opacity': '0', 'display': 'none'}}>
-				<div className="welcome-message">Radio</div>
-			</div>
-			<div id="music" style={{ 'opacity': '0', 'display': 'none'}}>
-				<div className="welcome-message">Music</div>
-			</div>
-			<div id="zonakids" style={{ 'opacity': '0', 'display': 'none'}}>
-				<div className="welcome-message">Zona Kids</div>
-			</div>
+			<HomePage />
+			<LiveTvPage />
+			<VodPage />
+			<RadioPage />
+			<MusicPage />
+			<ZonaKids />
 		</>
 	)
 }
