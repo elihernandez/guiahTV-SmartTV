@@ -75,7 +75,7 @@ module.exports = (_env, { mode }) => ({
 		]
 	},
 	devServer: {
-		compress: true,
+		compress: false,
 		open: true,
 		port: 9000
 	},
