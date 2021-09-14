@@ -11,6 +11,7 @@ function MusicPage({ data }) {
             <div className="content-section" id="add-playlist" style={{ "opacity": "0", "display": "none" }}>
                 <AddPlaylist />
             </div>
+            <div className="content-section" id="music-artist" style={{ "opacity": "0", "display": "none" }} />
             <div className="content-section loader" id='loader-music' style={{ "opacity": "0", "display": "none" }}>
                 <div className='loader'>
                     <div className='spinner'></div>

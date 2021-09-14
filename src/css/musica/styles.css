@@ -179,154 +179,155 @@
                 }
             }
     
-            .tracks-list, .playlists-list{
+        }
+
+        .tracks-list, .playlists-list{
+            position: relative;
+            width: 100%;
+
+            &.list{
+                margin-top: 56px;
+                margin-bottom: 80px;
+            }
+
+            .name-list{
+                color: whitesmoke;
+                font-size: 40px;
+                font-weight: 600;
+                margin-top: 0;
+                margin-bottom: 3rem;
+            }
+
+            .carousel{
                 position: relative;
                 width: 100%;
-    
-                &.list{
-                    margin-top: 56px;
-                    margin-bottom: 80px;
+                height: auto;
+
+                .slick-list{
+                    overflow: inherit;
                 }
-    
-                .name-list{
-                    color: whitesmoke;
-                    font-size: 40px;
-                    font-weight: 600;
-                    margin-top: 0;
-                    margin-bottom: 3rem;
+
+                .slick-track{
+                    margin: 0;
                 }
-    
-                .carousel{
+ 
+                .slick-arrow{
+                    display: flex !important;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1;
+
+                    &.slick-prev{
+                        left: -80px;
+                        width: 80px;
+                        height: 100%;
+                        background: linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent);
+                    }
+
+                    &.slick-next{
+                        right: -80px;
+                        width: 100px;
+                        height: 100%;
+                        background: linear-gradient(270deg, rgba(0, 0, 0, 0.75), transparent);
+                    }
+
+                    &::before{
+                        content: '';
+                    }
+
+                    .icon{
+                        font-size: 35px;
+                        color: white;
+                    }
+
+                    &.slick-disabled{
+                        .icon{
+                            display: none;
+                        }
+                    }
+                }
+
+                .slide{
                     position: relative;
                     width: 100%;
-                    height: auto;
+                    height: 270px;
+                    padding-right: 20px;
 
-                    .slick-list{
-                        overflow: inherit;
-                    }
-    
-                    .slick-track{
-                        margin: 0;
-                    }
-     
-                    .slick-arrow{
-                        display: flex !important;
-                        align-items: center;
-                        justify-content: center;
-                        z-index: 1;
-
-                        &.slick-prev{
-                            left: -80px;
-                            width: 80px;
-                            height: 100%;
-                            background: linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent);
-                        }
-
-                        &.slick-next{
-                            right: -80px;
-                            width: 100px;
-                            height: 100%;
-                            background: linear-gradient(270deg, rgba(0, 0, 0, 0.75), transparent);
-                        }
-    
-                        &::before{
-                            content: '';
-                        }
-
-                        .icon{
-                            font-size: 35px;
-                            color: white;
-                        }
-
-                        &.slick-disabled{
-                            .icon{
-                                display: none;
-                            }
-                        }
-                    }
-    
-                    .slide{
+                    .cover-slide{
                         position: relative;
                         width: 100%;
                         height: 270px;
-                        padding-right: 20px;
-    
-                        .cover-slide{
-                            position: relative;
-                            width: 100%;
-                            height: 270px;
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: flex-start;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
 
-                            &.button-add-playlist{
+                        &.button-add-playlist{
+                            position: relative;
+                            background: #212121;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .container-button{
                                 position: relative;
-                                background: #212121;
+                                width: 64px;
+                                height: 64px;
+                                background: #424242;
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
+                                border-radius: 50%;
 
-                                .container-button{
+                                .icon{
                                     position: relative;
-                                    width: 64px;
-                                    height: 64px;
-                                    background: #424242;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    border-radius: 50%;
-
-                                    .icon{
-                                        position: relative;
-                                        font-size: 32px;
-                                        color: white;
-                                    }
-                                }
-                            }
-    
-                            img{
-                                position: relative;
-                                width: 100%;
-                                height: 100%;
-                                border-radius: 3px;
-                                object-fit: cover;
-                            }
-    
-                            &::after{
-                                content: '';
-                                position: absolute;
-                                inset: 0px;
-                                border: 5px solid transparent;
-                                border-radius: 3px;
-                            }
-                            
-                            &:hover, &:focus{
-                                &::after{
-                                    border: 5px solid whitesmoke;
+                                    font-size: 32px;
+                                    color: white;
                                 }
                             }
                         }
-    
-                        .info-slide{
+
+                        img{
                             position: relative;
                             width: 100%;
-    
-                            .title{
-                                color: whitesmoke;
-                                font-size: 18px;
+                            height: 100%;
+                            border-radius: 3px;
+                            object-fit: cover;
+                        }
+
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            inset: 0px;
+                            border: 5px solid transparent;
+                            border-radius: 3px;
+                        }
+                        
+                        &:hover, &:focus{
+                            &::after{
+                                border: 5px solid whitesmoke;
                             }
-    
-                            .album{
-                                color: #bdbdbd;
-                                font-size: 16px;
-                                margin-top: 0;
-                            }
-    
-                            .description{
-                                color: #bdbdbd;
-                                font-size: 16px;
-                                margin-top: 0;
-                            }
+                        }
+                    }
+
+                    .info-slide{
+                        position: relative;
+                        width: 100%;
+
+                        .title{
+                            color: whitesmoke;
+                            font-size: 24px;
+                        }
+
+                        .album{
+                            color: #bdbdbd;
+                            font-size: 16px;
+                            margin-top: 0;
+                        }
+
+                        .description{
+                            color: #bdbdbd;
+                            font-size: 16px;
+                            margin-top: 0;
                         }
                     }
                 }
@@ -829,6 +830,61 @@
             }
         }
 
+        .content-section-artist{
+            position: relative;
+            width: 100%;
+
+            .artist-content{
+                position: relative;
+                width: 100%;
+
+                .info-artist{
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                    align-items: flex-end;
+
+                    .cover{
+                        position: relative;
+
+                        img{
+                            position: relative;
+                            width: 340px;
+                            height: 340px;
+                            border-radius: 8px;
+                        }
+                    }
+
+                    .info{
+                        position: relative;
+                        font-size: 32px;
+                        color: #757575;
+                        bottom: 48px;
+                        margin-left: 32px;
+
+                        .artist-title{
+                            font-size: 72px;
+                            font-weight: 600;
+                            color: whitesmoke;
+                        }
+                    }
+                }
+            }
+
+            .music-menu{
+                margin-top: 48px;
+            }
+
+            .info-artist{
+                padding: 32px;
+
+                .description{
+                    font-size: 24px;
+                    color: whitesmoke;
+                }
+            }
+        }
+
         .form-add-playlist{
             position: relative;
             display: flex;
@@ -1010,7 +1066,7 @@
             background: black;
             z-index: 1;
             height: calc(100% - 20rem);
-            top: 20rem;
+            /* top: 20rem; */
 
             .loader{
                 width: 100%;

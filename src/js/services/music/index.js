@@ -96,3 +96,14 @@ function deleteMusicTrackToPlaylist(playlistID, trackID){
         return error
     })
 }
+
+function getMusicArtist(artistID){
+
+    return axios.get(`https://api.guiah.tv/get/artist/${artistID}`)
+    .then(response => {
+        return response.data
+    })
+    .catch(error => {
+        return error
+    })
+}

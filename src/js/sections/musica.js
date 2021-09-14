@@ -5,6 +5,7 @@ var idMusica = 'musica',
 	isCreatePlaylistActive = false,
 	musicAlbum = null,
 	isAddToPlaylistActive = false,
+	isMusicArtistActive = false,
 	classMusic
 
 function getMusica(response){

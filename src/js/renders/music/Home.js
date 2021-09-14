@@ -47,15 +47,17 @@ function MusicHome({ data }){
             <div className="catalogue-music" id="catalogue-music"> 
                 {
                     musicSections.map((section) => {
-                        const { contentType } = section
+                        const { contentType, title } = section
             
                         switch(contentType){
                             case 'tracks':
-                            return <TracksList key={section.title} data={section} handleMove={handleMove} />
+                            return <TracksList key={title} data={section} handleMove={handleMove} />
                             case 'playlists':
-                            return <PlaylistsList key={section.title} data={section} handleMove={handleMove} />
+                            return <PlaylistsList key={title} data={section} handleMove={handleMove} />
                             case 'myplaylists':
-                            return <MyPlaylistsList key={section.title} data={section} handleMove={handleMove} />
+                            return <MyPlaylistsList key={title} data={section} handleMove={handleMove} />
+                            case 'artists':
+                            return <ArtistsList key={title} data={section} handleMove={handleMove} />
                         }
                     })
                 }

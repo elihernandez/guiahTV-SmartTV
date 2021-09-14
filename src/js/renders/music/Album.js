@@ -26,7 +26,7 @@ function InfoMusicAlbum({ data }){
                     <InfoTrackAlbum />
                     <MusicPlayer />
                 </div>
-            </div> 
+        </div> 
     )
 }
 
