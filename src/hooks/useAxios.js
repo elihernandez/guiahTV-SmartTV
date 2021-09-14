@@ -8,6 +8,7 @@ import { validateSuscription } from '../utils/auth'
 
 export default function useAxios(){
 	// const userToken = useSelector(state => state.user.userToken)
+	const userToken = ''
 	const [loading, setLoading] = useState(true)
 	const [count, setCount] = useState(0)
 
@@ -17,12 +18,20 @@ export default function useAxios(){
 		}
 	}
 
-	const fetchData = useCallback(async ({ section, params = {} }) => {
+	const get = useCallback(async (section, params = {}, body = {}) => {
+		return await fetchData('get', section, params, body)
+	}, [count])
+
+	const fetchData = async (type, section, params, body) => {
 		try{
 			setLoading(true)
-			const userToken = ''
 			const url = getURL(section, userToken, params)
-			const response = await axios.get(url)
+
+			const listFetchs = {
+				'get': await axios.get(url, body)
+			}
+		
+			const response = listFetchs[type]
 			const suscriptionStatus = validateSuscription(response)
 			
 			switch(suscriptionStatus){
@@ -47,16 +56,16 @@ export default function useAxios(){
 			setLoading(false)
 			return response
 		}catch(e){
-			const code = parseInt(e.message)
-			const listErrors = {
-				0: 'No se pudo obtener la información, intente de nuevo.',
-				1: 'Sesión no válida, favor de iniciar nueva sesión.',
-				2: 'No se pudo obtener la información, intente de nuevo.',
-				3: 'No se pudo obtener la información, intente de nuevo.',
-				4: 'Hay un problema en la conexión a internet.',
-				5: 'Hay un problema en la conexión a internet.',
-				6: 'Hay un problema en la conexión a internet.',
-			}
+			// const code = parseInt(e.message)
+			// const listErrors = {
+			// 	0: 'No se pudo obtener la información, intente de nuevo.',
+			// 	1: 'Sesión no válida, favor de iniciar nueva sesión.',
+			// 	2: 'No se pudo obtener la información, intente de nuevo.',
+			// 	3: 'No se pudo obtener la información, intente de nuevo.',
+			// 	4: 'Hay un problema en la conexión a internet.',
+			// 	5: 'Hay un problema en la conexión a internet.',
+			// 	6: 'Hay un problema en la conexión a internet.',
+			// }
 
 			// const error = listErrors[code] || 'Error desconocido'
 			// setLoading(false)
@@ -76,11 +85,11 @@ export default function useAxios(){
 			// 	throw(<ErrorComponent.ErrorSession message={error} />)
 			// }
 		}
-	}, [count])
+	}
 
 	return {
 		loading,
 		count,
-		fetchData
+		get
 	}
 }
