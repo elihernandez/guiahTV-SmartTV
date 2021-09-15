@@ -1,6 +1,4 @@
 function AlbumsList({ data }){
-    console.log(data)
-
     React.useEffect(() => {
         setTimeout(() => {
             $('.albums').slick({
@@ -35,19 +33,19 @@ function AlbumsList({ data }){
                             if(nativeEventValid(e)){
                                 isMusicActive = false
                                 isMusicArtistActive = true
+
+                                album.albumTitle = album.title
+
                                 ReactDOM.render(
-                                    <MusicArtist data={artist} />,
-                                    document.getElementById('music-artist')
+                                    <MusicAlbum data={album} />,
+                                    document.getElementById('music-album')
                                 )
-                                fadeOutElement('music-home', '1', '0', '150ms')
-                                fadeInElement('music-artist', '0', '1', '150ms')
+                                fadeOutElement('music-artist', '1', '0', '150ms')
+                                fadeInElement('music-album', '0', '1', '150ms')
                             }
                         }
 
-                        const handleInfo = () => {
-                            {/* document.querySelector('.content-title').innerHTML = limitString(title, 40)
-                            document.querySelector('.content-subtitle').innerHTML = '' */}
-                        }
+                        const handleInfo = () => {}
 
                         return (
                             <div key={albumID} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>

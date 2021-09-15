@@ -111,6 +111,10 @@ function ButtonPlay(){
     React.useEffect(() => {
         musicPlayer.element.addEventListener('play', handlePlay)
         musicPlayer.element.addEventListener('pause', handlePause)
+
+        $('.button').on('sn:willunfocus', (e) => {
+            console.log(e.originalEvent.detail)
+        })
     }, [])
 
     return (

@@ -27,7 +27,7 @@ function ArtistsList({ data, handleMove }){
             <div className="carousel">
                 {
                     artists.map((artist) => {
-                        const { artistID, title, portadaURL } = artist
+                        const { title, portadaURL } = artist
 
                         const handleKeyDown = (e) => {
                             if(nativeEventValid(e)){

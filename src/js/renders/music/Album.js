@@ -12,7 +12,7 @@ function MusicAlbum({ data }){
 }
 
 function InfoMusicAlbum({ data }){
-    const { title, albumTitle, albumID, artists, portadaURL } = data
+    const { albumTitle, portadaURL } = data
 
     return (
         <div className="left-content">
@@ -224,7 +224,7 @@ function TrackAlbum({ data, index, trackActive }){
             <div className={`track info-track ${trackActive === regID ? 'active' : ''}`} tabIndex="-1" onKeyDown={handlePress} onClick={handlePress} data-sn-left="#button-play-music">
                 <div className="track-index">
                     {trackActive === regID ?
-                        <div className="button">
+                        <div className="btn">
                             {playing ?
                                 <div className="icon fas fa-pause" />
                                 :
@@ -273,11 +273,15 @@ function ListAddTrackPlaylist(){
                 prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-up"></div></div>',
                 nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-down"></div></div>'
             })
+
+            setTimeout(() => {
+                document.getElementById('list-add-playlist').style.display = 'none'
+            }, 1000)
         })
     }, [])
     
     return (
-        <div className="right-content list-add-playlist" id="list-add-playlist" style={{ "opacity": "0"}}>
+        <div className="right-content list-add-playlist" id="list-add-playlist" style={{ "opacity": "0" }}>
             <div className="header-text">Agregar canción a playlist</div>
             <div className="list-playlists-add" id="list-playlists-add">
                 { data &&

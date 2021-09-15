@@ -75,8 +75,8 @@ function MusicMenuArtist({ active }){
 }
 
 function AlbumsArtist({ data }){
-    console.log(data)
     const { albums } = data
+
     return (
         <div className="content-artist albums-artist" id="albums-artist">
             <AlbumsList data={albums} />
