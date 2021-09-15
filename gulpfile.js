@@ -10,7 +10,7 @@ const postcss = require('gulp-postcss')
 function dist(cb) {
 	src([
 		'src/js/dist/axios.js',
-		'src/js/dist/hls.js',
+		// 'src/js/dist/hls.js',
 		'src/js/dist/jquery.js',
 		// 'src/js/dist/popper.js',
 		'src/js/dist/bootstrap.js',
@@ -100,8 +100,9 @@ function build(cb) {
 
 function dev(cb) {
 	src([
-		'output/build.js',
+		'src/js/dist/hls.js',
 		'src/js/dist/bcrypt.js',
+		'output/build.js'
 	])
 		.pipe(concat('build.js'))
 		.pipe(dest('webOS/app/'))
@@ -110,8 +111,9 @@ function dev(cb) {
 
 function prod(cb) {
 	src([
-		'output/build.js',
+		'src/js/dist/hls.js',
 		'src/js/dist/bcrypt.js',
+		'output/build.js'
 	])
 		.pipe(concat('build.js'))
 		.pipe(uglify())

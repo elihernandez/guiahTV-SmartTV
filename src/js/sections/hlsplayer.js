@@ -186,6 +186,7 @@ function setupPlayer(response){
 		hls.on(Hls.Events.MEDIA_ATTACHED, function () {
 			hls.loadSource(videoTagSrc)
 			hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+				console.log(data)
 				// console.log("Manifest Parsed");
 				videoTag.addEventListener('playing', playingVideoTag)
 				videoTag.addEventListener('pause', pauseVideoTag)
@@ -193,11 +194,11 @@ function setupPlayer(response){
 				videoTag.addEventListener('timeupdate', timeupdateVideoTag)
 				videoTag.addEventListener('error', errorVideoTag)
 				initVideoPlayer()
-				resumeVideo()
-               
+				resumeVideo() 
 			})
 		})
 		hls.on(Hls.Events.ERROR, function(event, data){
+			console.log(data)
 			if(data.details == 'manifestLoadError'){
 				validateErrorHlsMovies()
 				errorVideo = true
@@ -440,6 +441,7 @@ function initVideoPlayer(){
 	// clearAudios();
 	// clearSubtitles();
 	// console.log("Init Video Player");
+	console.log('Hola')
 	isShowInfoPlayer = false
 	fadeOutElement('bb-video-player', '1', '0', '0.3s')
 	document.getElementById('info-name-movie').innerHTML = actualVideo.movie.Title
