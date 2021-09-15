@@ -6,7 +6,9 @@ var idMusica = 'musica',
 	musicAlbum = null,
 	isAddToPlaylistActive = false,
 	isMusicArtistActive = false,
-	classMusic
+	classMusic,
+	musicHistory = [],
+	indexActive = 0
 
 function getMusica(response){
 	fadeOutElements([idTopMenu, idMenuPrincipal], '1', '0', '0.2s')
@@ -24,6 +26,7 @@ function getMusica(response){
 
 function renderHome(response){
 	ReactDOM.render(<MusicPage data={response} />, document.getElementById('musica'))
+	setHistoryMusic('music-home')
 }
 
 function handlePress(e){
@@ -39,8 +42,8 @@ function handleMagicButton(e){
 }
 
 function cleanSectionMusic(){
-	if(isMusicActive){
-		isMusicActive = false
+
+	if(indexActive === 0){
 		fadeInElement(idLoaderSpinner, "0", "1", "0.15s")
 		fadeOutElement(idMusica, "1", "0", "0.15s")
 		getMenuPrincipal([idLoaderSpinner], false)
@@ -49,31 +52,49 @@ function cleanSectionMusic(){
 		document.getElementById('musica').removeEventListener('keydown', handlePress)
 		document.getElementById('magic-button-back').removeEventListener('keydown', handleMagicButton)
 		document.getElementById('magic-button-back').removeEventListener('click', handleMagicButton)
+		musicHistory = []
 	}
 
-	if(isMusicAlbumActive){
-		fadeOutElement('music-album', '1', '0', '0.15s')
-		fadeInElement('music-home', '0', '1', '0.15s')
-		SpatialNavigation.focus('musica')
-		ReactDOM.render('', document.getElementById('music-album'))	
-		isMusicAlbumActive = false
-		isMusicActive = true
-	}	
+	const prevSection = musicHistory[indexActive - 1]
+	const currentSection = musicHistory[indexActive]
 
-	if(isCreatePlaylistActive){
-		fadeOutElement('add-playlist', '1', '0', '0.15s')
-		fadeInElement('music-home', '0', '1', '0.15s')
-		clearFormCreatePlaylist()
-		SpatialNavigation.focus('musica')
-		isCreatePlaylistActive = false
-		isMusicActive = true
-	}
+	fadeOutElement(currentSection, '1', '0', '150ms')
+    fadeInElement(prevSection, '0', '1', '150ms')
+	musicHistory.pop()
+	indexActive = musicHistory.length - 1
 
-	if(isAddToPlaylistActive){
-		isAddToPlaylistActive = false
-		isMusicAlbumActive = true
+	if(currentSection === 'list-add-playlist'){
 		fadeOutElement("list-add-playlist", "1", "0", "0.15s")
 		fadeInElement("list-album", "0", "1", "0.15s")
-		SpatialNavigation.focus('list-tracks-album')
+		SpatialNavigation.focus('list-tracks-album') 
+		return
 	}
+
+	if(currentSection === 'music-album'){
+		ReactDOM.render('', document.getElementById('music-album'))	
+	}
+
+	if(currentSection === 'music-artist'){
+		ReactDOM.render('', document.getElementById('music-artist'))	
+	}
+
+	if(prevSection === 'music-artist'){
+		SpatialNavigation.focus('music-artist')
+	}
+
+	if(prevSection === 'music-home'){
+		SpatialNavigation.focus('musica')
+	}
+}
+
+function setHistoryMusic(sectionID){
+    musicHistory.push(sectionID)
+    indexActive = musicHistory.length - 1
+}
+
+function fadeElementMusic(sectionID){
+	const currentSection = musicHistory[indexActive]
+	fadeOutElement(currentSection, '1', '0', '150ms')
+    fadeInElement(sectionID, '0', '1', '150ms')
+	setHistoryMusic(sectionID)
 }

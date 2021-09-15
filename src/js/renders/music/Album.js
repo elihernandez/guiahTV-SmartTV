@@ -210,8 +210,7 @@ function TrackAlbum({ data, index, trackActive }){
 
     const handleAddToPlaylist = (e) => {
         if(isPressEnter(e.nativeEvent)){
-            isAddToPlaylistActive = true
-            isMusicAlbumActive = false
+            setHistoryMusic('list-add-playlist')
             musicAlbum.trackToPlaylist = regID
             fadeOutElement("list-album", "1", "0", "0.15s")
             fadeInElement("list-add-playlist", "0", "1", "0.15s")

@@ -31,14 +31,11 @@ function ArtistsList({ data, handleMove }){
 
                         const handleKeyDown = (e) => {
                             if(nativeEventValid(e)){
-                                isMusicActive = false
-                                isMusicArtistActive = true
                                 ReactDOM.render(
                                     <MusicArtist data={artist} />,
                                     document.getElementById('music-artist')
                                 )
-                                fadeOutElement('music-home', '1', '0', '150ms')
-                                fadeInElement('music-artist', '0', '1', '150ms')
+                                fadeElementMusic('music-artist')
                             }else{
                                 handleMove(e)
                             }

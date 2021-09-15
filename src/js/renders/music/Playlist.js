@@ -182,8 +182,7 @@ function TrackPlaylist({ data, index, trackActive }){
 
     const handleRemoveTrackPlaylilst = (e) => {
         if(isPressEnter(e.nativeEvent)){
-            isAddToPlaylistActive = true
-            isMusicAlbumActive = false
+            setHistoryMusic('list-add-playlist')
             musicAlbum.trackDelete = regID
             fadeOutElement("list-album", "1", "0", "0.15s")
             fadeInElement("list-add-playlist", "0", "1", "0.15s")

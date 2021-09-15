@@ -35,14 +35,12 @@ function PlaylistsList({ data, handleMove }){
 
                         const handleKeyDown = (e) => {
                             if(nativeEventValid(e)){
-                                isMusicActive = false
-                                isMusicAlbumActive = true
                                 ReactDOM.render(
                                     <MusicPlaylist data={track} />,
                                     document.getElementById('music-album')
                                 )
-                                fadeOutElement('music-home', '1', '0', '150ms')
-                                fadeInElement('music-album', '0', '1', '150ms')
+
+                                fadeElementMusic('music-album')
                             }else{
                                 handleMove(e)
                             }
@@ -50,10 +48,7 @@ function PlaylistsList({ data, handleMove }){
 
                         const handleAddPlaylist = (e) => {
                             if(isPressEnter(e)){
-                                isCreatePlaylistActive = true
-                                isMusicActive = false 
-                                fadeOutElement('music-home', '1', '0', '150ms')
-                                fadeInElement('add-playlist', '0', '1', '150ms')
+                                fadeElementMusic('add-playlist')
                                 document.querySelector('#add-playlist .button').focus()
                             }
                         }

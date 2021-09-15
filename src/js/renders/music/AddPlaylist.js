@@ -13,14 +13,20 @@ function AddPlaylist(){
                     if(response.regID){
                         getMusicPlaylist(response.regID)
                         .then(response => {
-                            isCreatePlaylistActive = false
-                            isMusicAlbumActive = true
                             ReactDOM.render(
                                 <MusicPlaylist data={response} />,
                                 document.getElementById('music-album')
                             )
-                            fadeOutElement('add-playlist', '1', '0', '150ms')
-                            fadeInElement('music-album', '0', '1', '150ms')
+
+                            function removeItemFromArr( arr, item ) {
+                                return arr.filter( function( e ) {
+                                    return e !== item
+                                })
+                            }
+
+                            fadeElementMusic('music-album')
+                            musicHistory = removeItemFromArr( musicHistory, 'add-playlist' );
+                            indexActive = musicHistory.length - 1
                             clearFormCreatePlaylist()
                         })
                     }else{

@@ -7,7 +7,6 @@ function MusicArtist({ data }){
         .then(response => {
             setArtist(response)
             fadeOutElementDelay('loader-music', '1', '0', '0.2s', '0.5s')
-            document.get
         })
     }, [])
 

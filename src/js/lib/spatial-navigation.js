@@ -31,6 +31,7 @@ focusableElements = [
 	{ section: 'configurations-right-section', selector: '.crs-item', defaultElement: '' },
 	{ section: 'magic-button-back', selector: '.button-back', defaultElement: '' },
 	{ section: 'musica', selector: '.cover-slide', defaultElement: ''},
+	{ section: 'music-artist', selector: '.cover-slide', defaultElement: ''},
 	{ section: 'music-menu', selector: '.link-music-menu', defaultElement: ''},
 	{ section: 'list-tracks-album', selector: '.track', defaultElement: ''},
 	{ section: 'controls-player-music', selector: '.button', defaultElement: ''},

@@ -40,14 +40,12 @@ function TracksList({ data, handleMove }){
 
                         const handleKeyDown = (e) => {
                             if(nativeEventValid(e)){
-                                isMusicActive = false
-                                isMusicAlbumActive = true
                                 ReactDOM.render(
                                     <MusicAlbum data={track} />,
                                     document.getElementById('music-album')
                                 )
-                                fadeOutElement('music-home', '1', '0', '150ms')
-                                fadeInElement('music-album', '0', '1', '150ms')
+
+                                fadeElementMusic('music-album')
                             }else{
                                 handleMove(e)
                             }
@@ -63,10 +61,6 @@ function TracksList({ data, handleMove }){
                                 <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo}>
                                     <img src={portadaURL} alt={`Cover de ${title}`} />
                                 </div>
-                                {/* <div className="info-slide">
-                                    <h2 className="title">{title}</h2>
-                                    <h3 className="album">{albumTitle}</h3>
-                                </div> */}
                             </div>
                         )
                     })

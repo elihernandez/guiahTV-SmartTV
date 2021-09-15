@@ -16,8 +16,10 @@ function AlbumsList({ data }){
                 prevArrow: '<div class="slick-prev"><div class="icon fas fa-chevron-left"></div></div>',
                 nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-right"></div></div>'
             })
-            document.querySelector('#albums-artist .cover-slide')[0].focus()
         }, 50)
+        setTimeout(() => {
+            SpatialNavigation.focus('music-artist')
+        }, 500)
     }, [])
 
     return (
@@ -31,17 +33,14 @@ function AlbumsList({ data }){
 
                         const handleKeyDown = (e) => {
                             if(nativeEventValid(e)){
-                                isMusicActive = false
-                                isMusicArtistActive = true
-
                                 album.albumTitle = album.title
 
                                 ReactDOM.render(
                                     <MusicAlbum data={album} />,
                                     document.getElementById('music-album')
                                 )
-                                fadeOutElement('music-artist', '1', '0', '150ms')
-                                fadeInElement('music-album', '0', '1', '150ms')
+
+                                fadeElementMusic('music-album')
                             }
                         }
 
