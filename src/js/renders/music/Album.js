@@ -177,6 +177,8 @@ function TrackAlbum({ data, index, trackActive }){
     }
 
     React.useEffect(() => {
+        console.log('Hola')
+        SpatialNavigation.disable('controls-player-music')
         document.getElementById('music-player-audio').addEventListener('play', handlePlay)
         document.getElementById('music-player-audio').addEventListener('pause', handlePause)
     }, [])

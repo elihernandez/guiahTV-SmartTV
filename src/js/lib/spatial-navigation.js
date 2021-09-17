@@ -54,18 +54,22 @@ function makeSectionFocus(section){
 function addNavigableElementsToSpatialNavigation(elements){
 	elements.forEach(function(element, index) {
 		if(element.defaultElement){
-			SpatialNavigation.add(element.section,{
+			SpatialNavigation.add(element.section, {
 				selector: element.selector,
 				rrememberSource: true,
 				enterTo: 'default-element',
 				disabled: false,
+				// straightOnly: true,
+				// restrict: 'self-only',
 				defaultElement: element.defaultElement
 			})
 		}else{
-			SpatialNavigation.add(element.section,{
+			SpatialNavigation.add(element.section, {
 				selector: element.selector,
 				rememberSource: true,
 				enterTo: 'last-focused',
+				// straightOnly: true,
+				// restrict: 'self-only',
 				disabled: false
 			})
 		}

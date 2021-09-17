@@ -101,7 +101,9 @@ function ButtonPlay(){
     }
 
     const handlePlay = () => {
-        setPlaying(true)
+        if(musicPlayer.trackInPlay){
+            setPlaying(true)
+        }
     }
 
     const handlePause = () => {
