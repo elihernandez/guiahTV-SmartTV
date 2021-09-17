@@ -16,7 +16,7 @@ export default function LiveTv(){
 			.then(response => {
 				console.log(response)
 				fadeInElement(el, '0', '1', '150ms')
-				fadeOutElement(loader, '1', '0', '150ms')
+				fadeOutElement(loader, '1', '0', '150ms', '1000ms')
 			})
 	}
 
