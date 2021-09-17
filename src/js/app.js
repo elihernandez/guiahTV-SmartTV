@@ -86,7 +86,7 @@ function startGuiahTv(){
 			sectionLoginActive = true
 			fadeInElement(idLoginPage, '0', '1', '0.2s')
 			showMainPageLogin(13)
-			fadeOutElementDelay(idLoaderLogo, '1', '0', '0.2s', '0.5s')
+			// fadeOutElementDelay(idLoaderLogo, '1', '0', '0.2s', '0.5s')
 		}
 	})
 }
