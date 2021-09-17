@@ -28,7 +28,6 @@ function AlbumsList({ data }){
             <div className="carousel albums">
                 {
                     data.map((album) => {
-                        console.log(album)
                         const { albumID, title, portadaURL } = album
 
                         const handleKeyDown = (e) => {

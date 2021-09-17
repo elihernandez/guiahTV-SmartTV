@@ -26,7 +26,7 @@ function ArtistsList({ data, handleMove }){
             <h1 className="name-list">{title}</h1>
             <div className="carousel">
                 {
-                    artists.map((artist) => {
+                    artists.map((artist, index) => {
                         const { title, portadaURL } = artist
 
                         const handleKeyDown = (e) => {
@@ -43,7 +43,27 @@ function ArtistsList({ data, handleMove }){
 
                         const handleInfo = () => {
                             document.querySelector('.content-title').innerHTML = limitString(title, 40)
-                            document.querySelector('.content-subtitle').innerHTML = ''
+                            document.querySelector('.content-subtitle').innerHTML = ' '
+                        }
+
+                        if(index === 0){
+                            return (
+                                <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-left="#">
+                                        <img src={portadaURL} alt={`Cover de ${title}`} />
+                                    </div>
+                                </div>
+                            )
+                        }
+
+                        if(index === artists.length - 1){
+                            return (
+                                <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-right="#">
+                                        <img src={portadaURL} alt={`Cover de ${title}`} />
+                                    </div>
+                                </div>
+                            )
                         }
 
                         return (

@@ -73,8 +73,8 @@ function AddPlaylist(){
                     </div>
                 </div>
                 <div className="right-content">
-                    <input id="create-name-playlist" className="button input title-playlist" type="text" placeholder="Nombre de playlist" tabIndex="-1" />
-                    <input id="create-description-playlist" className="button input description-playlist" type="text" placeholder="Descripción de playlist (opcional)" tabIndex="-1" />
+                    <input id="create-name-playlist" className="button input title-playlist" type="text" placeholder="Nombre" tabIndex="-1" />
+                    <input id="create-description-playlist" className="button input description-playlist" type="text" placeholder="Descripción (opcional)" tabIndex="-1" />
                     <div className="button group-public" tabIndex="-1" onClick={handlePublic} onKeyDown={handlePublic}>
                         <input type="checkbox" id="create-public-playlist" />
                         <div className="text">Hacer pública</div>

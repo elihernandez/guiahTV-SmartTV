@@ -31,7 +31,7 @@ function MyPlaylistsList({ data, handleMove }){
             <h1 className="name-list">{title}</h1>
             <div className="carousel">
                 {
-                    playLists.map((track) => {
+                    playLists.map((track, index) => {
                         const { portadaURL, title, description } = track
                         
                         const handleKeyDown = (e) => {
@@ -49,7 +49,27 @@ function MyPlaylistsList({ data, handleMove }){
 
                         const handleInfo = () => {
                             document.querySelector('.content-title').innerHTML = title
-                            document.querySelector('.content-subtitle').innerHTML = description
+                            document.querySelector('.content-subtitle').innerHTML = description === '' ? description : ' '
+                        }
+
+                        if(index === 0){    
+                            return (
+                                <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-left="#">
+                                        <img src={portadaURL} alt={`Cover de ${title}`} />
+                                    </div>
+                                </div>
+                            )
+                        }
+
+                        if(index === playLists.length - 1){    
+                            return (
+                                <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-right="#">
+                                        <img src={portadaURL} alt={`Cover de ${title}`} />
+                                    </div>
+                                </div>
+                            )
                         }
 
                         return (

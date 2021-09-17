@@ -159,7 +159,7 @@ function ButtonBackward(){
 
     return (
         <div className="button" tabIndex="-1" data-sn-left="#" onKeyDown={handlePress} onClick={handlePress}>
-            <div className="icon fas fa-backward" />
+            <div className="icon fas fa-step-backward" />
         </div>
     )
 }
@@ -188,7 +188,7 @@ function ButtonForward(){
 
     return (
         <div className="button" tabIndex="-1" onKeyDown={handlePress} onClick={handlePress}>
-            <div className="icon fas fa-forward" />
+            <div className="icon fas fa-step-forward" />
         </div>
     )
 }

@@ -30,7 +30,7 @@ function PlaylistsList({ data, handleMove }){
             <h1 className="name-list">{title}</h1>
             <div className="carousel">
                 {
-                    playLists.map((track) => {
+                    playLists.map((track, index) => {
                         const { contentType, portadaURL, title, description } = track
 
                         const handleKeyDown = (e) => {
@@ -55,27 +55,47 @@ function PlaylistsList({ data, handleMove }){
 
                         const handleInfo = () => {
                             document.querySelector('.content-title').innerHTML = title
-                            document.querySelector('.content-subtitle').innerHTML = description
+                            document.querySelector('.content-subtitle').innerHTML = description === '' ? description : ' '
+                        }
+
+                        if(contentType === 'add-playlist'){
+                            return (
+                                <div key={title} className="slide" tabIndex="-1" onClick={handleAddPlaylist} onMouseOver={handleInfo}>
+                                    <div className="cover-slide button-add-playlist" onKeyDown={handleAddPlaylist} onFocus={handleInfo} data-sn-left="#">
+                                        <div className="container-button">
+                                            <div className="icon fas fa-plus"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+
+                        if(index === 0){
+                            return (
+                                 <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-left="#">
+                                        <img src={portadaURL} alt={`Cover de ${title}`} />
+                                    </div>
+                                </div>
+                            )
+                        }
+
+                        if(index === playLists.length - 1){
+                            return (
+                                 <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-right="#">
+                                        <img src={portadaURL} alt={`Cover de ${title}`} />
+                                    </div>
+                                </div>
+                            )
                         }
 
                         return (
-                            <React.Fragment>
-                                {contentType === 'add-playlist' ? (
-                                    <div key={title} className="slide" tabIndex="-1" onClick={handleAddPlaylist} onMouseOver={handleInfo}>
-                                        <div className="cover-slide button-add-playlist" onKeyDown={handleAddPlaylist} onFocus={handleInfo}>
-                                            <div className="container-button">
-                                                <div className="icon fas fa-plus"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
-                                        <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo}>
-                                            <img src={portadaURL} alt={`Cover de ${title}`} />
-                                        </div>
-                                    </div>
-                                )}
-                            </React.Fragment>
+                            <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo}>
+                                    <img src={portadaURL} alt={`Cover de ${title}`} />
+                                </div>
+                            </div>
                         )
                     })
                 }

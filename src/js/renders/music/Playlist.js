@@ -195,7 +195,7 @@ function TrackPlaylist({ data, index, trackActive }){
             <div className={`track info-track ${trackActive === regID ? 'active' : ''}`} tabIndex="-1" onKeyDown={handlePress} onClick={handlePress} data-sn-left="#button-play-music">
                 <div className="track-index">
                     {trackActive === regID ?
-                        <div className="button">
+                        <div className="btn">
                             {playing ?
                                 <div className="icon fas fa-pause" />
                                 :
@@ -239,7 +239,7 @@ function DeleteTrackPlaylist({ playlistID }){
     }
 
     return (
-        <div className="right-content list-add-playlist" id="list-add-playlist" style={{ "opacity": "0"}}>
+        <div className="right-content list-add-playlist" id="list-add-playlist" style={{ "opacity": "0", "display": "none" }}>
             <div className="header-text">Se va a eliminar la canción de esta playlist</div>
             <div className="buttons">
                 <div

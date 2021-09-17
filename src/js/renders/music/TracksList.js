@@ -26,7 +26,7 @@ function TracksList({ data, handleMove }){
             <h1 className="name-list">{title}</h1>
             <div className="carousel">
                 {
-                    tracks.map((track) => {
+                    tracks.map((track, index) => {
                         const { portadaURL, title, albumTitle, artists } = track
 
                         const getArtistsTrack = (str) => {
@@ -54,6 +54,26 @@ function TracksList({ data, handleMove }){
                         const handleInfo = () => {
                             document.querySelector('.content-title').innerHTML = limitString(title, 40)
                             document.querySelector('.content-subtitle').innerHTML = `${albumTitle} - ${getArtistsTrack(artists)}`
+                        }
+
+                        if(index === 0){
+                             return (
+                                <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-left="#">
+                                        <img src={portadaURL} alt={`Cover de ${title}`} />
+                                    </div>
+                                </div>
+                            )    
+                        }
+
+                        if(index === tracks.length - 1){
+                             return (
+                                <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-right="#">
+                                        <img src={portadaURL} alt={`Cover de ${title}`} />
+                                    </div>
+                                </div>
+                            )    
                         }
 
                         return (
