@@ -3,6 +3,7 @@ const concat = require('gulp-concat')
 const babel = require('gulp-babel')
 const uglify = require('gulp-uglify')
 const minifycss = require('gulp-minify-css')
+const swc = require('gulp-swc')
 // const autoprefixer = require('gulp-autoprefixer')
 // const sass = require('gulp-sass')
 const postcss = require('gulp-postcss')
@@ -93,6 +94,9 @@ function build(cb) {
 		.pipe(babel().on('error', function(error){
 			console.log(error)
 		}))
+		// .pipe(swc().on('error', function(error){
+		// 	console.log(error)
+		// }))
 		.pipe(concat('build.js'))
 		.pipe(dest('output/'))
 		.on('end', () => cb())

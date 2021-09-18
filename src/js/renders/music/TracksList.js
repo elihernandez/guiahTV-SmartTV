@@ -1,8 +1,16 @@
-function TracksList({ data, handleMove }){
+function TracksList({ data, handleMove, listIndex }){
     const { title, tracks } = data
 
     React.useEffect(() => {
         setTimeout(() => {
+            SpatialNavigation.add(`list-music-${listIndex}`, {
+				selector: `.cover-slide-${listIndex}`,
+				rememberSource: true,
+				enterTo: 'last-focused',
+
+				disabled: false
+			})
+
             $('.carousel').slick({
                 dots: false,
                 infinite: false,
@@ -58,8 +66,8 @@ function TracksList({ data, handleMove }){
 
                         if(index === 0){
                              return (
-                                <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
-                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-left="#">
+                                <div key={title} className="slide" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className={`cover-slide cover-slide-${listIndex}`} tabIndex="-1" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-left="#" data-sn-down={`@list-music-${listIndex + 1}`}>
                                         <img src={portadaURL} alt={`Cover de ${title}`} />
                                     </div>
                                 </div>
@@ -68,8 +76,8 @@ function TracksList({ data, handleMove }){
 
                         if(index === tracks.length - 1){
                              return (
-                                <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
-                                    <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-right="#">
+                                <div key={title} className="slide" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                    <div className={`cover-slide cover-slide-${listIndex}`} tabIndex="-1" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-right="#" data-sn-down={`@list-music-${listIndex + 1}`}>
                                         <img src={portadaURL} alt={`Cover de ${title}`} />
                                     </div>
                                 </div>
@@ -77,8 +85,8 @@ function TracksList({ data, handleMove }){
                         }
 
                         return (
-                            <div key={title} className="slide" tabIndex="-1" onClick={handleKeyDown} onMouseOver={handleInfo}>
-                                <div className="cover-slide" onKeyDown={handleKeyDown} onFocus={handleInfo}>
+                            <div key={title} className="slide" onClick={handleKeyDown} onMouseOver={handleInfo}>
+                                <div className={`cover-slide cover-slide-${listIndex}`} tabIndex="-1" onKeyDown={handleKeyDown} onFocus={handleInfo} data-sn-down={`@list-music-${listIndex + 1}`}>
                                     <img src={portadaURL} alt={`Cover de ${title}`} />
                                 </div>
                             </div>

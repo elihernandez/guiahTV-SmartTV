@@ -3,9 +3,9 @@ function MusicHome({ data }){
 
     React.useEffect(() => {
         setTimeout(() => {
-            SpatialNavigation.makeFocusable('musica')
+            SpatialNavigation.makeFocusable('list-music-1')
+            SpatialNavigation.makeFocusable('list-music-2')
             document.getElementsByClassName('cover-slide')[0].focus()
-            document.getElementById('music-home')
         }, 50)
         
             $('.catalogue-music').slick({
@@ -46,18 +46,19 @@ function MusicHome({ data }){
             </div> 
             <div className="catalogue-music" id="catalogue-music"> 
                 {
-                    musicSections.map((section) => {
+                    musicSections.map((section, index) => {
                         const { contentType, title } = section
-            
+                        const listIndex = index + 1
+
                         switch(contentType){
                             case 'tracks':
-                            return <TracksList key={title} data={section} handleMove={handleMove} />
+                            return <TracksList key={title} data={section} handleMove={handleMove} listIndex={listIndex} />
                             case 'playlists':
-                            return <PlaylistsList key={title} data={section} handleMove={handleMove} />
+                            return <PlaylistsList key={title} data={section} handleMove={handleMove} listIndex={listIndex} />
                             case 'myplaylists':
-                            return <MyPlaylistsList key={title} data={section} handleMove={handleMove} />
+                            return <MyPlaylistsList key={title} data={section} handleMove={handleMove} listIndex={listIndex} />
                             case 'artists':
-                            return <ArtistsList key={title} data={section} handleMove={handleMove} />
+                            return <ArtistsList key={title} data={section} handleMove={handleMove} listIndex={listIndex} />
                         }
                     })
                 }
