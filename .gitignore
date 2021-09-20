@@ -143,5 +143,6 @@ output/
 webOS/*.ipk
 webOS/app/build.js
 webOS/app/build.css
+tizen/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,node

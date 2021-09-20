@@ -4,8 +4,8 @@
   "description": "El mejor contenido espiritual y de valores reunidos en una sola plataforma para toda la familia.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
     "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
     "ares-server": "ares-server ./build --open",
     "ares-package": "ares-package -o build build",
     "ares-install": "ares-install --device emulator build/com.guiahtv.smarttv_2.0.1_all.ipk",

@@ -1,12 +1,16 @@
 // import config from '../../config'
 import { getUtcOffsetLocal } from '../utils/time'
 
+const API_URL = 'https://lap55.com/json/api'
+
 export function getURL(section, { memclid = '' }, params) {
+	memclid = 'XardsMVdfWczUU2wO2jmfWVUrxlqFKWbIVrsULM7lQA' 
+
 	const endpoints = {
-		'spotlight': 'https://lap55.com/json/api/sl/leon/home_spotlight',
-		'livetv': `https://lap55.com/json/api/cmdata/leon/livetvplus/XardsMVdfWczUU2wO2jmfWVUrxlqFKWbIVrsULM7lQA/${getUtcOffsetLocal()}`,
+		'spotlight': `${API_URL}/sl/leon/home_spotlight`,
+		'livetv': `${API_URL}/cmdata/leon/livetvplus/${memclid}/${getUtcOffsetLocal()}`,
+		'catalogue-vod': `${API_URL}/cmdata/leon/entplus/${memclid}`,
 		// 'buttons-menu': `${config.API_URL}/cs/leon_home_bm`,
-		// 'catalogue-vod': `${config.API_URL}/cmdata/leon/entplus/${memclid}`,
 		// 'catalogue-zonakids': `${config.API_URL}/cdata/leon/kids/${memclid}`,
 		// 'radio': `${config.API_URL}/cdata/leon/radio/${memclid}`,
 		// 'music-home': `https://api.guiah.tv/music/home/${memclid}/1`,
