@@ -98,3 +98,9 @@ function fadeElementMusic(sectionID){
     fadeInElement(sectionID, '0', '1', '150ms')
 	setHistoryMusic(sectionID)
 }
+
+function musicError(){
+	indexActive = 0
+	cleanSectionMusic()
+	errorSection()
+}

@@ -91,6 +91,9 @@ function ListTracksAlbum({ albumID }){
                 nextArrow: '<div class="slick-next"><div class="icon fas fa-chevron-down"></div></div>'
             })
         })
+        .catch(() => {
+            musicError()
+        })
     }, [])
 
     musicAlbum.changeListTracks(value => {
@@ -319,8 +322,12 @@ function PlaylistsToAdd({ index, title, playlistID }){
             const trackID = musicAlbum.trackToPlaylist
       
             postMusicTrackToPlaylist(playlistID, trackID)
-            .then(response => {
+            .then(() => {
                 showToastMessage('toast-message', 'La canción se agregó a la playlist')
+                cleanSectionMusic()
+            })
+            .catch(() => {
+                showToastMessage('toast-message', 'La canción no se pudo agregar a la playlist')
                 cleanSectionMusic()
             })
         }
@@ -353,5 +360,8 @@ function playTrackMusic(track, trackID){
                 musicAlbum.setTrackInPlay(track)
             })
         })
+    })
+    .catch(() => {
+        musicError()
     })
 }

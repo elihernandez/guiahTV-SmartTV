@@ -3,12 +3,14 @@ function ArtistsList({ data, handleMove, listIndex }){
 
     React.useEffect(() => {
         setTimeout(() => {
-            SpatialNavigation.add(`list-music-${listIndex}`, {
-				selector: `.cover-slide-${listIndex}`,
-				rememberSource: true,
-				enterTo: 'last-focused',
-				disabled: false
-			})
+            try{
+                SpatialNavigation.add(`list-music-${listIndex}`, {
+                    selector: `.cover-slide-${listIndex}`,
+                    rememberSource: true,
+                    enterTo: 'last-focused',
+                    disabled: false
+                })
+            }catch{}
 
             $('.carousel').slick({
                 dots: false,

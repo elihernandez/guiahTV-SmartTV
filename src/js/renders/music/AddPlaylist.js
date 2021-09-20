@@ -29,9 +29,13 @@ function AddPlaylist(){
                             indexActive = musicHistory.length - 1
                             clearFormCreatePlaylist()
                         })
-                    }else{
-                        
+                        .catch(() => {
+                            musicError()
+                        })
                     }
+                })
+                .catch(() => {
+                    musicError()
                 })
             }else{
                 title.focus()

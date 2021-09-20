@@ -68,6 +68,9 @@ function ListTracksPlaylist({ playlistID }){
             musicAlbum.listTracks = response
             fadeOutElement('loader-list-tracks-album', '1', '0', '0.2s')
         })
+        .catch(() => {
+            musicError()
+        })
     }, [])
 
     React.useEffect(() => {
@@ -230,9 +233,13 @@ function DeleteTrackPlaylist({ playlistID }){
         if(isPressEnter(e.nativeEvent)){
             const trackID = musicAlbum.trackDelete
             deleteMusicTrackToPlaylist(playlistID, trackID)
-            .then(response => {
+            .then(() => {
                 musicAlbum.setDeleteTrack(trackID)
                 showToastMessage('toast-message', 'La canción se eliminó de la playlist')
+                cleanSectionMusic()
+            })
+            .catch(() => {
+                showToastMessage('toast-message', 'La canción no se pudo eliminar de la playlist')
                 cleanSectionMusic()
             })
         }
