@@ -8,7 +8,7 @@ const RemoveStrictPlugin = require('remove-strict-webpack-plugin' )
 
 const javascriptRules = {
 	test: /\.(js|jsx|ts|tsx)$/,
-	exclude: /node_modules/,
+	// exclude: /node_modules/,
 	use: {
 		loader: 'babel-loader'
 	}
@@ -64,7 +64,7 @@ module.exports = (_env, { mode }) => ({
 	},
 	// watch: (mode === 'production' ? false : true),
 	optimization: {
-		minimize:  (mode === 'production' ? true : false),
+		minimize: (mode === 'production' ? true : false),
 	},
 	module: {
 		rules: [

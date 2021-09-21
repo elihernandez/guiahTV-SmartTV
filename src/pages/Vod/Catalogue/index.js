@@ -1,17 +1,17 @@
-import { useRef, useEffect } from 'react'
+import { onMount } from 'solid-js'
 import { tns } from '../../../../node_modules/tiny-slider/src/tiny-slider'
 import '../../../../node_modules/tiny-slider/src/tiny-slider.css'
-import { isPressDown, isPressLeft, isPressRight, isPressUp } from '../../../utils/keyboard'
 import SpatialNavigation from '../../../utils/spatial-navigation'
+import { isPressDown, isPressLeft, isPressRight, isPressUp } from '../../../utils/keyboard'
 import './styles.css'
 
 export default function Catalogue({ data }){
-	const listRef = useRef(null)
-	const sliderVerticalRef = useRef(null)
+	let slider
+	let sliderRef
 
-	useEffect(() => {
-		sliderVerticalRef.current = tns({
-			container: listRef.current,
+	onMount(() => {
+		slider = tns({
+			container: sliderRef,
 			axis: 'vertical',
 			items: 3,
 			slideBy: 1,
@@ -27,16 +27,34 @@ export default function Catalogue({ data }){
 			preventScrollOnTouch: true,
 			controlsText: ['<i class="fas fa-chevron-up"></i>','<i class="fas fa-chevron-down"></i>']
 		})
-	}, [])
+	})
+
+	const handleMoveUp = (e) => {
+		if(isPressUp(e)){
+			slider.goTo('prev')
+		}
+	}
+	
+	const handleMoveDown = (e) => {
+		if(isPressDown(e)){
+			slider.goTo('next')
+		}
+	}
 
 	return (
 		<div className="catalogue-vod">
 			<div className="list-column">
-				<div ref={listRef} className="column-slider">
+				<div ref={sliderRef} className="column-slider">
 					{
 						data.map((category) => {
 							const key = category.category
-							return <ListRow key={key} data={category} sliderVerticalRef={sliderVerticalRef} />
+
+							return <ListRow 
+								key={key}
+								data={category}
+								handleMoveUp={handleMoveUp}
+								handleMoveDown={handleMoveDown} 
+							/>
 						})
 					}
 				</div>
@@ -45,14 +63,14 @@ export default function Catalogue({ data }){
 	)
 }
 
-function ListRow({ data, sliderVerticalRef }){
-	const listRef = useRef(null)
-	const sliderRef = useRef(null)
+function ListRow({ data, handleMoveUp, handleMoveDown }){
+	let slider
+	let sliderRef
 	const { category: title, cmData } = data
-
-	useEffect(() => {
-		sliderRef.current = tns({
-			container: listRef.current,
+	
+	onMount(() => {
+		slider = tns({
+			container: sliderRef,
 			items: 5,
 			speed: 350,
 			slideBy: 1,
@@ -73,26 +91,22 @@ function ListRow({ data, sliderVerticalRef }){
 			rememberSource: true,
 			enterTo: 'last-element'
 		})
-
+	
 		SpatialNavigation.makeFocusable()
 		SpatialNavigation.focus()
-	}, [])
+	})
+
 
 	function handleMoveH(e){
-		if(isPressRight(e.nativeEvent)){
-			sliderRef.current.goTo('next')
+		handleMoveUp(e)
+		handleMoveDown(e)
+
+		if(isPressRight(e)){
+			slider.goTo('next')
 		}
 
-		if(isPressLeft(e.nativeEvent)){
-			sliderRef.current.goTo('prev')
-		}
-
-		if(isPressUp(e.nativeEvent)){
-			sliderVerticalRef.current.goTo('prev')
-		}
-
-		if(isPressDown(e.nativeEvent)){
-			sliderVerticalRef.current.goTo('next')
+		if(isPressLeft(e)){
+			slider.goTo('prev')
 		}
 	}
 
@@ -101,7 +115,7 @@ function ListRow({ data, sliderVerticalRef }){
 			<div className="row-header">
 				<div className="row-title">{title}</div>
 			</div>
-			<div ref={listRef} className="row-items row-slider">
+			<div ref={sliderRef} className="row-items row-slider">
 				{
 					cmData.map((movie) => {
 						const key = `${movie.ContentType}-${movie.Registro}`

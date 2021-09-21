@@ -1,20 +1,22 @@
-import { useEffect } from 'react'
-import iconColor80 from './assets/iconcolor80x80.png'
-import iconColor130 from './assets/iconcolor130x130.png'
 import './styles.css'
 import { router } from './router'
 import HomePage from './pages/Home'
-import LiveTvPage from './pages/LiveTv'
+import { onMount } from 'solid-js'
+// import LiveTvPage from './pages/LiveTv'
 import VodPage from './pages/Vod'
-import RadioPage from './pages/Radio'
-import MusicPage from './pages/Music'
-import ZonaKids from './pages/ZonaKids'
+// import RadioPage from './pages/Radio'
+// import MusicPage from './pages/Music'
+// import ZonaKids from './pages/ZonaKids'
 import { MainLoader } from './components/Loader'
+
 export const App = () => {
 
-	useEffect(() => {
+	// useEffect(() => {
+	// }, [])
+
+	onMount(() =>{
 		router.navigate('/home')
-	}, [])
+	})
 
 	const handleClick = (route) => {
 		router.navigate(`/${route}`)
@@ -33,11 +35,13 @@ export const App = () => {
 				</ul>
 			</div>
 			<HomePage />
-			<LiveTvPage />
 			<VodPage />
+			{/* 
+			<LiveTvPage />
 			<RadioPage />
 			<MusicPage />
 			<ZonaKids />
+			 */}
 			<MainLoader />
 		</div>
 	)

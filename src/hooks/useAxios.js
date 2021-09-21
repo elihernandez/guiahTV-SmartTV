@@ -1,7 +1,8 @@
 import axios from '../utils/axios'
-import { useState, useCallback } from 'react'
+// import { useState, useCallback } from 'react'
 // import { useSelector } from 'react-redux'
 // import * as ErrorComponent from '../components/ErrorMessage'
+// import { createSignal, createMemo } from 'solid-js'
 import { getURL } from '../api/endpoints'
 import { validateSuscription, validateError } from '../utils/auth'
 // import { setSuscriptionStatus } from '../redux/reducers/userReducer'
@@ -9,18 +10,18 @@ import { validateSuscription, validateError } from '../utils/auth'
 export default function useAxios(){
 	// const userToken = useSelector(state => state.user.userToken)
 	const userToken = ''
-	const [loading, setLoading] = useState(true)
-	const [count, setCount] = useState(0)
+	// const [loading, setLoading] = createSignal(true)
+	// const [count, setCount] = createSignal(0)
 
-	const retryRequest = () => {
-		if(count <= 2){
-			setCount(count + 1)
-		}
-	}
+	// const retryRequest = () => {
+	// 	if(count <= 2){
+	// 		setCount(count + 1)
+	// 	}
+	// }
 
-	const get = useCallback(async (section, params = {}, body = {}) => {
+	const get = async (section, params = {}, body = {}) => {
 		return await fetchData('get', section, params, body)
-	}, [count])
+	}
 
 	const fetchData = async (type, section, params, body) => {
 		try{
@@ -58,8 +59,6 @@ export default function useAxios(){
 	}
 
 	return {
-		loading,
-		count,
 		get
 	}
 }

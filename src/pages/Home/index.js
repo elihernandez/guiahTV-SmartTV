@@ -7,8 +7,7 @@ export default function HomePage(){
 	const axios = useAxios(),
 		route = 'home',
 		onBefore = () =>  {
-			const el = $('#home')
-			const loader  = $('.main-loader')
+			const el = $('#home'), loader = $('.main-loader')
 			fadeInElement(loader, '0', '1', '150ms')
 			axios.get('spotlight')
 				.then(response => {
