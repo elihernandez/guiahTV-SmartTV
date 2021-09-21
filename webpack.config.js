@@ -91,5 +91,5 @@ module.exports = (_env, { mode }) => ({
 			filename: '[name].min.css',
 			chunkFilename: '[name].chunk.min.css',
 		}),
-	].filter(Boolean)
+	].filter(Boolean) 
 })
