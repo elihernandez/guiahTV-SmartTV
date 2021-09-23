@@ -1,5 +1,4 @@
-// import { useState } from 'react'
-import { createSignal } from 'solid-js'
+import { createSignal, Show } from 'solid-js'
 import useRouter from '../../hooks/useRouter'
 import useAxios from '../../hooks/useAxios'
 import { fadeInElement, fadeOutElement } from '../../utils/transition'
@@ -31,9 +30,9 @@ export default function Vod(){
 
 	return(
 		<div id="vod" style={{'opacity': '0', 'display': 'none'}}>
-			{getData() &&
+			<Show when={getData()}>
 				<Catalogue data={getData()} />
-			}
+			</Show>
 		</div>
 	)
 }

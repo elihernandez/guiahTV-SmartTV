@@ -1,11 +1,21 @@
-import { onMount } from 'solid-js'
-import { tns } from '../../../../node_modules/tiny-slider/src/tiny-slider'
-import '../../../../node_modules/tiny-slider/src/tiny-slider.css'
+import { onMount, For } from 'solid-js'
 import SpatialNavigation from '../../../utils/spatial-navigation'
-import { isPressDown, isPressLeft, isPressRight, isPressUp } from '../../../utils/keyboard'
+import { tns } from '../../../../node_modules/tiny-slider/src/tiny-slider'
+import { isPressDown, isPressEnter, isPressLeft, isPressRight, isPressUp } from '../../../utils/keyboard'
+import '../../../../node_modules/tiny-slider/src/tiny-slider.css'
 import './styles.css'
 
 export default function Catalogue({ data }){
+	return (
+		<div className="catalogue-vod">
+			<div className="list-column">
+				<VerticalSlider data={data} />
+			</div>
+		</div>
+	)
+}
+
+function VerticalSlider({ data }){
 	let slider
 	let sliderRef
 
@@ -13,7 +23,7 @@ export default function Catalogue({ data }){
 		slider = tns({
 			container: sliderRef,
 			axis: 'vertical',
-			items: 3,
+			items: 1,
 			slideBy: 1,
 			speed: 350,
 			autoplay: false,
@@ -42,37 +52,44 @@ export default function Catalogue({ data }){
 	}
 
 	return (
-		<div className="catalogue-vod">
-			<div className="list-column">
-				<div ref={sliderRef} className="column-slider">
-					{
-						data.map((category) => {
-							const key = category.category
-
-							return <ListRow 
-								key={key}
-								data={category}
-								handleMoveUp={handleMoveUp}
-								handleMoveDown={handleMoveDown} 
-							/>
-						})
-					}
-				</div>
-			</div>
+		<div ref={sliderRef} className="column-slider">
+			<For each={data}>
+				{(category) =>
+					<ListRow 
+						key={category.category}
+						data={category}
+						handleMoveUp={handleMoveUp}
+						handleMoveDown={handleMoveDown} 
+					/>
+				}
+			</For>
 		</div>
 	)
 }
 
 function ListRow({ data, handleMoveUp, handleMoveDown }){
+	const { category: title } = data
+
+	return(
+		<div className="list-row">
+			<div className="row-header">
+				<div className="row-title">{title}</div>
+			</div>
+			<HorizontalSlider data={data} handleMoveUp={handleMoveUp} handleMoveDown={handleMoveDown} />
+		</div>
+	)
+}
+
+function HorizontalSlider({ data, handleMoveUp, handleMoveDown }){
 	let slider
 	let sliderRef
-	const { category: title, cmData } = data
+	const { cmData } = data
 	
 	onMount(() => {
 		slider = tns({
 			container: sliderRef,
 			items: 5,
-			speed: 350,
+			speed: 400,
 			slideBy: 1,
 			autoplay: false,
 			controls: true,
@@ -111,28 +128,34 @@ function ListRow({ data, handleMoveUp, handleMoveDown }){
 	}
 
 	return(
-		<div className="list-row">
-			<div className="row-header">
-				<div className="row-title">{title}</div>
-			</div>
-			<div ref={sliderRef} className="row-items row-slider">
-				{
-					cmData.map((movie) => {
-						const key = `${movie.ContentType}-${movie.Registro}`
-						return <ListItem key={key} data={movie} handleMoveH={handleMoveH} />
-					})
+		<div ref={sliderRef} className="row-items row-slider">
+			<For each={cmData}>
+				{(movie) =>
+					<ListItem
+						key={`${movie.ContentType}-${movie.Registro}`}
+						data={movie}
+						handleMoveH={handleMoveH}
+					/>
 				}
-			</div>
-		</div>
+			</For>
+		</div> 
 	)
 }
 
 function ListItem({ data, handleMoveH }){
-	const { HDPosterUrlLandscape, Title } = data
+	const { HDPosterUrlLandscape, Title, Registro } = data
+
+	function handleClick(e){
+		if(isPressEnter(e)){
+			console.log('Enter')
+		}else{
+			handleMoveH(e)
+		}
+	}
 
 	return (
 		<div className="list-item">
-			<div className="item-image" onKeyDown={handleMoveH}>
+			<div className="item-image" onClick={handleClick} onKeyDown={handleClick}>
 				<img src={HDPosterUrlLandscape} alt={`Cover de ${Title}`} />
 			</div>
 		</div>

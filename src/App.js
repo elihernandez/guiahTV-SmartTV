@@ -7,15 +7,16 @@ import VodPage from './pages/Vod'
 // import RadioPage from './pages/Radio'
 // import MusicPage from './pages/Music'
 // import ZonaKids from './pages/ZonaKids'
-import { MainLoader } from './components/Loader'
+import { LogoLoader, MainLoader } from './components/Loader'
+import { fadeOutElement } from './utils/transition'
+import { $ } from './utils/dom'
 
 export const App = () => {
-
-	// useEffect(() => {
-	// }, [])
-
+	
 	onMount(() =>{
 		router.navigate('/home')
+		const logo = $('.logo-loader')
+		fadeOutElement(logo, '1', '0', '150ms', '2000ms')
 	})
 
 	const handleClick = (route) => {
@@ -43,6 +44,7 @@ export const App = () => {
 			<ZonaKids />
 			 */}
 			<MainLoader />
+			<LogoLoader />
 		</div>
 	)
 }

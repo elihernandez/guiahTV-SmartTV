@@ -1,6 +1,6 @@
 .catalogue-vod{
-    position: relative;
-    top: 56px;
+    position: fixed;
+    top: 650px;
 }
 
 .list-column{
@@ -23,6 +23,7 @@
         .row-slider{
 
             .list-item{
+                position: relative;
 
                 .item-image{
                     position: relative;
@@ -104,12 +105,12 @@
                 background: transparent;
                 border: none;
                 position: absolute;
-                height: 72px;
+                height: 120px;
                 width: 100%;
 
                 &[data-controls="prev"]{
-                    top: -72px;
-                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+                    top: -104px;
+                    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent); */
                 }
 
                 i{
@@ -117,7 +118,7 @@
                 }
 
                 &[data-controls="next"]{
-                    bottom: -940px;
+                    bottom: -410px;
                     background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
                 }
 

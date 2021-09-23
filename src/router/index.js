@@ -1,5 +1,12 @@
+console.log(window.location.href)
+
 import Navigo from 'navigo'
-export const router = new Navigo('/')
+export const url = window.location.href
+export const router = new Navigo('/', {
+	hash: true
+})
+// export const router = new Navigo('media/developer/apps/usr/palm/applications/com.guiahtv.smarttv/')
+// export const router = new Navigo(`${window.location.href}/`)
 
 // import Router from 'vanilla-router'
 

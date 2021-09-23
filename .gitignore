@@ -146,3 +146,7 @@ webOS/app/build.css
 tizen/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,node
+build/
+build/main.js
+build/main.min.css
+build/*.ipk

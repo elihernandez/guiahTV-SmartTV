@@ -3,8 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtract = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const RemoveStrictPlugin = require('remove-strict-webpack-plugin' )
-// const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-// const CompressionPlugin = require('compression-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 const javascriptRules = {
 	test: /\.(js|jsx|ts|tsx)$/,
@@ -30,7 +29,7 @@ const filesRules = {
 			loader: 'file-loader',
 			options: {
 				name: '[name].[ext]',
-				outputPath: '/assets/images/'
+				outputPath: 'assets/images'
 			},
 		},
 	],
@@ -43,7 +42,7 @@ const fontsRules = {
 			loader: 'url-loader',
 			options: {
 				name: '[name].[ext]',
-				outputPath: '/assets/fonts/',
+				outputPath: 'assets/fonts'
 			},
 		},
 	],
@@ -55,14 +54,15 @@ const developmentPlugins = [
 
 const productionPlugins = [
 	new RemoveStrictPlugin(),
-	new CssMinimizerPlugin()
+	new CssMinimizerPlugin(),
+	new CompressionPlugin()
 ]
 
 module.exports = (_env, { mode }) => ({
 	output: {
 		path: path.resolve(__dirname, 'build'),
 	},
-	// watch: (mode === 'production' ? false : true),
+	// watch: true,
 	optimization: {
 		minimize: (mode === 'production' ? true : false),
 	},
@@ -79,13 +79,13 @@ module.exports = (_env, { mode }) => ({
 		open: true,
 		port: 9000
 	},
-	// devtool: 'source-map',
 	plugins: [
 		...(mode === 'production' ? productionPlugins : developmentPlugins),
 		new HtmlWebpackPlugin({
 			favicon: 'src/assets/images/logos/guiahtv/favicon.ico',
 			title: 'Guíah TV | Un espacio de fe',
-			template: 'src/index.html'
+			template: 'src/index.html',
+			filename: 'index.html'
 		}),
 		new MiniCSSExtract({
 			filename: '[name].min.css',

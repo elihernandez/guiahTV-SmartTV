@@ -10,6 +10,7 @@ export function getURL(section, { memclid = '' }, params) {
 		'spotlight': `${API_URL}/sl/leon/home_spotlight`,
 		'livetv': `${API_URL}/cmdata/leon/livetvplus/${memclid}/${getUtcOffsetLocal()}`,
 		'catalogue-vod': `${API_URL}/cmdata/leon/entplus/${memclid}`,
+		'link-vod': `${API_URL}/cmd/getLinkLeon/${params.linkID}/${memclid}`
 		// 'buttons-menu': `${config.API_URL}/cs/leon_home_bm`,
 		// 'catalogue-zonakids': `${config.API_URL}/cdata/leon/kids/${memclid}`,
 		// 'radio': `${config.API_URL}/cdata/leon/radio/${memclid}`,
