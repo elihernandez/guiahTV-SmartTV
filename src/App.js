@@ -1,22 +1,45 @@
-import './styles.css'
+import { getState, subscribe } from './state'
 import { router } from './router'
 import HomePage from './pages/Home'
-import { onMount } from 'solid-js'
+import { createSignal, onMount } from 'solid-js'
 // import LiveTvPage from './pages/LiveTv'
 import VodPage from './pages/Vod'
 // import RadioPage from './pages/Radio'
 // import MusicPage from './pages/Music'
 // import ZonaKids from './pages/ZonaKids'
 import { LogoLoader, MainLoader } from './components/Loader'
-import { fadeOutElement } from './utils/transition'
+import { fadeInElement, fadeOutElement } from './utils/transition'
 import { $ } from './utils/dom'
+import './styles.css'
 
 export const App = () => {
+	const { isShowVideo, isShowLogo } = getState().appState
 	
-	onMount(() =>{
+	function loadedApp(){
+		let logo
 		router.navigate('/home')
-		const logo = $('.logo-loader')
-		fadeOutElement(logo, '1', '0', '150ms', '2000ms')
+		console.log(isShowVideo)
+		console.log(isShowLogo)
+		
+		if(isShowLogo){
+			setTimeout(() => {
+				logo = $('.logo-loader')
+				fadeInElement($('.main-section'), '0', '1', '150ms')
+				fadeOutElement(logo, '1', '0', '150ms')
+			}, 1500)
+		}
+		
+		if(isShowVideo){
+			setTimeout(() => {
+				logo = $('.video-loader')
+				fadeInElement($('.main-section'), '0', '1', '150ms')
+				fadeOutElement(logo, '1', '0', '150ms')
+			}, 6500)
+		}
+	}
+
+	onMount(() => {
+		subscribe(loadedApp, state => state.appState.loadedApp)
 	})
 
 	const handleClick = (route) => {
@@ -24,7 +47,7 @@ export const App = () => {
 	}
 
 	return (
-		<div className="main-section">
+		<div className="main-section" style={{ 'opacity': '0', 'display': 'none' }}>
 			<div className="top-menu">
 				<ul className="list-links">
 					<li className="link-menu" onClick={() => handleClick('home')}>Home</li>
@@ -44,7 +67,6 @@ export const App = () => {
 			<ZonaKids />
 			 */}
 			<MainLoader />
-			<LogoLoader />
 		</div>
 	)
 }
