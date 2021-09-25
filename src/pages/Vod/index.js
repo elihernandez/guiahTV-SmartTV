@@ -5,6 +5,7 @@ import { fadeInElement, fadeOutElement } from '../../utils/transition'
 import { $ } from '../../utils/dom'
 
 import Catalogue from './Catalogue'
+import './styles.css'
 
 export default function Vod(){
 	const [getData, setData] = createSignal(null),
@@ -30,6 +31,9 @@ export default function Vod(){
 
 	return(
 		<div id="vod" style={{'opacity': '0', 'display': 'none'}}>
+			<div className="background-image" >
+				<img id='background-image' />
+			</div>
 			<Show when={getData()}>
 				<Catalogue data={getData()} />
 			</Show>

@@ -3,7 +3,10 @@ import SpatialNavigation from '../../../utils/spatial-navigation'
 import { tns } from '../../../../node_modules/tiny-slider/src/tiny-slider'
 import { isPressDown, isPressEnter, isPressLeft, isPressRight, isPressUp } from '../../../utils/keyboard'
 import '../../../../node_modules/tiny-slider/src/tiny-slider.css'
+import { $ } from '../../../utils/dom'
 import './styles.css'
+import { fadeOutElement, fadeInElement } from '../../../utils/transition'
+import transition from '../../../js/dist/transition'
 
 export default function Catalogue({ data }){
 	return (
@@ -143,6 +146,8 @@ function HorizontalSlider({ data, handleMoveUp, handleMoveDown }){
 }
 
 function ListItem({ data, handleMoveH }){
+	let isBackgroundTransition = false
+	let timeoutBackgroundTransition
 	const { HDPosterUrlLandscape, Title, Registro } = data
 
 	function handleClick(e){
@@ -153,9 +158,36 @@ function ListItem({ data, handleMoveH }){
 		}
 	}
 
+	function handleFocus(){
+		const el = $('#background-image')
+		clearTimeout(timeoutBackgroundTransition)
+		console.log(isBackgroundTransition)
+		if(!isBackgroundTransition){
+			isBackgroundTransition = true
+			transition.begin(el, ['opacity', '1', '0.5', '1000ms', '0'], {
+				onBeforeChangeStyle: function() {
+				},
+				onTransitionEnd: function(element, finished) {
+					if (!finished) return
+					timeoutBackgroundTransition = setTimeout(() => {
+						transition.begin(el, ['opacity', '0.5', '1', '1000ms', '0'], {
+							onBeforeChangeStyle: function() {
+								el.src = HDPosterUrlLandscape
+							},
+							onTransitionEnd: function(element, finished) {
+								if (!finished) return
+								isBackgroundTransition = false
+							}
+						})
+					}, 500)
+				}
+			})
+		}
+	}
+
 	return (
 		<div className="list-item">
-			<div className="item-image" onClick={handleClick} onKeyDown={handleClick}>
+			<div className="item-image" onClick={handleClick} onKeyDown={handleClick} onFocus={handleFocus}>
 				<img src={HDPosterUrlLandscape} alt={`Cover de ${Title}`} />
 			</div>
 		</div>
