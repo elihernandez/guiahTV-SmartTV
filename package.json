@@ -40,6 +40,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-minify": "^0.5.1",
+    "browser-info": "^1.3.0",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^6.1.1",
     "css-loader": "^4.3.0",
@@ -174,6 +175,7 @@
     "unfetch": "^4.2.0",
     "uuid": "^8.3.2",
     "webpack-cli": "^4.8.0",
-    "whatwg-fetch": "^3.5.0"
+    "whatwg-fetch": "^3.5.0",
+    "zustand": "^3.5.10"
   }
 }
