@@ -15,13 +15,19 @@
         animation: spin 1s linear infinite;
     }
 
-    &.main-loader, &.logo-loader{
+    &.main-loader, &.logo-loader, &.video-loader{
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         background: black;
+    }
+
+    video{
+        position: relative;
+        width: 100%;
+        height: 100%;
     }
 
     @keyframes spin {
