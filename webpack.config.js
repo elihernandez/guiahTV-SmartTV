@@ -85,7 +85,8 @@ module.exports = (_env, { mode }) => ({
 			favicon: 'src/assets/images/logos/guiahtv/favicon.ico',
 			title: 'Guíah TV | Un espacio de fe',
 			template: 'src/index.html',
-			filename: 'index.html'
+			filename: 'index.html',
+			scriptLoading: 'defer'
 		}),
 		new MiniCSSExtract({
 			filename: '[name].min.css',
