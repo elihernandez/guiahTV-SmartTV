@@ -1,5 +1,5 @@
 export function isVisible(el){
-	if(el.style.opacity == 1 || el.style.display == 'block'){
+	if(el.style.opacity == 1 || el.style.display == ''){
 		return true
 	}
 
