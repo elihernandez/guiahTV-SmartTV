@@ -63,32 +63,6 @@ table {
 	border-spacing: 0;
 }
 
-.welcome-message{
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.button-link{
-	font-size: 36px;
-}
-
-.top-menu{
-	position: relative;
-    width: 100%;
-	z-index: 2;
-	min-height: 64px;
-	
-	.list-links{
-		display: flex;
-		position: relative;
-
-		.link-menu{
-			font-size: 24px;
-    		padding: 8px 16px;
-		}
-	}
-}
-
 #app{
 	position: absolute;
 	width: 100%;
@@ -106,11 +80,4 @@ table {
 	position: relative;
 	width: 100%;
 	height: calc(100% - 64px);
-}
-
-.main-loader-app{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
 }
