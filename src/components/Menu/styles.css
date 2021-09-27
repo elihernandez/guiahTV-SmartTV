@@ -1,0 +1,16 @@
+.top-menu{
+	position: relative;
+    width: 100%;
+	z-index: 2;
+	min-height: 64px;
+	
+	.list-links{
+		display: flex;
+		position: relative;
+
+		.link-menu{
+			font-size: 24px;
+    		padding: 8px 16px;
+		}
+	}
+}
