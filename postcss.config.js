@@ -1,5 +1,8 @@
 module.exports = {
 	plugins: [
+		require('autoprefixer')({
+			'overrideBrowserslist': ['> 1%', 'last 2 versions']
+		}),
 		require('precss'),
 		require('postcss-simple-extend'),
 		require('postcss-sassy-mixins'),
@@ -16,9 +19,6 @@ module.exports = {
 			mediaQuery: false,
 			minPixelValue: 0,
 			exclude: /node_modules/i
-		}),
-		require('autoprefixer')({
-			'overrideBrowserslist': ['> 1%', 'last 2 versions']
 		})
 	]
 }
