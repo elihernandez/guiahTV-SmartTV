@@ -5,8 +5,8 @@ module.exports = {
 		'node': true
 	},
 	'extends': [
-		'eslint:recommended',
-		'plugin:react/recommended'
+		'eslint/recommended',
+		'plugin:solid/recommended'
 	],
 	'parserOptions': {
 		'ecmaFeatures': {
@@ -16,7 +16,7 @@ module.exports = {
 		'sourceType': 'module'
 	},
 	'plugins': [
-		'react'
+		'solid'
 	],
 	'rules': {
 		'indent': [
@@ -38,7 +38,8 @@ module.exports = {
 		'react/prop-types': [
 			'off'
 		],
-		'react/react-in-jsx-scope': 'off',
+		'solid/jsx-no-undef': 2,
+		'solid/prefer-for': true, 
 		'no-mixed-spaces-and-tabs': 0
 	}
 }
