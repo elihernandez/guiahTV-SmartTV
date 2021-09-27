@@ -12,18 +12,18 @@ export default function Vod(){
 		axios = useAxios(),
 		route = 'vod',
 		onBefore = () => {
-			const el = $(`#${route}`), loader  = $('.main-loader')
-			fadeInElement(loader, '0', '1', '150ms')
+			const el = $(`#${route}`), loader = $('.main-loader')
+			fadeInElement(loader, '0', '1', '150')
 			axios.get('catalogue-vod')
 				.then(response => {
 					setData(response)
-					fadeInElement(el, '0', '1', '150ms')
-					fadeOutElement(loader, '1', '0', '150ms', '2000ms')
+					fadeInElement(el, '0', '1', '150')
+					fadeOutElement(loader, '1', '0', '150', '1000')
 				})
 		},
 		onLeave = () => {
 			const el = $(`#${route}`)
-			fadeOutElement(el, '1', '0', '150ms')
+			fadeOutElement(el, '1', '0', '150')
 			setData(null)
 		}
 

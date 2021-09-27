@@ -8,17 +8,17 @@ export default function HomePage(){
 		route = 'home',
 		onBefore = () =>  {
 			const el = $('#home'), loader = $('.main-loader')
-			fadeInElement(loader, '0', '1', '150ms')
+			fadeInElement(loader, '0', '1', '150')
 			axios.get('spotlight')
 				.then(response => {
 					console.log(response)
-					fadeInElement(el, '0', '1', '150ms')
-					fadeOutElement(loader, '1', '0', '150ms', '1000ms')
+					fadeInElement(el, '0', '1', '150')
+					fadeOutElement(loader, '1', '0', '150', '1000')
 				})
 		},
 		onLeave = () => {
 			const el = $('#home')
-			fadeOutElement(el, '1', '0', '150ms')
+			fadeOutElement(el, '1', '0', '150')
 		}
 
 	useRouter({ route, onBefore, onLeave })
