@@ -40,6 +40,19 @@ function VerticalSlider({ data }){
 			preventScrollOnTouch: true,
 			controlsText: ['<i class="fas fa-chevron-up"></i>','<i class="fas fa-chevron-down"></i>']
 		})
+
+		SpatialNavigation.add({
+			selector: '.item-image',
+			rememberSource: true,
+			enterTo: 'last-element'
+		})
+	
+		SpatialNavigation.makeFocusable()
+		SpatialNavigation.focus('.item-image')
+
+		setTimeout(() => {
+			document.querySelector('.item-image').focus()
+		}, 1000)
 	})
 
 	const handleMoveUp = (e) => {
@@ -105,15 +118,6 @@ function HorizontalSlider({ data, handleMoveUp, handleMoveDown }){
 			preventScrollOnTouch: true,
 			controlsText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>']
 		})
-
-		SpatialNavigation.add({
-			selector: '.item-image',
-			rememberSource: true,
-			enterTo: 'last-element'
-		})
-	
-		SpatialNavigation.makeFocusable()
-		SpatialNavigation.focus()
 	})
 
 
@@ -161,7 +165,6 @@ function ListItem({ data, handleMoveH }){
 	function handleFocus(){
 		const el = $('#background-image')
 		clearTimeout(timeoutBackgroundTransition)
-		console.log(isBackgroundTransition)
 		if(!isBackgroundTransition){
 			isBackgroundTransition = true
 			transition.begin(el, ['opacity', '1', '0.5', '1000ms', '0'], {
