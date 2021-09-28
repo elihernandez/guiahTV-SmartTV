@@ -62,7 +62,6 @@ module.exports = (_env, { mode }) => ({
 	output: {
 		path: path.resolve(__dirname, 'build'),
 	},
-	// watch: true,
 	optimization: {
 		minimize: (mode === 'production' ? true : false),
 	},
