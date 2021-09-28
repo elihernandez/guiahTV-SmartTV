@@ -46,5 +46,5 @@ export function validateError(e){
 		6: 'Hay un problema en la conexión a internet.',
 	}
 
-	return listErrors[code] || 'Error desconocido'
+	return { error: listErrors[code] || 'Error desconocido', code }
 }
