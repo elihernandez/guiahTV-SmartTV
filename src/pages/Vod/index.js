@@ -9,7 +9,7 @@ import Error from '../../components/Error'
 import './styles.css'
 
 export default function Vod(){
-	const [getData, setData] = createSignal(null),
+  const [getData, setData] = createSignal(null),
 		[getError, setError] = createSignal(null),
 		axios = useAxios(),
 		route = 'vod',
@@ -24,10 +24,10 @@ export default function Vod(){
 		},
 		fetchData = async () => {	
 			const page = $(`#${route}`), loader = $('.main-loader')
+			fadeInElement(loader, '0', '1', '150')
+			setError(null)
 
 			try{
-				setError(null)
-				fadeInElement(loader, '0', '1', '150')
 				const response = await axios.get('catalogue-vod')
 				setData(response)
 			}catch(e){
@@ -40,7 +40,6 @@ export default function Vod(){
 
 	createEffect(() => {
 		const currentCount = axios.count()
-		console.log(currentCount)
 		if(currentCount !== 0 && currentCount <= 3){
 			fetchData()
 		}
