@@ -11,7 +11,7 @@ export default function TopMenu(){
         <div className="top-menu">
             <ul className="list-links">
                 <li className="link-menu" onClick={() => handleClick('home')}>Home</li>
-                <li className="link-menu" onClick={() => handleClick('livetv')}>Live tv</li>
+                <li className="link-menu" onClick={() => handleClick('live-tv')}>Live tv</li>
                 <li className="link-menu" onClick={() => handleClick('vod')}>Vod</li>
                 <li className="link-menu" onClick={() => handleClick('radio')}>Radio</li>
                 <li className="link-menu" onClick={() => handleClick('music')}>Music</li>

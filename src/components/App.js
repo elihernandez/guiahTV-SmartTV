@@ -2,9 +2,9 @@ import { getState, subscribe } from '../state'
 import { router } from '../router'
 import HomePage from '../pages/Home'
 import { onMount } from 'solid-js'
-// import LiveTvPage from './pages/LiveTv'
 import Menu from './Menu'
 import VodPage from '../pages/Vod'
+import LiveTvPage from '../pages/LiveTv'
 // import RadioPage from './pages/Radio'
 // import MusicPage from './pages/Music'
 // import ZonaKids from './pages/ZonaKids'
@@ -33,8 +33,8 @@ export const App = () => {
 			<Menu />
 			<HomePage />
 			<VodPage />
-			{/* 
 			<LiveTvPage />
+			{/* 
 			<RadioPage />
 			<MusicPage />
 			<ZonaKids />
