@@ -8,7 +8,7 @@ export function getURL(section, { memclid = '' }, params) {
 
 	const endpoints = {
 		'spotlight': `${API_URL}/sl/leon/home_spotlight`,
-		'livetv': `${API_URL}/cmdata/leon/livetvplus/${memclid}/${getUtcOffsetLocal()}`,
+		'live-tv': `${API_URL}/cmdata/leon/livetvplus/${memclid}/${getUtcOffsetLocal()}`,
 		'catalogue-vod': `${API_URL}/cmdata/leon/entplus/${memclid}`,
 		'link-vod': `${API_URL}/cmd/getLinkLeon/${params.linkID}/${memclid}`
 		// 'buttons-menu': `${config.API_URL}/cs/leon_home_bm`,
