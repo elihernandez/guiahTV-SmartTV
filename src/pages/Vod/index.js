@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onMount, Show } from 'solid-js'
+import { createEffect, createSignal, Show } from 'solid-js'
 import useRouter from '../../hooks/useRouter'
 import useAxios from '../../hooks/useAxios'
 import { fadeInElement, fadeOutElement } from '../../utils/transition'
@@ -39,8 +39,7 @@ export default function Vod(){
 		}
 
 	createEffect(() => {
-		const currentCount = axios.count()
-		if(currentCount !== 0 && currentCount <= 3){
+		if(axios.count() !== 0 && axios.count() <= 3){
 			fetchData()
 		}
 	})
@@ -56,12 +55,7 @@ export default function Vod(){
 				<Catalogue data={getData()} />
 			</Show>
 			<Show when={getError()}>
-				<Error
-					count={axios.count} 
-					code={axios.errorCode}
-					message={axios.errorMessage}
-					handleRequest={axios.incrementCount}
-				/>
+				<Error {...axios} />
 			</Show>
 		</div>
 	)
