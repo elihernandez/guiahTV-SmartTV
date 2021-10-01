@@ -2,10 +2,10 @@ import { createSignal, onMount } from 'solid-js'
 import SpatialNavigation from '../../utils/spatialNavigation'
 import './styles.css'
 
-export default function Error({ code, count, handleRequest }){
+export default function Error({ count, errorCode, handleRequest }){
     return (
         <Switch fallback={<ErrorNetwork handleRequest={handleRequest} count={count} />}>
-            <Match when={code() === 1}>
+            <Match when={errorCode() === 1}>
                 <ErrorSession handleRequest={handleRequest} count={count} />
             </Match>
         </Switch>
