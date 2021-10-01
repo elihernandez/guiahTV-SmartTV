@@ -1,4 +1,5 @@
 import { createSignal, onMount } from 'solid-js'
+import SpatialNavigation from '../../utils/spatialNavigation'
 import './styles.css'
 
 export default function Error({ code, count, handleRequest }){
@@ -11,12 +12,10 @@ export default function Error({ code, count, handleRequest }){
     )
 }
 
-function ErrorSession({ count, handleRequest }){
+function ErrorSession({ handleRequest }){
 
     onMount(() => {
-        setTimeout(() => {
-            document.querySelector('.error-button').focus()
-        }, 1000)
+        focusInErrorButton()
 	})
 
     const handleClick = () => {
@@ -34,19 +33,19 @@ function ErrorSession({ count, handleRequest }){
 }
 
 function ErrorNetwork({ count, handleRequest }){
+    let interval
     const listTimes = { 0: 30, 1: 45, 2: 60 }
-    const time = listTimes[count()]
-    const [getCount, setCount] = createSignal(time)
+    const [getCount, setCount] = createSignal(listTimes[count()])
 
-    const interval = setInterval(() => {
-        console.log(count())
-        if(getCount() !== 1) {
-            setCount(prev => prev - 1)
-        }else{
-            handleRequest()
-            clearInterval(interval)
-        }
-    }, 1000)
+    onMount(() => {
+        focusInErrorButton()
+
+        interval = setInterval(() => {
+            getCount() !== 1
+                ? setCount(prev => prev - 1)
+                : handleClick()
+        }, 1000)
+	})
 
     const handleClick = () => {
         handleRequest()
@@ -57,18 +56,26 @@ function ErrorNetwork({ count, handleRequest }){
         <div className="error-container">
             {count() < 3 ?
                 <div className="message-wrapper">
-                    <div className="text error-message">Hay un problema con la conexión a internet</div>
-                    <div className="text error-submessage">Se intentará reestablecer la conexión en: {getCount()}</div>
+                    <div className="text error-message">Se detectó un problema con la conexión a internet</div>
+                    <div className="text error-submessage">Intentando reestablecer en {getCount()} segundos.</div>
                     {count() < 3 &&
                         <button className="error-button" onClick={() => handleClick()}>Volver a intentar</button>
                     }
                 </div>
                 :
                 <div className="message-wrapper">
-                    <div className="text error-message">No se pudo reestablecer la conexión a internet</div>
-                    <div className="text error-submessage">Se intentará reestablecer la conexión en un</div>
+                    <div className="text error-message">Lo sentimos, no se pudo reestablecer la conexión a internet</div>
+                    <div className="text error-submessage">Se intentará reestablecer en un momento o intentalo más tarde.</div>
                 </div>
             }
         </div>
     )
+}
+
+function focusInErrorButton(){
+    setTimeout(() => {
+        SpatialNavigation.add({ selector: '.error-button', rememberSource: true, enterTo: 'last-focused' })
+        SpatialNavigation.makeFocusable()
+        SpatialNavigation.focus('.error-button')
+    }, 1000)
 }
