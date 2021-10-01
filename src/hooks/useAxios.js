@@ -1,4 +1,4 @@
-import { createSignal, createEffect, onMount } from 'solid-js'
+import { createSignal } from 'solid-js'
 import axios from '../utils/axios'
 import { getURL } from '../api/endpoints'
 import { validateSuscription, validateError } from '../utils/auth'
@@ -7,11 +7,10 @@ import ErrorSession, { ErrorNetwork } from '../components/Error'
 
 export default function useAxios(){
 	// const userToken = useSelector(state => state.user.userToken)
-	const [getCount, setCount] = createSignal(0)
-	const [getErrorCode, setErrorCode] = createSignal(null)
-	const [getErrorMessage, setErrorMessage] = createSignal(null)
-	// const [getError, setError] = createSignal(null)
-	const userToken = ''
+	const userToken = '',
+		[getCount, setCount] = createSignal(0),
+		[getErrorCode, setErrorCode] = createSignal(null),
+		[getErrorMessage, setErrorMessage] = createSignal(null)
 
 	const get = async (section, params = {}, body = {}) => {
 		return await fetchData('get', section, params, body)
