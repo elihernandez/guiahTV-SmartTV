@@ -3,6 +3,7 @@ const customParseFormat = require('dayjs/plugin/customParseFormat')
 const isSameOrAfter = require('dayjs/plugin/isSameOrAfter')
 const isSameOrBefore = require('dayjs/plugin/isSameOrBefore')
 const utc = require('dayjs/plugin/utc')
+dayjs.extend(utc)
 
 export function getEventTime(inicio, fin) {
 	dayjs.extend(customParseFormat)
@@ -83,10 +84,9 @@ export function getProgressTimeEvent(Inicio, Fin){
 }
 
 export function getUtcOffsetLocal(){
-	dayjs.extend(utc)
-	const utcOffsetLocal = 'UTC'+(dayjs().utcOffset()/60)
-
-	return utcOffsetLocal
+	
+	const utcOffsetLocal = dayjs().utcOffset() / 60
+	return 'UTC'+utcOffsetLocal
 }
 
 export function getProgressMovie(ResumePos, Length){
