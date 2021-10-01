@@ -9,13 +9,40 @@
         width: 100%;
         height: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        .error-message{
+        .text{
             color: whitesmoke;
-            font-size: 48px;
-            font-weight: 600;
+            margin: 16px;
+
+            &.error-message{
+                font-size: 48px;
+                font-weight: 600;
+            }
+    
+            &.error-submessage{
+                font-size: 36px;
+                font-weight: 400;
+            }
+        }
+
+        .error-button{
+            margin-top: 24px;
+            font-size: 24px;
+            background: none;
+            border: 4px solid #424242;
+            border-radius: 8px;
+            padding: 16px 36px;
+            font-weight: 400;
+            color: whitesmoke;
+
+            &:hover, &:focus{
+                background: whitesmoke;
+                color: black;
+                cursor: pointer;
+            }
         }
     }
 }

@@ -1,25 +1,17 @@
+import { createSignal, createEffect, onMount } from 'solid-js'
 import axios from '../utils/axios'
-// import { useState, useCallback } from 'react'
-// import { useSelector } from 'react-redux'
-import { createSignal } from 'solid-js'
-import * as Error from '../components/Error'
-// import { createSignal, createMemo } from 'solid-js'
 import { getURL } from '../api/endpoints'
 import { validateSuscription, validateError } from '../utils/auth'
+import ErrorSession, { ErrorNetwork } from '../components/Error'
 // import { setSuscriptionStatus } from '../redux/reducers/userReducer'
 
 export default function useAxios(){
 	// const userToken = useSelector(state => state.user.userToken)
-	[getCount, setCount] = createSignal(0)
+	const [getCount, setCount] = createSignal(0)
+	const [getErrorCode, setErrorCode] = createSignal(null)
+	const [getErrorMessage, setErrorMessage] = createSignal(null)
+	// const [getError, setError] = createSignal(null)
 	const userToken = ''
-	// const [loading, setLoading] = createSignal(true)
-	// const [count, setCount] = createSignal(0)
-
-	// const retryRequest = () => {
-	// 	if(count <= 2){
-	// 		setCount(count + 1)
-	// 	}
-	// }
 
 	const get = async (section, params = {}, body = {}) => {
 		return await fetchData('get', section, params, body)
@@ -27,16 +19,17 @@ export default function useAxios(){
 
 	const incrementCount = () => {
 		const currentCount = getCount()
+		currentCount < 3 && setCount(currentCount + 1)
+	}
 
-		currentCount < 3
-			? setCount(currentCount + 1)
-			: setCount(0)
-
-		// console.log(getCount())
+	const resetCount = () => {
+		setCount(0)
 	}
 
 	const fetchData = async (type, section, params, body) => {
 		try{
+			setErrorCode(null)
+			setErrorMessage(null)
 			const url = getURL(section, userToken, params)
 
 			const listFetchs = {
@@ -45,32 +38,40 @@ export default function useAxios(){
 		
 			const response = listFetchs[type]
 			validateSuscription(response)
-			// setLoading(false)
 			return response
 		}catch(e){
 			const { error, code } = validateError(e)
-			// console.log(error)
-			// console.log(code)
+			setErrorCode(2)
+			setErrorMessage(error)
+			throw('error')
 
-			switch(code){
-			case 0: // error del api
-				// throw(<ErrorComponent.ErrorMessage handleRequest={retryRequest} count={count} />)
-			case 1: // error de sesión
-				throw(<Error.ErrorSession handleRequest={incrementCount} message={error} />)
-			case 2: // error del cliente
-			case 3: // error del servidor
-			case 4: // network error
-			case 5: // request aborted
-			case 6: // timeout
-				// throw(<ErrorComponent.ErrorTimeout handleRequest={retryRequest} count={count} />)
-			default: // error desconocido
-				// throw(<ErrorComponent.ErrorSession message={error} />)
-			}
+			// switch(code){
+			// case 0: // error del api
+			// 	throw(<ErrorNetwork handleRequest={incrementCount} message={error} count={getCount} />)
+			// case 1: // error de sesión
+			// 	throw(<ErrorSession handleRequest={incrementCount} message={error} count={getCount} />)
+			// case 2: // error del cliente
+			// 	throw(<ErrorNetwork handleRequest={incrementCount} message={error} count={getCount} />)
+			// case 3: // error del servidor
+			// 	throw(<ErrorNetwork handleRequest={incrementCount} message={error} count={getCount} />)
+			// case 4: // network error
+			// 	throw(<ErrorNetwork handleRequest={incrementCount} message={error} count={getCount} />)
+			// case 5: // request aborted
+			// 	throw(<ErrorNetwork handleRequest={incrementCount} message={error} count={getCount} />)
+			// case 6: // timeout
+			// 	throw(<ErrorNetwork handleRequest={incrementCount} message={error} count={getCount} />)
+			// default: // error desconocido
+			// 	throw(<ErrorSession handleRequest={incrementCount} message={error} count={getCount} />)
+			// }
 		}
 	}
 
 	return {
 		get,
-		getCount
+		incrementCount,
+		count: getCount,
+		reset: resetCount,
+		errorCode: getErrorCode,
+		errorMessage: getErrorMessage
 	}
 }
