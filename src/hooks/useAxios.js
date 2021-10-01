@@ -1,31 +1,30 @@
-import { createSignal } from 'solid-js'
+import { createSignal, createEffect } from 'solid-js'
 import axios from '../utils/axios'
 import { getURL } from '../api/endpoints'
 import { validateSuscription, validateError } from '../utils/auth'
-import ErrorSession, { ErrorNetwork } from '../components/Error'
 // import { setSuscriptionStatus } from '../redux/reducers/userReducer'
 
 export default function useAxios(){
 	// const userToken = useSelector(state => state.user.userToken)
 	const userToken = '',
-		[getCount, setCount] = createSignal(0),
-		[getErrorCode, setErrorCode] = createSignal(null),
-		[getErrorMessage, setErrorMessage] = createSignal(null)
+	[getCount, setCount] = createSignal(0),
+	[getErrorCode, setErrorCode] = createSignal(null),
+	[getErrorMessage, setErrorMessage] = createSignal(null),
 
-	const get = async (section, params = {}, body = {}) => {
-		return await fetchData('get', section, params, body)
-	}
+	get = async (section, params = {}, body = {}) => {
+		return await fetch('get', section, params, body)
+	},
 
-	const incrementCount = () => {
+	incrementCount = () => {
 		const currentCount = getCount()
 		currentCount < 3 && setCount(currentCount + 1)
-	}
+	},
 
-	const resetCount = () => {
+	resetCount = () => {
 		setCount(0)
-	}
+	},
 
-	const fetchData = async (type, section, params, body) => {
+	fetch = async (type, section, params, body) => {
 		try{
 			setErrorCode(null)
 			setErrorMessage(null)
@@ -40,7 +39,7 @@ export default function useAxios(){
 			return response
 		}catch(e){
 			const { error, code } = validateError(e)
-			setErrorCode(2)
+			setErrorCode(code)
 			setErrorMessage(error)
 			throw('error')
 
@@ -67,7 +66,7 @@ export default function useAxios(){
 
 	return {
 		get,
-		incrementCount,
+		handleRequest: incrementCount,
 		count: getCount,
 		reset: resetCount,
 		errorCode: getErrorCode,
