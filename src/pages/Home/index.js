@@ -19,6 +19,7 @@ export default function HomePage(){
 		onLeave = () => {
 			const el = $('#home')
 			fadeOutElement(el, '1', '0', '150')
+			axios.reset()
 		}
 
 	useRouter({ route, onBefore, onLeave })
