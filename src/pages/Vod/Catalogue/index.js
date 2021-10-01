@@ -1,5 +1,5 @@
 import { onMount, For } from 'solid-js'
-import SpatialNavigation from '../../../utils/spatial-navigation'
+import SpatialNavigation from '../../../utils/spatialNavigation'
 import { tns } from '../../../../node_modules/tiny-slider/src/tiny-slider'
 import { isPressDown, isPressEnter, isPressLeft, isPressRight, isPressUp } from '../../../utils/keyboard'
 import '../../../components/TinySlider/styles.css'
