@@ -5,6 +5,7 @@ import { fadeInElement, fadeOutElement } from '../../utils/transition'
 import { $ } from '../../utils/dom'
 
 import Error from '../../components/Error'
+import Catalogue from './Catalogue'
 
 export default function LiveTv(){
   const [getData, setData] = createSignal(null),
@@ -46,9 +47,9 @@ export default function LiveTv(){
 
 	return (
 		<div className="section-wrapper" id={route} style={{ 'opacity': '0', 'display': 'none'}}>
-			{/* <Show when={getData()}>
+			<Show when={getData()}>
 				<Catalogue data={getData()} />
-			</Show> */}
+			</Show>
 			<Show when={getError()}>
 				<Error {...axios} />
 			</Show>

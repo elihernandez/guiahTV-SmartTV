@@ -32,8 +32,8 @@ export const App = () => {
 		<div className="main-section" style={{ 'opacity': '0', 'display': 'none' }}>
 			<Menu />
 			<HomePage />
-			<VodPage />
 			<LiveTvPage />
+			<VodPage />
 			{/* 
 			<RadioPage />
 			<MusicPage />

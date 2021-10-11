@@ -1,0 +1,20 @@
+.catalogue-live-tv{
+    position: fixed;
+    bottom: 0;
+    padding: 80px 0;
+    /* width: 350px; */
+
+    .title-item{
+        margin: 16px 0;
+        text-align: center;
+
+        .title{
+            font-size: 32px;
+            font-weight: 600;
+        }
+    }
+
+    /* .item-image{
+        width: 20%;
+    } */
+}
