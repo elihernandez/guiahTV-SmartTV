@@ -19,7 +19,7 @@
     "@babel/cli": "7.14.8",
     "@babel/core": "7.15.0",
     "@babel/preset-env": "7.1.0",
-    "@webpack-cli/serve": "1.5.2",
+    "@webpack-cli/serve": "^1.5.2",
     "autoprefixer": "10.2.5",
     "babel-engine-plugin": "0.3.0",
     "babel-eslint": "10.1.0",
