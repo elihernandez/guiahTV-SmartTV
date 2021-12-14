@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c6e4967-89b3-4458-9255-aa06142cad45" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webOS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webOS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
       <workItem from="1639431472948" duration="4438000" />
       <workItem from="1639493739887" duration="508000" />
       <workItem from="1639494279000" duration="204000" />
-      <workItem from="1639494523961" duration="4581000" />
+      <workItem from="1639494523961" duration="5153000" />
     </task>
     <servers />
   </component>
