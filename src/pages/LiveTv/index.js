@@ -8,7 +8,7 @@ import Error from '../../components/Error'
 import Catalogue from './Catalogue'
 
 export default function LiveTv(){
-  const [getData, setData] = createSignal(null),
+	const [getData, setData] = createSignal(null),
 		[getError, setError] = createSignal(null),
 		axios = useAxios(),
 		route = 'live-tv',
