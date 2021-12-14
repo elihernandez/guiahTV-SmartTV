@@ -4,9 +4,9 @@
 		<title>Guíah TV | Un espacio de fe</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="app/favicon.ico">
-		<link rel="stylesheet" href="app/build.css">
-	</head>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js"></script> -->
+	<link rel="icon" href="app/favicon.ico"></head>
 	<body>
 		<div id="top-menu" style="display: none;">
 			<div class="container">
@@ -22,6 +22,7 @@
 		</div>
 
 		<div id="app">
+			<div id="myDiv"></div>
 				<div id="magic-button-back" class="magic-button-back" style="display: none;" onkeydown="pressMagicButtonBack(event)" onclick="clickMagicButtonBack()">
 					<span class="button-back" tabindex="-1">
 						<i class="fas fa-arrow-left"></i>
@@ -237,7 +238,13 @@
 				<section id="radio" style="display: none;"></section>
 
 			<!-- Seccion Música -->	
-				<section id="musica" style="display: none;"></section>
+				<section id="musica" style="display: none;">
+					<div class="tracks">
+						<div>your content</div>
+						<div>your content</div>
+						<div>your content</div>
+					</div>
+				</section>
 		
 			<!-- Sección Zona Kids -->
 				<div id="zonakids" style="display: none;">
@@ -380,7 +387,10 @@
 
 				<div id="configurations-menu" style="display: none;">
 				</div>
+
+				<div id="sdlp-player">
+
+				</div>
 		</div>
-		<script src="app/build.js"></script>
 	</body>
 </html>
