@@ -133,30 +133,60 @@ class Sections extends React.Component {
 
 function SectionsContent(item, index, data){
     var id = "section-menu-"+index;
-    if(item.ContentType != 'leon_ppv'){
-        if(index == 0){
-            var direction = "#section-menu-4";
-            return (
-                <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" data-sn-left={direction} onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
-                    <img src={item.PosterCardUrlLandscape}/>
-                    <h2 className="title-section">{item.titulo}</h2>
-                </div>
-            )
-        }else if(index == 4){
-            var direction = "#section-menu-0";
-            return (
-                <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" data-sn-right={direction} onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
-                    <img src={item.PosterCardUrlLandscape}/>
-                    <h2 className="title-section">{item.titulo}</h2>
-                </div>
-            )
-        }else{
-            return (
-                <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
-                    <img src={item.PosterCardUrlLandscape}/>
-                    <h2 className="title-section">{item.titulo}</h2>
-                </div>
-            )
+    if(env === "dev"){
+        if(item.ContentType != 'leon_ppv'){
+            if(index == 0){
+                var direction = "#section-menu-4";
+                return (
+                    <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" data-sn-left={direction} onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
+                        <img src={item.PosterCardUrlLandscape}/>
+                        <h2 className="title-section">{item.titulo}</h2>
+                    </div>
+                )
+            }else if(index == 4){
+                var direction = "#section-menu-0";
+                return (
+                    <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" data-sn-right={direction} onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
+                        <img src={item.PosterCardUrlLandscape}/>
+                        <h2 className="title-section">{item.titulo}</h2>
+                    </div>
+                )
+            }else{
+                return (
+                    <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
+                        <img src={item.PosterCardUrlLandscape}/>
+                        <h2 className="title-section">{item.titulo}</h2>
+                    </div>
+                )
+            }
+        }
+    }else{
+        if(item.ContentType != 'leon_ppv' && item.ContentType != 'leon_music'){
+            if(index == 0){
+                var direction = "#section-menu-4";
+                return (
+                    <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" data-sn-left={direction} onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
+                        <img src={item.PosterCardUrlLandscape}/>
+                        <h2 className="title-section">{item.titulo}</h2>
+                    </div>
+                )
+            }else if(index == 4){
+                var direction = "#section-menu-0";
+                return (
+                    <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" data-sn-right={direction} onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
+                        <img src={item.PosterCardUrlLandscape}/>
+                        <h2 className="title-section">{item.titulo}</h2>
+                    </div>
+                )
+            }else{
+                return (
+                    <div id={id} className="section-item" tabIndex="-1" datasectionid={index} data-sn-up="#carousel-spotlight" onKeyDown={keyDownOnSectionMenu} onClick={keyDownOnSectionMenu}>
+                        <img src={item.PosterCardUrlLandscape}/>
+                        <h2 className="title-section">{item.titulo}</h2>
+                    </div>
+                )
+            }
         }
     }
+
 }

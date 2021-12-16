@@ -22,6 +22,8 @@ store.on(COUNT_CHANGE, ({ count }) => {
 // window.addEventListener("click", function () {
 //   store.emit(COUNT_CHANGE, ({ count }) => ({ count: count - 1 }))
 // })
+const saludo = 'Hola'
+const env = 'prod'
 
 var urlGetApi = 'https://lap55.com/json/api/',
 	timeoutGetApi = 15000,
@@ -68,9 +70,6 @@ var urlGetApi = 'https://lap55.com/json/api/',
 	sectionActiveId,
 	sectionErrorStatus,
 	passwordToken
-
-	const saludo = 'Hola'
-
 
 window.onload = function() {
 	startGuiahTv()
