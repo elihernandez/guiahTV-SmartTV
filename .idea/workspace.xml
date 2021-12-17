@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="61dbac35-6792-42aa-802f-dfa28fea5424" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/menu/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/menu/menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/renders/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/renders/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webOS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webOS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/alacarta/alacarta.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/alacarta/alacarta.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/catalogos/catalogos.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/catalogos/catalogos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/zonakids/zonakids.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/zonakids/zonakids.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,12 +86,24 @@
       <workItem from="1639514624003" duration="2017000" />
       <workItem from="1639580124993" duration="3946000" />
       <workItem from="1639599983448" duration="3234000" />
-      <workItem from="1639670480092" duration="9336000" />
+      <workItem from="1639670480092" duration="10218000" />
+      <workItem from="1639750543951" duration="3761000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
