@@ -256,7 +256,7 @@ function showTimeToStartEventLiveTv(data){
 }
 
 function isEvent(string){
-	if(string == 'Event'){
+	if(string.includes('Event') || string.includes('event')){
 		return true
 	}
 
