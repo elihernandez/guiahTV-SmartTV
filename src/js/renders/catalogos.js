@@ -73,7 +73,14 @@ function Category(category, index, data, idCatalogue){
         
     if(dataMovie.category.poster_type == 1){
         var currentRow = 1;
-        var numRows = (category.cmData.length) / 5;
+        let numItems = 0;
+        if (idCatalogue.includes('radio')){
+            numItems = 4;
+        }else{
+            numItems = 5;
+        }
+
+        var numRows = (category.cmData.length) / numItems;
         if(numRows > 1){
             if(Number.isInteger(numRows)){
                 numRows = numRows;
@@ -110,11 +117,12 @@ function ArrowsRows({leftDirectionId, rightDirectionId, numRows, listId}){
     }else{
         var displayRight = "";
     }
+
     if(isWebBrowser()){
         return (
             <>
-                <div id={leftDirectionId} className="direction left" onClick={moveLeftCatalogue} rightDirectionId={rightDirectionId} leftDirectionId={leftDirectionId} currentRow={currentRow} numRows={numRows} listId={listId} style={{display: displayLeft}}><i class="fas fa-chevron-left"></i></div>
-                <div id={rightDirectionId} className="direction right" onClick={moveRightCatalogue} leftDirectionId={leftDirectionId} rightDirectionId={rightDirectionId} currentRow={currentRow} numRows={numRows} listId={listId} style={{display: displayRight}}><i class="fas fa-chevron-right"></i></div>
+                <div id={leftDirectionId} className={`direction left ${listId.includes('radio') ? "radio" : ""}`} onClick={moveLeftCatalogue} rightDirectionId={rightDirectionId} leftDirectionId={leftDirectionId} currentRow={currentRow} numRows={numRows} listId={listId} style={{display: displayLeft}}><i class="fas fa-chevron-left"></i></div>
+                <div id={rightDirectionId} className={`direction right ${listId.includes('radio') ? "radio" : ""}`} onClick={moveRightCatalogue} leftDirectionId={leftDirectionId} rightDirectionId={rightDirectionId} currentRow={currentRow} numRows={numRows} listId={listId} style={{display: displayRight}}><i class="fas fa-chevron-right"></i></div>
             </>
         )
     }
