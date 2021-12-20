@@ -93,12 +93,14 @@ function getChapters(data, temporada){
 }
 
 function renderChapters(data, chapters){
+    ReactDOM.render("", document.getElementById('list-chapters'));
+
     const element = chapters.map((chapter, index) =>
         <Chapter key={chapter.Title} index={index} category={data} chapter={chapter}/>
     );
 
     ReactDOM.render(element, document.getElementById('list-chapters'));
-    navigableSections = ['seasons-serie', 'chapters-serie']; 
+    navigableSections = ['seasons-serie', 'chapters-serie'];
     focusSection = 'chapters-serie';
     fadeInElement('list-chapters', "0", "1", "0.2s");
     document.getElementById('chapter-0').focus();

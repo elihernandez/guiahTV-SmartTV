@@ -51,7 +51,6 @@ function showChaptersSeason(e, data){
     ], {
       onBeforeChangeStyle: function(element) {
         getChapters(data.serie, data.season);
-
       },
       onAfterChangeStyle: function(element) {
           
@@ -81,6 +80,7 @@ function pressBackOnSectionSeries(e){
   if(pressBack(e)){
     fadeOutElement(idSeries, "1", "0", "0.3s");
     fadeOutElement('list-chapters', "1", "0", "0.3s");
+    // document.getElementById('list-chapters').innerHTML = "";
 
     if(sectionALaCartaActive){
       navigableSections = [idALaCarta]; 
