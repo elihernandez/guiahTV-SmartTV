@@ -19,7 +19,7 @@ function InfoMovieALaCarta(){
                 <div className="el-row">
                     <h2 className="title"></h2>
                 </div>
-                <div className="el-row jc-space-between w-40">
+                <div className="el-row jc-space-between w-46">
                     <div className="group-1 el-row ai-center ac-center w-50">
                         <img className="imdb-movie" src=""/>
                         <h3 className="rating-movie ml-1 mb-"></h3>

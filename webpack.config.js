@@ -89,9 +89,9 @@ const productionPlugins = [
 ]
 
 module.exports = (_env, { mode }) => ({
-	entry: './src/js/imports.js',
+	entry: './src/js/app.js',
 	output: {
-		path: path.resolve(process.cwd(), __dirname + '/webOS/app/'),
+		path: path.resolve(process.cwd(), __dirname + '/build'),
 		publicPath: 'app/',
 	},
 	watch: (mode === 'production' ? false : true),
