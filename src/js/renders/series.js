@@ -113,7 +113,7 @@ function Chapter(props){
             </div>
             <div className="info-chapter">
                 <h2 className="title-chapter">{props.chapter.Title}</h2>
-                <h3 className="description-chapter">{props.chapter.Description}</h3>
+                <h3 className="description-chapter">{limitString(props.chapter.Description, 250)}</h3>
             </div>
         </li>
     );

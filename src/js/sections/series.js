@@ -129,7 +129,7 @@ function animateScrollSeries(e){
 function animateScrollUpSeries(element, positionBefore, positionAfter, stop) {
   const transitionTransform = typeTransition();
   transition.begin(element, [
-      [transitionTransform, "translateY(-"+positionBefore+"px)", "translateY(-"+positionAfter+"px)", "0.32s", "ease-out"],
+      [transitionTransform, "translateY(-"+positionBefore+"px)", "translateY(-"+positionAfter+"px)", "0.0s", "linear"],
   ], { 
       onBeforeChangeStyle: function(element) {
           // element.style.display = "block";
@@ -150,7 +150,7 @@ function animateScrollUpSeries(element, positionBefore, positionAfter, stop) {
 function animateScrollDownSeries(element, positionBefore, positionAfter, stop) {
   const transitionTransform = typeTransition();
   transition.begin(element, [
-      [transitionTransform, "translateY(-"+positionBefore+"px)", "translateY(-"+positionAfter+"px)", "0.32s", "ease-out"],
+      [transitionTransform, "translateY(-"+positionBefore+"px)", "translateY(-"+positionAfter+"px)", "0.0s", "linear"],
   ], { 
       onBeforeChangeStyle: function(element) {
           // element.style.display = "block";

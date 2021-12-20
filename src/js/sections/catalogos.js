@@ -299,7 +299,7 @@ function showInfoMovie(data){
     document.getElementById(idSection).getElementsByClassName("title")[0].innerHTML = data.movie.Title;
     document.getElementById(idSection).getElementsByClassName("imdb-movie")[0].src = data.movie.StarRating ? 'app/assets/images/clasifications-movies/imdb.png' : ''
     document.getElementById(idSection).getElementsByClassName("rating-movie")[0].innerHTML = data.movie.StarRating ? data.movie.StarRating : '';
-    document.getElementById(idSection).getElementsByClassName("line-space")[0].innerHTML = '|';
+    document.getElementById(idSection).getElementsByClassName("line-space")[0].innerHTML = data.movie.StarRating ? '|' : '';
     document.getElementById(idSection).getElementsByClassName("clasification-movie")[0].src = clasificationMovie(data.movie.Rating);
     document.getElementById(idSection).getElementsByClassName("clock")[0].classList.add('fa');
     document.getElementById(idSection).getElementsByClassName("clock")[0].classList.add('fa-clock-o');
