@@ -2,7 +2,7 @@ var moveElement = true;
 
 // Función que detecta la tecla presionaa para hacer scroll
 function animateScroll(e){  
-    if(moveElement){
+    // if(moveElement){
         var element = document.getElementById(e.target.id); // li
         var listParentElement = element.parentElement; // div
         var categoryParentElement = listParentElement.parentElement; //ul
@@ -64,23 +64,23 @@ function animateScroll(e){
                 animateScrollDown(listElement, categoryParentElement, positionBefore, positionAfter);
             }
         }
-    }
+    // }
 }
 
 // Animación del catálogo que hace scroll a la izquierda
 function animateScrollLeft(element, positionBefore, positionAfter, stop) {
     const transitionTransform = typeTransition();
     transition.begin(element, [
-        [transitionTransform, "translateX(-"+positionBefore+"px)", "translateX(-"+positionAfter+"px)", "0.20s", "ease-out"],], {
+        [transitionTransform, "translateX(-"+positionBefore+"px)", "translateX(-"+positionAfter+"px)", "0.0s", "linear"],], {
         onBeforeChangeStyle: function() {
-            moveElement = false;
+            moveElement = true;
         },
         onAfterChangeStyle: function(){
-            SpatialNavigation.pause();
+            // SpatialNavigation.pause();
         },
         onTransitionEnd: function(finished) {
             if (!finished || stop) return;
-            SpatialNavigation.resume();
+            // SpatialNavigation.resume();
             moveElement = true;
         }
     });
@@ -90,16 +90,16 @@ function animateScrollLeft(element, positionBefore, positionAfter, stop) {
 function animateScrollRight(element, positionBefore, positionAfter, stop) {
     const transitionTransform = typeTransition();
     transition.begin(element, [
-        [transitionTransform, "translateX(-"+positionBefore+"px)", "translateX(-"+positionAfter+"px)", "0.20s", "ease-out"],], { 
+        [transitionTransform, "translateX(-"+positionBefore+"px)", "translateX(-"+positionAfter+"px)", "0.0s", "linear"],], {
         onBeforeChangeStyle: function() {
-            moveElement = false;
+            moveElement = true;
         },
         onAfterChangeStyle: function(){
-            SpatialNavigation.pause();
+            // SpatialNavigation.pause();
         },
         onTransitionEnd: function(finished) {
             if (!finished || stop) return;
-            SpatialNavigation.resume();
+            // SpatialNavigation.resume();
             moveElement = true;
         }
     });
@@ -109,17 +109,17 @@ function animateScrollRight(element, positionBefore, positionAfter, stop) {
 function animateScrollDown(element, listElement, positionBefore, positionAfter, stop) {
     const transitionTransform = typeTransition();
     transition.begin(element, [
-        [transitionTransform, "translateY(-"+positionBefore+"px)", "translateY(-"+positionAfter+"px)", "0.20s", "ease-out"],
+        [transitionTransform, "translateY(-"+positionBefore+"px)", "translateY(-"+positionAfter+"px)", "0.0s", "linear"],
     ], { 
         onBeforeChangeStyle: function() {
-            moveElement = false;
+            moveElement = true;
         },
         onAfterChangeStyle: function(){
-            SpatialNavigation.pause();
+            // SpatialNavigation.pause();
         },
         onTransitionEnd: function(finished) {
             if (!finished || stop) return;
-            SpatialNavigation.resume();
+            // SpatialNavigation.resume();
             moveElement = true;
         }
     });
@@ -129,17 +129,17 @@ function animateScrollDown(element, listElement, positionBefore, positionAfter, 
 function animateScrollUp(element, listElement, positionBefore, positionAfter, stop) {
     const transitionTransform = typeTransition();
     transition.begin(element, [
-        [transitionTransform, "translateY(-"+positionBefore+"px)", "translateY(-"+positionAfter+"px)", "0.20s", "ease-out"],
+        [transitionTransform, "translateY(-"+positionBefore+"px)", "translateY(-"+positionAfter+"px)", "0.0s", "linear"],
     ], { 
         onBeforeChangeStyle: function() {
-            moveElement = false;
+            moveElement = true;
         },
         onAfterChangeStyle: function(){
-            SpatialNavigation.pause();
+            // SpatialNavigation.pause();
         },
         onTransitionEnd: function(finished) {
             if (!finished || stop) return;
-            SpatialNavigation.resume();
+            // SpatialNavigation.resume();
             moveElement = true;
         }
     });
