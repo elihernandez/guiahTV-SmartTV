@@ -44,6 +44,13 @@ function keyDownItemRadio(data){
 }
 
 function showButtons(data){
+	const radioItems = document.getElementsByClassName('item-radio')
+
+	for (i=0;i<radioItems.length;i++){
+		radioItems[i].children[2].classList.remove('active')
+		radioItems[i].children[3].style.display = 'none'
+	}
+
 	var element = document.getElementById(data.movie.id)
 	var children = element.children[2]
 	document.querySelector('.icons-radio-container').style.display = 'none'
@@ -114,7 +121,7 @@ function getLinkRadioStation(data){
 				hls.on(Hls.Events.MEDIA_ATTACHED, function () {
 					hls.loadSource(response.Url)
 					hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) { 
-            radioActive = true
+            			radioActive = true
 					})
 				})
 			}else{

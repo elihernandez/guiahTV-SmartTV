@@ -46,6 +46,7 @@
 }
 
 #radio .left-section .info-radio{
+	margin-top: 5%;
 	padding: 0vh 3vw 0 4vw;
 }
 
@@ -118,7 +119,7 @@
 
 #radio .radio-player .img-station{
 	position: relative;
-	width: 80%;
+	width: 90%;
 	height: auto;
 	bottom: 0;
 }
@@ -127,8 +128,8 @@
     position: absolute;
     width: 10%;
     height: 15%;
-	right: 5%;
-	bottom: 0;
+	right: 12%;
+	bottom: 3%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
