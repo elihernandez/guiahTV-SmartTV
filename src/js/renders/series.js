@@ -1,7 +1,7 @@
 function renderSerie(data, temporadas){
     const element = (
         <div className="container-section">
-            <BackgroundSeries/>
+            <BackgroundSeries data={data}/>
             <div className="catalogue-series">
                 <TitleSerie data={data}/>
                 <BackgroundSerie data={data}/>
@@ -21,7 +21,11 @@ function renderSerie(data, temporadas){
     ReactDOM.render(element, document.getElementById(idSeries));
 }
 
-function BackgroundSeries(){
+function BackgroundSeries({ data }){
+    const { movie } = data
+    const { HdBackgroundImageUrl } = movie
+    console.log(data)
+
     if(sectionALaCartaActive){
         var img = <img src="app/assets/images/backgrounds/background-series-iglesias.webp"></img>
     }
@@ -29,6 +33,8 @@ function BackgroundSeries(){
     if(sectionZonaKidsActive){
         var img = <img src="app/assets/images/backgrounds/background-series-kids.webp"></img>
     }
+
+    img = <img src={HdBackgroundImageUrl} />
 
     return (
         <div className="background-section">

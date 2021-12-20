@@ -4,11 +4,7 @@
     <list default="true" id="61dbac35-6792-42aa-802f-dfa28fea5424" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/series/series.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/series/series.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/renders/series.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/renders/series.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/sections/catalogos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/sections/catalogos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/sections/series.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/sections/series.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webOS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webOS/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +96,7 @@
       <workItem from="1639599983448" duration="3234000" />
       <workItem from="1639670480092" duration="10218000" />
       <workItem from="1639750543951" duration="13124000" />
-      <workItem from="1640011162334" duration="18623000" />
+      <workItem from="1640011162334" duration="19760000" />
     </task>
     <servers />
   </component>
