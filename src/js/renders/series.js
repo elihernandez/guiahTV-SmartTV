@@ -24,7 +24,6 @@ function renderSerie(data, temporadas){
 function BackgroundSeries({ data }){
     const { movie } = data
     const { HdBackgroundImageUrl } = movie
-    console.log(data)
 
     if(sectionALaCartaActive){
         var img = <img src="app/assets/images/backgrounds/background-series-iglesias.webp"></img>
@@ -43,16 +42,28 @@ function BackgroundSeries({ data }){
     )
 }
 
-function BackgroundSerie(props){
+function BackgroundSerie({ data }){
+    const { movie } = data
+    const { Description } = movie
+
     return (
         <div className="background-serie">
-            <img src={props.data.movie.HDPosterUrlPortrait}/>
+            <h4 className="description-serie">{limitString(Description, 225)}</h4>
+            {/*<img src={props.data.movie.HDPosterUrlPortrait}/>*/}
         </div>
     );
 }
 
-function TitleSerie(props){
-    return <h3 className="title-serie">{props.data.movie.Title}</h3>;
+function TitleSerie({ data }){
+    const { movie } = data
+    const { Title, Categories } = movie
+
+    return (
+        <div className="title-wrapper">
+            <h4 className="genre-serie">{Categories}</h4>
+            <h3 className="title-serie">{Title}</h3>
+        </div>
+    )
 }
 
 function Seasons(props){
@@ -130,7 +141,7 @@ function Chapter(props){
             </div>
             <div className="info-chapter">
                 <h2 className="title-chapter">{props.chapter.Title}</h2>
-                <h3 className="description-chapter">{limitString(props.chapter.Description, 250)}</h3>
+                <h3 className="description-chapter">{limitString(props.chapter.Description, 280)}</h3>
             </div>
         </li>
     );

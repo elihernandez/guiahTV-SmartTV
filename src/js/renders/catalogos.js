@@ -60,7 +60,7 @@ function Category(category, index, data, idCatalogue){
                 <div id={dataMovie.category.headerheaderId} className="header-category el-row ai-center ac-center">
                     <h3 className="name-category">{dataMovie.category.category}</h3>
                     <div id={dataMovie.category.countId}>
-                        <h3 className="fs-2">(1 de {dataMovie.category.cmData.length})</h3>
+                        <h3>(1 de {dataMovie.category.cmData.length})</h3>
                     </div>
                 </div>
                 <div id={dataMovie.category.listId} className="movies">
@@ -92,10 +92,10 @@ function Category(category, index, data, idCatalogue){
         }
         categoria = (
             <ul key={dataMovie.category.headerId} id={dataMovie.category.headerId} className="landscape">
-                <div className="header-category" className="header-category el-row ai-center ac-center">
+                <div className="header-category el-row ai-center ac-center">
                     <h3 className="name-category">{dataMovie.category.category}</h3>
                     <div id={dataMovie.category.countId}>
-                        <h3 className="fs-2">(1 de {dataMovie.category.cmData.length})</h3>
+                        <h3>(1 de {dataMovie.category.cmData.length})</h3>
                     </div>
                 </div>
                 <div id={dataMovie.category.listId} className="movies">

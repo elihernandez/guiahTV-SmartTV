@@ -114,7 +114,7 @@ function CatalogueRadio(){
                     <div className="header-category el-row ai-center ac-center">
                         <h3 className="name-category">Estrenos</h3>
                         <div id="">
-                            <h3 className="fs-2">(1/1)</h3>
+                            <h3>(1/1)</h3>
                         </div>
                     </div>
                     <div className="movies">
@@ -131,7 +131,7 @@ function CatalogueRadio(){
                     <div className="header-category el-row ai-center ac-center">
                         <h3 className="name-category">Estrenos</h3>
                         <div id="">
-                            <h3 className="fs-2">(1/1)</h3>
+                            <h3>(1/1)</h3>
                         </div>
                     </div>
                     <div className="movies">
@@ -148,7 +148,7 @@ function CatalogueRadio(){
                     <div className="header-category el-row ai-center ac-center">
                         <h3 className="name-category">Estrenos</h3>
                         <div id="">
-                            <h3 className="fs-2">(1/1)</h3>
+                            <h3>(1/1)</h3>
                         </div>
                     </div>
                     <div className="movies">

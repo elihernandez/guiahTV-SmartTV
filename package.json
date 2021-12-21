@@ -23,7 +23,7 @@
     "tizen-run-em": "tizen run -t tv-6.0 -p bgxguizszA.guiahtv",
     "tizen-run-tv": "tizen run -t UN75AU7000FXZX -p bgxguizszA.guiahtv",
     "tizen-em": "npm-run-all tizen-build tizen-package tizen-install-em tizen-run-em",
-    "tizen-tv": "npm-run-all tizen-build tizen-package tizen-install-tv tizen-run-tv"
+    "tizen-tv": "npm-run-all build tizen-build tizen-package tizen-install-tv tizen-run-tv"
   },
   "keywords": [],
   "author": "Eliezer Hernández",

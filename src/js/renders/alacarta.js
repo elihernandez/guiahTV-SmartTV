@@ -21,10 +21,10 @@ function InfoMovieALaCarta(){
                 </div>
                 <div className="el-row jc-space-between w-46">
                     <div className="group-1 el-row ai-center ac-center w-50">
+                        <img className="clasification-movie" src=""/>
+                        <h3 className="line-space fs-3 ml-1 mb-2"></h3>
                         <img className="imdb-movie" src=""/>
                         <h3 className="rating-movie ml-1 mb-"></h3>
-                        <h3 className="line-space fs-3 ml-1 mb-2"></h3>
-                        <img className="clasification-movie ml-1" src=""/>
                     </div>
                     <div className="el-row jc-center ai-center">
                         <i className="clock fs-3 color-grey-1" aria-hidden="true"></i>

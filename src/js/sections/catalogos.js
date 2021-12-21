@@ -333,8 +333,8 @@ function clasificationMovie(rating){
 function textHtmlMovie(title, classText, string, id, className){
     var append = "";
     if(string != "" && string != "N/A"){
-        append = append + '<h3 class="fw-500 fs-2 color-grey-2">'+title+'&nbsp;</h3>' +
-                          '<h3 class="'+classText+'movie fw-400 fs-2 ml-1 color-grey-2">'+string+'</h3>';
+        append = append + '<h3 class="fw-400 fs-2 color-grey-1">'+title+'&nbsp;</h3>' +
+                          '<h3 class="'+classText+'movie fw-400 fs-2 ml-1 color-grey-1">'+string+'</h3>';
     }
 
     document.getElementById(id).getElementsByClassName(className)[0].innerHTML = append;
