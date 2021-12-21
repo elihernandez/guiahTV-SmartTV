@@ -61,8 +61,12 @@
 }
 
 #series .seasons ul{
+    position: absolute;
     list-style: none;
     padding: 0;
+    width: 90%;
+    height: 60%;
+    overflow: hidden;
 }
 
 #series .seasons li{
@@ -80,22 +84,12 @@
 }
 
 #series .seasons li.active{
-    font-weight: 700;
+    font-weight: 500;
     color: white;
 }
 
 #series .seasons li.active i{
     opacity: 1;
-}
-
-#series .seasons li.active:hover{
-    font-weight: 700;
-    color: white;
-}
-
-#series .seasons li.active:focus{
-    font-weight: 700;
-    color: white;
 }
 
 #series .seasons li:hover{
