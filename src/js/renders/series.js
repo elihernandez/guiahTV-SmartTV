@@ -73,7 +73,7 @@ function Season(props){
 
     return (
         <li id={id} tabIndex="-1" className={className} onClick={keyDownOnTitleSeason} onKeyDown={keyDownOnTitleSeason} data={data}>
-            <i className="fas fa-angle-right"></i>{props.temporada.Title}
+            <i className="fas fa-angle-right"></i>{limitString(props.temporada.Title, 23)}
         </li>
     );
 }
@@ -112,8 +112,17 @@ function Chapter(props){
     data['category'] = props.category;
     data['movie'] = props.chapter;
     data = escape(JSON.stringify(data));
+
+    const onKeyDown = (e) => {
+        if(pressLeft(e)){
+            makeSectionFocus('seasons-serie')
+        }else{
+            keyDownItemSeries(e)
+        }
+    }
+
     return (
-        <li id={id} className="chapter" tabIndex="-1" onClick={keyDownItemSeries} onKeyDown={keyDownItemSeries} data={data}>
+        <li id={id} className="chapter" tabIndex="-1" onClick={keyDownItemSeries} onKeyDown={onKeyDown} data={data}>
             <div className="background-chapter">
                 <img className="image-chapter" src={props.chapter.HDPosterUrlLandscape} alt=""/>
                 <div className="background-progress"></div>
