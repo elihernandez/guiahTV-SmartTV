@@ -99,6 +99,7 @@ function pressBackOnSectionSeries(e){
     }
 
     sectionTemporadasActive = false;
+    ReactDOM.render("", document.getElementById('series'))
   }
 }
 
