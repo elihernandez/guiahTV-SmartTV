@@ -894,13 +894,15 @@ function backToPreviousSection(e){
 		}
     
 		if(sectionTemporadasActive && sectionALaCartaActive){
-			focusSection = 'chapters-serie'
+			focusSection = ''
 			fadeInElement(idSeries, '0', '1', '0.3s')
+			SpatialNavigation.focus('chapters-serie')
 		}
-    
+
 		if(sectionTemporadasActive && sectionZonaKidsActive){
-			focusSection = 'chapters-serie'
+			focusSection = ''
 			fadeInElement(idSeries, '0', '1', '0.3s')
+			SpatialNavigation.focus('chapters-serie')
 		}
     
 		videoPlayerActive = false

@@ -115,8 +115,6 @@ function getChapters(data, temporada){
 }
 
 function renderChapters(data, chapters){
-    ReactDOM.render("", document.getElementById('list-chapters'));
-
     const element = chapters.map((chapter, index) =>
         <Chapter key={chapter.Title} index={index} length={chapters.length} category={data} chapter={chapter}/>
     );

@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="61dbac35-6792-42aa-802f-dfa28fea5424" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/sections/series.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/sections/series.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/renders/series.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/renders/series.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/sections/hlsplayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/sections/hlsplayer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,17 +23,19 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/js/renders/alacarta.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/radio.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/envivo.js" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/js/renders/radio.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/app.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/js/lib/transitions.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/js/sections/hlsplayer.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/catalogos.js" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/gulpfile.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/login.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/series.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/lib/spatial-navigation.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/catalogos.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/js/renders/alacarta.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/js/renders/radio.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/gulpfile.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/series.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -100,7 +103,7 @@
       <workItem from="1639750543951" duration="13124000" />
       <workItem from="1640011162334" duration="21616000" />
       <workItem from="1640093956194" duration="21012000" />
-      <workItem from="1640181258477" duration="3242000" />
+      <workItem from="1640181258477" duration="6031000" />
     </task>
     <servers />
   </component>
