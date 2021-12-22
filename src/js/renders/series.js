@@ -67,14 +67,16 @@ function TitleSerie({ data }){
 }
 
 function Seasons(props){
+
     const seasons = props.temporadas.map((temporada, index) =>
-        <Season key={temporada.Title} index={index} serie={props.data} temporada={temporada}/>
+        <Season key={temporada.Title} index={index} length={props.temporadas.length} serie={props.data} temporada={temporada}/>
     );
 
     return seasons;
 }
 
 function Season(props){
+    const { index, length } = props
     var id = "season-"+props.index;
     var className = props.index === 0 ? 'title-season active' : 'title-season';
     var data = new Object();
@@ -82,11 +84,20 @@ function Season(props){
     data['season'] = props.temporada;
     data = escape(JSON.stringify(data));
 
-    return (
-        <li id={id} tabIndex="-1" className={className} onClick={keyDownOnTitleSeason} onKeyDown={keyDownOnTitleSeason} data={data}>
-            <i className="fas fa-angle-right"></i>{limitString(props.temporada.Title, 23)}
-        </li>
-    );
+    if(index < length - 1){
+        return (
+            <li id={id} tabIndex="-1" className={className} onClick={keyDownOnTitleSeason} onKeyDown={keyDownOnTitleSeason} data={data}>
+                <i className="fas fa-angle-right"></i>{limitString(props.temporada.Title, 23)}
+            </li>
+        );
+    }else{
+        return (
+            <li id={id} tabIndex="-1" className={className} data-sn-down="#" onClick={keyDownOnTitleSeason} onKeyDown={keyDownOnTitleSeason} data={data}>
+                <i className="fas fa-angle-right"></i>{limitString(props.temporada.Title, 23)}
+            </li>
+        );
+    }
+
 }
 
 function getChapters(data, temporada){
@@ -107,7 +118,7 @@ function renderChapters(data, chapters){
     ReactDOM.render("", document.getElementById('list-chapters'));
 
     const element = chapters.map((chapter, index) =>
-        <Chapter key={chapter.Title} index={index} category={data} chapter={chapter}/>
+        <Chapter key={chapter.Title} index={index} length={chapters.length} category={data} chapter={chapter}/>
     );
 
     ReactDOM.render(element, document.getElementById('list-chapters'));
@@ -118,6 +129,7 @@ function renderChapters(data, chapters){
 }
 
 function Chapter(props){
+    const { index, length } = props
     var id = "chapter-"+props.index;
     var data = new Object();
     data['category'] = props.category;
@@ -132,19 +144,35 @@ function Chapter(props){
         }
     }
 
-    return (
-        <li id={id} className="chapter" tabIndex="-1" onClick={keyDownItemSeries} onKeyDown={onKeyDown} data={data}>
-            <div className="background-chapter">
-                <img className="image-chapter" src={props.chapter.HDPosterUrlLandscape} alt=""/>
-                <div className="background-progress"></div>
-                {ProgressBarSerie(data)}
-            </div>
-            <div className="info-chapter">
-                <h2 className="title-chapter">{props.chapter.Title}</h2>
-                <h3 className="description-chapter">{limitString(props.chapter.Description, 280)}</h3>
-            </div>
-        </li>
-    );
+    if(index < length - 1){
+        return (
+            <li id={id} className="chapter" tabIndex="-1" onClick={keyDownItemSeries} onKeyDown={onKeyDown} data={data}>
+                <div className="background-chapter">
+                    <img className="image-chapter" src={props.chapter.HDPosterUrlLandscape} alt=""/>
+                    <div className="background-progress"></div>
+                    {ProgressBarSerie(data)}
+                </div>
+                <div className="info-chapter">
+                    <h2 className="title-chapter">{props.chapter.Title}</h2>
+                    <h3 className="description-chapter">{limitString(props.chapter.Description, 280)}</h3>
+                </div>
+            </li>
+        );
+    }else{
+        return (
+            <li id={id} className="chapter" tabIndex="-1" onClick={keyDownItemSeries} data-sn-down="#" onKeyDown={onKeyDown} data={data}>
+                <div className="background-chapter">
+                    <img className="image-chapter" src={props.chapter.HDPosterUrlLandscape} alt=""/>
+                    <div className="background-progress"></div>
+                    {ProgressBarSerie(data)}
+                </div>
+                <div className="info-chapter">
+                    <h2 className="title-chapter">{props.chapter.Title}</h2>
+                    <h3 className="description-chapter">{limitString(props.chapter.Description, 280)}</h3>
+                </div>
+            </li>
+        );
+    }
 }
 
 function ProgressBarSerie(data){
