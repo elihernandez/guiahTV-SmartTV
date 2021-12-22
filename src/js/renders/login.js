@@ -122,7 +122,7 @@ function FormLogin() {
 	)
 }
 
-function LoginMessageFailed({ message }) {
+function LoginMessageFailed({ message, responseCode }) {
 	return (
 		<div className="container-section">
 			<div className="logo">
@@ -131,9 +131,15 @@ function LoginMessageFailed({ message }) {
 			<div className="title">
 				<h2 id="message-failed-login" className="fw-700 message-failed">{message}</h2>
 			</div>
-			<div className="subtitle">
-				<h3 className="fw-400">Lo sentimos, tu nombre de usuario o contraseña es incorrecto. <br/>Por favor intenta otra vez.</h3>
-			</div>
+			{responseCode != 7 ?
+				<div className="subtitle">
+					<h3 className="fw-400">Lo sentimos, tu nombre de usuario o contraseña es incorrecto. <br/>Por favor intenta otra vez.</h3>
+				</div>
+				:
+				<div className="subtitle">
+					<h3 className="fw-400">Por favor intenta otra vez.</h3>
+				</div>
+			}
 			<div className="message">
 				<span className="buttons-mlf" tabIndex="-1" onClick={backLoginFailed} onKeyDown={backLoginFailed}>
 					<h4>REGRESAR</h4>

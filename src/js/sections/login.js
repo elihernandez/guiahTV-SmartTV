@@ -269,7 +269,7 @@ function clearInpustFormLogin() {
 function showMessageLoginFailed(response) {
 	var message = response.Response ? response.Response : 'Ocurrió un problema'
 	ReactDOM.render(
-		<LoginMessageFailed message={message} />,
+		<LoginMessageFailed message={message} responseCode={response.ResponseCode} />,
 		document.getElementById(idMessageLoginFailed)
 	)
 	focusSection = idMessageLoginFailed
