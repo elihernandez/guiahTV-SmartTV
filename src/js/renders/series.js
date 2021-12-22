@@ -61,7 +61,7 @@ function TitleSerie({ data }){
     return (
         <div className="title-wrapper">
             <h4 className="genre-serie">{Categories}</h4>
-            <h3 className="title-serie">{Title}</h3>
+            <h3 className="title-serie">{limitString(Title, 50)}</h3>
         </div>
     )
 }
