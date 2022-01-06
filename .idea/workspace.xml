@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61dbac35-6792-42aa-802f-dfa28fea5424" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/menu/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/menu/menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/rightmenu/rightmenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/rightmenu/rightmenu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webOS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webOS/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/src/js/sections/catalogos.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/css/menu/menu.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/login.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/js/sections/rightmenu.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/hooks/useHls.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/series.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/lib/spatial-navigation.js" root0="SKIP_INSPECTION" />
@@ -114,7 +114,7 @@
       <workItem from="1640093956194" duration="21012000" />
       <workItem from="1640181258477" duration="17255000" />
       <workItem from="1641477517556" duration="1430000" />
-      <workItem from="1641481975935" duration="8855000" />
+      <workItem from="1641481975935" duration="12037000" />
     </task>
     <servers />
   </component>

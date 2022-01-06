@@ -8,10 +8,9 @@
 
 #right-menu .container-section{
 	position: absolute;
-	width: 27%;
-	left: 0%;
+	width: 32%;
 	height: 100%;
-	padding: 3% 0 4% 6%;
+	padding: 56px 112px;
 	display: flex;
 	flex-direction: column;
 	align-content: flex-start;
@@ -26,30 +25,20 @@
 }
 
 #right-menu .back-button-right-menu i{
-	font-size: 1.5vh;
-	color: #616161;
+	font-size: 20px;
+	color: #757575;
 }
 
 #right-menu .back-button-right-menu .text{
-	margin: 0;
-	font-size: 2vh;
+	font-size: 24px;
 	font-weight: 500;
-	margin-left: 1vh;
-	color: #616161;
+	margin-left: 16px;
+	margin-bottom: 0;
+	color: #757575;
 }
 
 #right-menu .back-button-right-menu:hover{
 	cursor: pointer;
-}
-
-#right-menu .back-button-right-menu:hover .text{
-	color: white;
-	text-shadow: 0 0 10px rgba(255, 255, 255, 1);
-}
-
-#right-menu .back-button-right-menu:hover i{
-	color: white;
-	text-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
 
 #right-menu .back-button-right-menu:focus{
@@ -57,53 +46,58 @@
 	outline: none !important;
 }
 
+#right-menu .back-button-right-menu:hover .text{
+	color: white;
+}
+
+#right-menu .back-button-right-menu:hover i{
+	color: white;
+}
+
 #right-menu .back-button-right-menu:focus .text{
 	color: white;
-	text-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
 
 #right-menu .back-button-right-menu:focus i{
 	color: white;
-	text-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
 
 #right-menu .list-info{
-	margin-bottom: 2vh;
-	margin-top: 4vh;
+	margin-top: 40px;
 }
 
 #right-menu .list-info .title-list{
-	font-size: 2vh;
-	font-weight: 700;
-	color: #616161;
+	font-size: 24px;
+	font-weight: 600;
+	color: white;
 }
 
 #right-menu .list-info ul{
-	margin-top: 5vh;
+	margin-top: 40px;
 	padding: 0;
 	list-style: none;
 }
 
 #right-menu .list-info li{
-	margin-bottom: 4vh;
+	margin-bottom: 40px;
 }
 
 #right-menu .list-info .name-info{
-	font-size: 2.5vh;
+	font-size: 24px;
 	font-weight: 500;
-	color: whitesmoke;
+	color: white;
 }
 
 #right-menu .list-info .info{
-	font-size: 2.2vh;
-	color: #616161;
+	font-size: 20px;
+	color: #757575;
 	font-weight: 500;
 }
 
 #right-menu .buttons-menu{
 	position: relative;
 	width: 100%;
-	margin-top: 15vh;
+	margin-top: 240px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -112,38 +106,28 @@
 }
 
 #right-menu .buttons-menu span{
-	width: 80%;
-	font-size: 2vh;
+	width: 100%;
+	font-size: 24px;
 	font-weight: 500;
-	color: #616161;
-	border: .5vh solid transparent;
-	border-radius: .5vh;
+	color: #757575;
+	border: 4px solid transparent;
+	border-radius: 4px;
 	text-align: center;
-	padding: 1vh 0vh 1vh 0vh;
-	transition: .2s all;
+	padding: 16px 0;
+	transition: 300ms all ease-in-out;
 }
 
 #right-menu .buttons-menu span:hover{
 	color: white;
-	border: .5vh solid white;
+	border: 4px solid white;
 	cursor: pointer;
-	font-weight: 700;
-	text-align: center;
 }
 
 #right-menu .buttons-menu span:focus{
 	color: white;
-	border: .5vh solid white;
+	border: 4px solid white;
 	cursor: pointer;
-	text-align: center;
-	font-weight: 700;
 	outline: none !important;
-}
-
-@media (min-width: 1280px){
-	#right-menu .buttons-menu span:focus{
-		border: 3.6px solid white;
-	}
 }
 
 #info-logout{
@@ -163,12 +147,6 @@
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-}
-
-#info-logout .container-section .text-info{
-	font-size: 5vh;
-	color: white;
-	letter-spacing: 1px;
 }
 
 #info-logout .container-section .buttons-section{
