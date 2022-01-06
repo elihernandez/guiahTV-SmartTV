@@ -145,5 +145,6 @@ webOS/app/build.js
 webOS/app/build.css
 tizen/
 .idea/
+.idea\
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,node
