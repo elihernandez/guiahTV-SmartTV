@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61dbac35-6792-42aa-802f-dfa28fea5424" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/renders/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/renders/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/sections/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/sections/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/menu/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/menu/menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webOS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webOS/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +30,20 @@
     <setting file="file://$PROJECT_DIR$/src/js/lib/transitions.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/hlsplayer.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/catalogos.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/css/menu/menu.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/login.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/hooks/useHls.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/series.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/lib/spatial-navigation.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/catalogos.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/alacarta.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/webOS/index.html" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/radio.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/pages/LiveTV/Components/Timer/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/gulpfile.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/pages/LiveTV/Components/Video/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/series.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/js/Array/index.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,12 +61,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../guiahtv-web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.css.dialects" />
@@ -103,7 +112,9 @@
       <workItem from="1639750543951" duration="13124000" />
       <workItem from="1640011162334" duration="21616000" />
       <workItem from="1640093956194" duration="21012000" />
-      <workItem from="1640181258477" duration="7480000" />
+      <workItem from="1640181258477" duration="17255000" />
+      <workItem from="1641477517556" duration="1430000" />
+      <workItem from="1641481975935" duration="8855000" />
     </task>
     <servers />
   </component>
