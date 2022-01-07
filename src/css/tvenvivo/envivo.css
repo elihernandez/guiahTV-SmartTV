@@ -1,13 +1,12 @@
 /*Estilos del video*/
 
-	#videoEnVivo {
-		position: absolute;
-		z-index: 0;
-		width: 100%;
-		height: 100%;
-	}
+#videoEnVivo {
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
 
-	#videoEnVivo video{
+	video{
 		position: absolute;
 		z-index: 0;
 		height: 100%;
@@ -15,57 +14,6 @@
 		top:0px;
 		left:0px;
 	}
-
-#envivo .preview-poster-container{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
-
-#envivo .preview-poster-container img{
-	width: 100%;
-	height: 100%;
-}
-
-/*Estilos de video*/
-
-#envivo .message-failed-channel{
-	z-index: 3;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	align-content: center;
-	justify-content: center;
-}
-
-#envivo .message-failed-channel span{
-	color: white;
-}
-
-#envivo .message-failed-channel h3{
-	font-size: 6vh;
-    font-weight: 400;
-}
-
-#envivo .message-failed-channel h4{
-	color: #616161;
-	font-size: 4vh;
-	margin-top: -.5vh;
-}
-
-#envivo .loader-spinner-channel{
-	/* z-index: 3; */
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	align-content: center;
-	justify-content: center;
 }
 
 #envivo {
@@ -73,66 +21,100 @@
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	/* border: 2px solid red; */
-}
 
-#envivo .loader-spinner{
-	position: absolute;
-	z-index: 6;
-	width: 100%;
-	top: 0%;
-}
-  
-#envivo .loader-spinner .container{
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-}
+	.preview-poster-container{
+		position: absolute;
+		width: 100%;
+		height: 100%;
 
-#envivo .title-channel{
-	position: absolute;
-	z-index: 6;
-}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	}
 
-#envivo .title-channel .container{
-	padding: 0;
-	padding-top: 2vh;
-}
+	.message-failed-channel{
+		z-index: 3;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		align-content: center;
+		justify-content: center;
 
-#envivo .title-channel .container .text-channel{
-	letter-spacing: .1vh;
-}
+		span{
+			color: white;
+		}
 
-#envivo .title-channel .container .title{
-	font-size: 2.5vh;
-	color: rgba(255, 255, 255, 0.5);
-	color: #9e9e9e;
-	text-shadow: .4vh .5vh 1vh rgba(0, 0, 0, 0.2); 
-	font-weight: 500;
-}
+		h3{
+			font-size: 6vh;
+			font-weight: 400;
+		}
 
-#envivo .title-channel .container .title i{
-	margin-right: 2vh;
-}
+		h4{
+			color: #616161;
+			font-size: 4vh;
+			margin-top: -.5vh;
+		}
+	}
 
-#envivo .title-channel .container .subtitle{
-	font-size: 5.5vh;
-	font-weight: 700;
-	margin-top: -1vh;
-	color: white;
-	text-shadow: .4vh .6vh 1vh rgba(0, 0, 0, 0.2); 
-}
+	.loader-spinner-channel{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		align-content: center;
+		justify-content: center;
+	}
 
-#envivo .background-opacity{
-	position: absolute;
-	z-index: 1;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0,0,0,0);
+	.loader-spinner{
+		position: absolute;
+		z-index: 6;
+		width: 100%;
+		top: 0%;
+
+		.container{
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+	}
+
+	.title-channel{
+		position: absolute;
+		z-index: 6;
+
+		.container{
+			padding: 0;
+			padding-top: 2vh;
+
+			.title{
+				font-size: 24px;
+				color: #F7F7F7;
+				text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.16);
+				font-weight: 500;
+
+				i{
+					margin-right: 2vh;
+				}
+			}
+
+			.subtitle{
+				font-size: 40px;
+				font-weight: 900;
+				color: white;
+				text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.16);
+			}
+		}
+	}
 }
 
 #envivo .guide{
@@ -149,8 +131,8 @@
 	margin: 0;
 	position: absolute;
 	width: 100%;
-	height: 40%;
-	padding: 0vh 0 0vh 0;
+	height: 48%;
+	padding: 0;
 	bottom: 0;
 	background: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0));
 	/* border: 1px solid red; */
@@ -158,136 +140,22 @@
 
 #envivo .container-cont{
 	position: absolute;
-	width: 5%;
-	height: 15%;
-	right: 10%;
+	width: 8%;
+	height: 23%;
+	right: 4%;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
 	align-content: center;
-	/* background-color: rgba(0, 174, 255, 0.3); */
 }
 
 #envivo .container-cont h4{
-	margin: 0 .5vh;
-	font-size: 2.5vh;
-	color: whitesmoke;
+	margin: 0 8px;
+	font-size: 24px;
+	color: white;
+	font-weight: 500;
 }
-
-@media (max-width: 1199px) {
-	#envivo .container-full-screen-icon{
-		position: absolute;
-		top: -120%;
-		right: 4%;
-	}
-
-	#envivo .container-full-screen-icon span i{
-		font-size: 2.5vh;
-		transition: all .15s;
-		color: rgba(255, 255, 255, 0.75);
-	}
-
-	#envivo .container-full-screen-icon span:hover i{
-		font-size: 3vh;
-		cursor: pointer;
-		color: #fff;
-	}
-
-	#envivo .icons-live-container{
-		position: absolute;
-		width: 10%;
-		height: 15%;
-		right: 0;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		align-content: center;
-	}
-	
-	#envivo .icons-live-container span{
-		width: 50%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-content: center;
-		align-items: center;
-	}
-	
-	#envivo .icons-live-container span i{
-		font-size: 2.5vh;
-		transition: all .15s;
-		color: rgba(255, 255, 255, 0.75);
-	}
-	
-	#envivo .icons-live-container span:hover i{
-		font-size: 3vh;
-		cursor: pointer;
-		color: #fff;
-	}
-	
-	#envivo .container-volume-livetv{
-		position: absolute;
-		width: 20%;
-		height: 300%;
-		top: -300%;
-	}
-	
-	#envivo .container-volume-livetv .content-volume-livetv{
-		position: relative;
-		width: 100%;
-		height: 100%;
-		background-color: #212121;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		align-content: center;
-		border-radius: .5vh;
-	}
-	
-	#envivo .container-volume-livetv .content-volume-livetv .progress-volume-livetv{
-		position: relative;
-		width: 25%;
-		height: 70%;
-		background-color: #757575;
-	}
-
-	#envivo .container-volume-livetv .content-volume-livetv .progress-volume-livetv:hover{
-		cursor: pointer;
-	}
-	
-	#envivo .container-volume-livetv .content-volume-livetv .progress-volume-livetv .current-volume-livetv{
-		position: absolute;
-		width: 100%;
-		height: 40%;
-		bottom: 0;
-		background-color: #00acec;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		align-content: center;
-	}
-
-	#envivo .container-volume-livetv .content-volume-livetv .progress-volume-livetv .drop-volume-livetv{
-		position: absolute;
-		width: 2vh;
-		height: 1.9vh;
-		top: -1vh;
-		background-color: #fff;
-		border-radius: 50%;
-		transition: all .15s;
-	}
-
-	#envivo .container-volume-livetv .content-volume-livetv .progress-volume-livetv .drop-volume-livetv:hover{
-		width: 2.5vh;
-		height: 2.4vh;
-		cursor: pointer;
-	}
-}
-
 
 #envivo ul{
 	padding: 0;
@@ -297,15 +165,14 @@
 #envivo ul.nav{
 	z-index: 3;
 	position: relative;
-	width: 85%;
-	height: 15%;
+	width: 80%;
+	height: 14%;
 	color: #ddd;
 	border-bottom: 0 solid #ddd;
-	padding: 0vh 2vw 0vh 5vw;
+	padding-left: 56px;
+	padding-right: 16px;
 	display: flex;
 	flex-direction: row;
-	/* background-color: rgba(0, 174, 255, 0.3); */
-	/* border: 1px solid green; */
 }
 
 #envivo ul.nav-tabs > li{
@@ -314,16 +181,16 @@
 
 #envivo ul.nav li.nav-item{
 	position: relative;
-	border-radius: .5vh;	
+	border-radius: 4px;
 	text-align: center;
-	margin-left: .5vh;
-	margin-right: .5vh;
+	margin: 0 8px;
 	display: flex;
+	min-width: 240px;
 }
 
 .nav-tabs > li > a{
-	border-radius: .5vh;
-	
+	border-radius: 4px;
+
 }
 
 #envivo ul.nav li.nav-item a{
@@ -333,13 +200,13 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding: 1vh 3vh;
-	border: .4vh solid transparent;
+	padding: 8px 32px;
+	border: 4px solid transparent;
 }
 
 #envivo ul.nav li.nav-item a:focus{
 	outline: none !important;
-	border: .4vh solid white;
+	border: 4px solid white;
 	background-color: transparent;
 }
 
@@ -347,17 +214,16 @@
 	outline: none !important;
 	color: white;
 	background-color: transparent;
-	border: .4vh solid white;
+	border: 4px solid white;
 	cursor: pointer;
 }
 
 #envivo ul.nav li.nav-item a h5{
 	position: relative;
 	font-weight: 500;
-	font-size: 2.2vh;
-	color: #9e9e9e;
+	font-size: 24px;
+	color: #757575;
 	margin: 0;
-	letter-spacing: .5px;
 }
 
 #envivo ul.nav li.nav-item a:hover h5{
@@ -374,18 +240,18 @@
 
 #envivo ul.nav li.nav-item a.active{
 	background-color: transparent;
-	border: .4vh solid transparent;
+	border: 4px solid transparent;
 }
 
 #envivo ul.nav li.nav-item a.active h5{
 	color: white;
-	font-weight: 900;
+	font-weight: 500;
 	opacity: 1;
 }
 
 #envivo ul.nav li.nav-item a.active:focus{
 	color: white;
-	border: .4vh solid white;
+	border: 4px solid white;
 	background-color: transparent
 }
 
@@ -404,8 +270,7 @@
 	height: 85%;
 	overflow-x: hidden;
 	overflow-y: hidden;
-	padding: 0 4vw 0 4vw;
-	/* border: 1px solid blue; */
+	padding: 0 56px;
 }
 
 #envivo .tab-content .tab-pane{
@@ -474,13 +339,12 @@
 	display: flex;
 	flex-direction: row;
 	overflow: hidden;
-	padding: 1vh 1vh 0vh 1vh;
 }
 
 #envivo .tab-content .tab-pane ul li{
 	position: relative;
 	height: 100%;
-	flex: 0 0 calc(100% / 6);
+	flex: 0 0 calc(100% / 5);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -539,6 +403,7 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
 	transition-property: transform;
 	transition-duration: 200ms;
 	transition-timing-function: ease-in-out;
@@ -585,7 +450,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	text-align: center;
-	padding: 0 2vh;
+	padding: 0 16px;
 }
 
 #envivo .tab-content .tab-pane ul li:focus .info-channel{
@@ -597,23 +462,21 @@
 }
 
 #envivo .tab-content .tab-pane ul li .info-channel h3{
-	font-size: 2.2vh;
-	margin-bottom: 2vh;
-	margin-top: 1vh;
-	color: #9e9e9e;
-	font-weight: 700;
+	font-size: 24px;
+	margin: 16px 0;
+	color: white;
+	font-weight: 600;
 }
 
 #envivo .tab-content .tab-pane ul li .info-channel h4{
-	font-size: 2vh;
-	margin-top: -.5vh;
+	font-size: 20px;
 	color: white;
-	font-weight: 700;
+	font-weight: 500;
 }
 
 #envivo .tab-content .tab-pane ul li .info-channel h5{
-	font-size: 1.8vh;
-	margin-top: .5vh;
+	font-size: 20px;
+	margin-top: 8px;
 	color: #9e9e9e;
 	font-weight: 500;
 }
@@ -651,7 +514,6 @@
 	color: black;
 }
 
-
 #envivo .tab-content .tab-pane ul li:hover .info-channel h4{
 	opacity: 1;
 	color: black;
@@ -666,7 +528,7 @@
 	display: flex;
 	flex-direction: row;
 	align-content: center;
-	align-items: start;
+	align-items: center;
 }
 
 #envivo .tab-content .tab-pane ul li .info-channel .event-time-content i{

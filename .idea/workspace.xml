@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61dbac35-6792-42aa-802f-dfa28fea5424" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/rightmenu/rightmenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/rightmenu/rightmenu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/menu/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/menu/menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/tvenvivo/envivo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/tvenvivo/envivo.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +39,7 @@
     <setting file="file://$PROJECT_DIR$/src/js/renders/alacarta.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/webOS/index.html" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/radio.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/css/tvenvivo/envivo.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/pages/LiveTV/Components/Timer/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/gulpfile.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/pages/LiveTV/Components/Video/index.js" root0="SKIP_INSPECTION" />
@@ -114,7 +115,8 @@
       <workItem from="1640093956194" duration="21012000" />
       <workItem from="1640181258477" duration="17255000" />
       <workItem from="1641477517556" duration="1430000" />
-      <workItem from="1641481975935" duration="14183000" />
+      <workItem from="1641481975935" duration="17408000" />
+      <workItem from="1641565395700" duration="5844000" />
     </task>
     <servers />
   </component>
