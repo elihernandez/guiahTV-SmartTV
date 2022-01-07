@@ -38,19 +38,18 @@
 }
 
 .info-background .text-group h3{
-    margin: 0;
     padding: 0;
-    margin: .3vh 0;
-    font-size: 2.2vh;
+    margin: 4px 0;
+    font-size: 24px;
+    font-weight: 500 !important;
+    color: #9e9e9e !important;
 }
 
-
 .info-background .info .title{
-    font-size: 3.5vh;
+    font-size: 40px;
     font-weight: 900;
-    letter-spacing: .5px;
     margin-bottom: 10px;
-    color: whitesmoke;
+    color: white;
 }
 
 .info-background .info .group-1{
@@ -71,9 +70,10 @@
 }
 
 .info-background .info .rating-movie{
-    font-size: 2.5vh;
+    font-size: 24px;
+    font-weight: 500;
     margin: 0 1vh;
-    color: #bdbdbd;
+    color: #9e9e9e;
 }
 
 .info-background .info .clasification-movie{
@@ -86,18 +86,25 @@
 }
 
 .info-background .info .duration-movie{
-    width: 8.5vh;
+    width: auto;
     position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: #9e9e9e !important;
 }
 
 .info-background .info .date-movie{
     position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: #9e9e9e !important;
 }
 
 .info-background .info .description-movie{
     width: 50%;
     margin-top: 15px;
     margin-bottom: 15px;
+    color: #9e9e9e;
 }
 
 .background-black{
@@ -255,15 +262,16 @@
 }
 
 .catalogue .list ul .header-category .name-category{
-    font-size: 2.5vh;
+    font-size: 24px;
     font-weight: 500;
-    margin: 1vh 1vh 0 0;
+    margin: 8px 8px 0 0;
     color: whitesmoke;
 }
 
 .catalogue .list ul .header-category h3{
     color: white;
-    font-size: 1.8vh;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 @media (max-width: 1280px) {
