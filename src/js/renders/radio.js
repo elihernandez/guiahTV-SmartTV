@@ -30,7 +30,6 @@ function TitleRadio(){
     return (
         <div className="title-section">
              <h2 className="title">Radio</h2>
-            <div className="circle-red"></div>
         </div>
     )
 }
