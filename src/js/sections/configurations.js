@@ -4,6 +4,7 @@ function getConfigurationsMenu(){
     configurationsMenuActive = true;
     fadeInElement(idConfigurationsMenu, "0", "1", "0.1s");
     renderConfigurationsMenu();
+    document.getElementById('conf-language').focus()
     // renderConfigurationsLanguage();
     // toggleClassActiveConfigurationsMenu("configurations-left-section", "conf-language");
     switchConfigurationsLeftSection("conf-language");
@@ -49,22 +50,22 @@ function switchConfigurationsLeftSection(id){
 }
 
 function clickOnConfigurationsLanguage(e){
-    var id = e.currentTarget.id;
-    var attributes = e.currentTarget.attributes;
+    var id = e.nativeEvent.target.id;
+    var attributes = e.nativeEvent.target.attributes;
     setConfigurationsLanguage(attributes, id)
 }
 
 function keyDownOnConfigurationsLanguage(e){
     if(pressEnter(e.nativeEvent)){
-        var attributes = e.nativeEvent.target.attributes;
         var id = e.nativeEvent.target.id;
+        var attributes = e.nativeEvent.target.attributes;
         setConfigurationsLanguage(attributes, id)
     }
 }
 
 function setConfigurationsLanguage(attributes, id){
+    toggleClassActiveConfigurationsMenu("configurations-audios-list", id);
     if(attributes.languageAudio){
-        toggleClassActiveConfigurationsMenu("configurations-audios-list", id);
         localStorage.setItem('idAudio', id);
         localStorage.setItem('languageAudio', attributes.languageAudio.value);
     }else{

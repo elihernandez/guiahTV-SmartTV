@@ -12,15 +12,15 @@ function LeftSectionConfigurations(){
     return (
         <div className="left-section" id="configurations-left-section">
             <ul>
-                <li id="conf-back" className="cls-item" tabIndex="-1" onClick={clickOnConfigurationsLeftSection} onKeyDown={keyDownOnConfigurationsLeftSection}>
-                    <i className="fas fa-reply"></i>
+                <li id="conf-back" className="cls-item" tabIndex="-1" onClick={clickOnConfigurationsLeftSection} onKeyDown={keyDownOnConfigurationsLeftSection} data-sn-up="#">
+                    <i className="fas fa-arrow-left"></i>
                     <h4>Regresar</h4>
                 </li>
             </ul>
             <ul className="list-options">
                 <li id="conf-language" className="cls-item active" tabIndex="-1" onClick={clickOnConfigurationsLeftSection} onKeyDown={keyDownOnConfigurationsLeftSection}>Audios y Subtítulos</li>
                 <li id="conf-logout" className="cls-item" tabIndex="-1" onClick={clickOnConfigurationsLeftSection} onKeyDown={keyDownOnConfigurationsLeftSection}>Cerrar sesión</li>
-                <li id="conf-exit" className="cls-item" tabIndex="-1" onClick={clickOnConfigurationsLeftSection} onKeyDown={keyDownOnConfigurationsLeftSection}>Salir de Guiah TV</li>
+                <li id="conf-exit" className="cls-item" tabIndex="-1" onClick={clickOnConfigurationsLeftSection} onKeyDown={keyDownOnConfigurationsLeftSection} data-sn-down="#">Salir de Guiah TV</li>
             </ul>
         </div>
     )
@@ -42,11 +42,11 @@ function renderConfigurationsLanguage(){
                 <div className="audios list" id="configurations-audios-list">
                     <h4>Audios</h4>
                     <ul>
-                        <li id="configurations-audios-1" className="crs-item" tabIndex="-1" languageAudio="spa" onClick={clickOnConfigurationsLanguage} onKeyDown={keyDownOnConfigurationsLanguage}>
+                        <li id="configurations-audios-1" className="crs-item" tabIndex="-1" languageAudio="spa" onClick={clickOnConfigurationsLanguage} onKeyDown={keyDownOnConfigurationsLanguage} data-sn-up="#">
                             <h5 className="text">Español</h5>
                             <i className="fas fa-check"></i>
                         </li>
-                        <li id="configurations-audios-2" className="crs-item" tabIndex="-1" languageAudio="eng" onClick={clickOnConfigurationsLanguage} onKeyDown={keyDownOnConfigurationsLanguage}>
+                        <li id="configurations-audios-2" className="crs-item" tabIndex="-1" languageAudio="eng" onClick={clickOnConfigurationsLanguage} onKeyDown={keyDownOnConfigurationsLanguage} data-sn-down="#">
                             <h5 className="text">Inglés</h5>
                             <i className="fas fa-check"></i>
                         </li>
@@ -55,7 +55,7 @@ function renderConfigurationsLanguage(){
                 <div className="subs list" id="configurations-subtitles-list">
                     <h4>Subtítulos</h4>
                     <ul>
-                        <li id="configurations-subtitles-1" className="crs-item" tabIndex="-1" languageSubtitles="-1" onClick={clickOnConfigurationsLanguage} onKeyDown={keyDownOnConfigurationsLanguage}>
+                        <li id="configurations-subtitles-1" className="crs-item" tabIndex="-1" languageSubtitles="-1" onClick={clickOnConfigurationsLanguage} onKeyDown={keyDownOnConfigurationsLanguage} data-sn-up="#">
                             <h5 className="text">Desactivados</h5>
                             <i className="fas fa-check"></i>
                         </li>
@@ -63,7 +63,7 @@ function renderConfigurationsLanguage(){
                             <h5 className="text">Español</h5>
                             <i className="fas fa-check"></i>
                         </li>
-                        <li id="configurations-subtitles-3" className="crs-item" tabIndex="-1" languageSubtitles="eng" onClick={clickOnConfigurationsLanguage} onKeyDown={keyDownOnConfigurationsLanguage}>
+                        <li id="configurations-subtitles-3" className="crs-item" tabIndex="-1" languageSubtitles="eng" onClick={clickOnConfigurationsLanguage} onKeyDown={keyDownOnConfigurationsLanguage} data-sn-down="#">
                             <h5 className="text">Inglés</h5>
                             <i className="fas fa-check"></i>
                         </li>

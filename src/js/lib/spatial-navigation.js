@@ -27,7 +27,7 @@ focusableElements = [
 	{ section: 'seasons-serie', selector: '.title-season', defaultElement: '' },
 	{ section: 'chapters-serie', selector: '.chapter', defaultElement: '' },
 	{ section: 'radio', selector: '.item-radio', defaultElement: '' },
-	{ section: 'configurations-left-section', selector: '.cls-item', defaultElement: '#conf-language' },
+	{ section: 'configurations-left-section', selector: '.cls-item', defaultElement: '' },
 	{ section: 'configurations-right-section', selector: '.crs-item', defaultElement: '' },
 	{ section: 'magic-button-back', selector: '.button-back', defaultElement: '' },
 	// { section: 'musica', selector: '.cover-slide', defaultElement: ''},
