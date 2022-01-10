@@ -4,7 +4,7 @@ function renderSerie(data, temporadas){
             <BackgroundSeries data={data}/>
             <div className="catalogue-series">
                 <TitleSerie data={data}/>
-                <BackgroundSerie data={data}/>
+                {/*<BackgroundSerie data={data}/>*/}
                 <div id="seasons-serie" className="seasons">
                     <ul id="list-seasons">
                         <Seasons data={data} temporadas={temporadas}/>
@@ -48,7 +48,7 @@ function BackgroundSerie({ data }){
 
     return (
         <div className="background-serie">
-            <h4 className="description-serie">{limitString(Description, 225)}</h4>
+
             {/*<img src={props.data.movie.HDPosterUrlPortrait}/>*/}
         </div>
     );
@@ -56,12 +56,13 @@ function BackgroundSerie({ data }){
 
 function TitleSerie({ data }){
     const { movie } = data
-    const { Title, Categories } = movie
+    const { Title, Categories, Description } = movie
 
     return (
         <div className="title-wrapper">
             <h4 className="genre-serie">{Categories}</h4>
             <h3 className="title-serie">{limitString(Title, 50)}</h3>
+            <h5 className="description-serie">{limitString(Description, 225)}</h5>
         </div>
     )
 }
@@ -152,7 +153,7 @@ function Chapter(props){
                 </div>
                 <div className="info-chapter">
                     <h2 className="title-chapter">{props.chapter.Title}</h2>
-                    <h3 className="description-chapter">{limitString(props.chapter.Description, 280)}</h3>
+                    <h3 className="description-chapter">{limitString(props.chapter.Description, 200)}</h3>
                 </div>
             </li>
         );

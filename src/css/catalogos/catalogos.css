@@ -29,7 +29,7 @@
     z-index: 3;
     width: 100%;
     height: 100%;
-    top: 5%;
+    top: 2%;
 }
 
 .info-background .info{
@@ -40,7 +40,7 @@
 .info-background .text-group h3{
     padding: 0;
     margin: 4px 0;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 500 !important;
     color: #9e9e9e !important;
 }
@@ -70,7 +70,7 @@
 }
 
 .info-background .info .rating-movie{
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 500;
     margin: 0 1vh;
     color: #9e9e9e;
@@ -88,14 +88,14 @@
 .info-background .info .duration-movie{
     width: auto;
     position: relative;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 500;
     color: #9e9e9e !important;
 }
 
 .info-background .info .date-movie{
     position: relative;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 500;
     color: #9e9e9e !important;
 }
@@ -262,15 +262,15 @@
 }
 
 .catalogue .list ul .header-category .name-category{
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 23px;
+    font-weight: 700;
     margin: 8px 8px 0 0;
     color: whitesmoke;
 }
 
 .catalogue .list ul .header-category h3{
     color: white;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 500;
 }
 
