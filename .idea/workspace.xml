@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="61dbac35-6792-42aa-802f-dfa28fea5424" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/configurations/configurations.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/configurations/configurations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/rightmenu/rightmenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/rightmenu/rightmenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/lib/spatial-navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/lib/spatial-navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/renders/configurations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/renders/configurations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/sections/configurations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/sections/configurations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/renders/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/renders/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/sections/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/sections/menu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,15 +31,18 @@
     <setting file="file://$PROJECT_DIR$/src/js/lib/transitions.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/hlsplayer.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/catalogos.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/js/sections/menu.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/login.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/rightmenu.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/lib/spatial-navigation.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/css/app.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/js/Array/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/css/menu/menu.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/hooks/useHls.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/series.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/configurations.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/catalogos.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/js/renders/menu.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/alacarta.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/webOS/index.html" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/radio.js" root0="SKIP_INSPECTION" />
@@ -124,7 +125,7 @@
       <workItem from="1641477517556" duration="1430000" />
       <workItem from="1641481975935" duration="17408000" />
       <workItem from="1641565395700" duration="13149000" />
-      <workItem from="1641822434550" duration="12927000" />
+      <workItem from="1641822434550" duration="16027000" />
     </task>
     <servers />
   </component>

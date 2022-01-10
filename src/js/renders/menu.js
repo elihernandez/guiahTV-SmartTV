@@ -86,16 +86,16 @@ function CarouselIndicators(item, index, data){
     if(index == 0){
         var direction = "#spotlight-carousel-indicator-"+length;
         return (
-            <li id={id }className={className} tabIndex="-1" data-sn-left={direction}></li>
+            <li id={id} className={className} tabIndex="-1" data-sn-left={direction} data-sn-up="#button-right-menu"></li>
         )
     }else if(index == length){
         var direction = "#spotlight-carousel-indicator-0";
         return (
-            <li id={id }className={className} tabIndex="-1" data-sn-right={direction}></li>
+            <li id={id} className={className} tabIndex="-1" data-sn-right={direction} data-sn-up="#button-right-menu"></li>
         )
     }else{
         return (
-            <li id={id }className={className} tabIndex="-1"></li>
+            <li id={id} className={className} tabIndex="-1" data-sn-up="#button-right-menu"></li>
         )
     }
 }

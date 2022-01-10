@@ -3,23 +3,6 @@ var sectionMenuPrincipalActive = false,
     idSectionsMenu = "sections",
     spotlight = null;
 
-// axios.interceptors.request.use(function (config) {
-//   // Do something before request is sent
-//   if((config.url).includes('home_spotlight') || (config.url).includes('leon_home_bm')){
-//     return config;
-//   }else{
-//       if((config.url).includes(Cookies.get('memclid'))){
-//         return config;
-//       }else{
-//         console.log("Url invalida")
-//       }
-//   }
-//   console.log((config.url).includes('home_spotlight'))
-// }, function (error) {
-//   // Do something with request error
-//   return Promise.reject(error);
-// });
-
 // Función para mostrar el spotlight y botónes de secciones
   function getMenuPrincipal(idElementOut, clearElement){
     ReactDOM.render(<MenuPrincipal/>, document.getElementById(idMenuPrincipal));
