@@ -21,6 +21,12 @@ html, body{
 	color: whitesmoke;
 }
 
+@media (max-width: 1280px) {
+	html, body{
+		font-size: 40% !important;
+	}
+}
+
 h1, h2, h3, h4, h5, h6{
 	/* margin: 10px 0 10px 0; */
 	color: whitesmoke;

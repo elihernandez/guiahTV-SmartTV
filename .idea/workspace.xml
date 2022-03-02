@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="61dbac35-6792-42aa-802f-dfa28fea5424" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appinfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/appinfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/tvenvivo/envivo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/tvenvivo/envivo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/renders/envivo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/renders/envivo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webOS/appinfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/webOS/appinfo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +28,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/js/sections/configurations.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/components/TopMenu/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/radio.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/envivo.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/app.js" root0="SKIP_INSPECTION" />
@@ -32,43 +38,58 @@
     <setting file="file://$PROJECT_DIR$/src/js/sections/menu.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/login.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/rightmenu.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/pages/Sermons/sections/LastSermon/styles.css" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/pages/Locations/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/lib/spatial-navigation.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/pages/Home/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/css/app.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/js/Array/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/css/menu/menu.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/hooks/useHls.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/series.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/configurations.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../guiahtv-web/webpack.config.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/router/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/catalogos.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/menu.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/components/SocialNetworks/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/alacarta.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/webOS/index.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/context/ThemeContext.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/renders/radio.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/css/tvenvivo/envivo.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/pages/LiveTV/Components/Timer/index.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../guiahtv-web/config.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/css/catalogos/catalogos.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/gulpfile.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/../guiahtv-web/src/pages/LiveTV/Components/Video/index.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/components/WelcomeVideo/index.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../puertadelcielo/src/pages/Sermons/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/css/configurations/configurations.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/js/sections/series.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/../piddelo/piddelo-repartidor-app/package.json" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="21nPavWxhAzBMVpp6AXNMvjS4fY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../puertadelcielo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -79,7 +100,14 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.css.dialects" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\puertadelcielo\src\pages\Sermons\sections" />
+      <recent name="C:\wamp64\www\puertadelcielo\src\pages\Sermons" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -123,7 +151,18 @@
       <workItem from="1641477517556" duration="1430000" />
       <workItem from="1641481975935" duration="17408000" />
       <workItem from="1641565395700" duration="13149000" />
-      <workItem from="1641822434550" duration="17388000" />
+      <workItem from="1641822434550" duration="17453000" />
+      <workItem from="1641912218713" duration="1929000" />
+      <workItem from="1641915863800" duration="145000" />
+      <workItem from="1641938533309" duration="1279000" />
+      <workItem from="1642000153051" duration="5527000" />
+      <workItem from="1642179987081" duration="2816000" />
+      <workItem from="1642459735042" duration="938000" />
+      <workItem from="1642718911394" duration="739000" />
+      <workItem from="1643043853534" duration="172000" />
+      <workItem from="1644609560199" duration="1448000" />
+      <workItem from="1644870456645" duration="9473000" />
+      <workItem from="1646244605254" duration="5029000" />
     </task>
     <servers />
   </component>

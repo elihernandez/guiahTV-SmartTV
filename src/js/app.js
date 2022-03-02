@@ -23,7 +23,7 @@ store.on(COUNT_CHANGE, ({ count }) => {
 //   store.emit(COUNT_CHANGE, ({ count }) => ({ count: count - 1 }))
 // })
 const saludo = 'Hola'
-const env = 'prod'
+const env = 'dev'
 
 var urlGetApi = 'https://lap55.com/json/api/',
 	timeoutGetApi = 15000,

@@ -376,7 +376,7 @@ function ChannelEnVivo(props){
                     <div className="info-channel">
                         <h3 className="fw-500">{props.channel.Name}</h3>
                         <GetEventTime channel={props.channel} category={props.category}/>
-                        <h5 className="fw-400">{limitString(props.channel.Description, 120)}</h5>
+                        <h5 className="fw-400">{limitString(props.channel.Description, 50)}</h5>
                     </div>
                 <div className="channel-content" onClick={clickOnChannelLiveTv} data={data}>
                 </div>
@@ -390,7 +390,7 @@ function ChannelEnVivo(props){
                 </div>
                 <div className="info-channel">
                     <h3 className="fw-500">{props.channel.Name}</h3>
-                    <h5 className="fw-400">{limitString(props.channel.Description, 120)}</h5>
+                    <h5 className="fw-400">{limitString(props.channel.Description, 50)}</h5>
                 </div>
                 <div className="channel-content" onClick={clickOnChannelLiveTv} data={data}>
                 </div>
