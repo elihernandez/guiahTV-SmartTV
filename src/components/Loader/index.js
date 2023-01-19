@@ -1,3 +1,4 @@
+import React from 'react'
 import './styles.css'
 import logo from '../../assets/images/logos/guiahtv/guiahtvlogo.png'
 import video from '../../assets/videos/video-logo.mp4'
@@ -16,6 +17,6 @@ export const VideoLoader = () => {
 
 export const MainLoader = () => {
 	return <div className="loader main-loader" style={{ 'opacity': '0', 'display': 'none' }}>
-		<div className="spinner"/>
+		<div className="spinner" />
 	</div>
 }
