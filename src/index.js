@@ -8,17 +8,16 @@ document.getElementById('app').innerHTML = ''
 import 'babel-polyfill'
 import MainLoaders from './components/MainLoaders'
 import App from './components/App'
-import { render } from 'solid-js/web'
+import * as ReactDOM from 'react-dom'
 import './styles.css'
-require('./js/dist/hls')
-require('./js/dist/js-cookie')
+// require('./js/dist/hls')
+// require('./js/dist/js-cookie')
 
-render(
-	() => (
-		<>
-			<App />
-			<MainLoaders />
-		</>
-	),
-	document.getElementById('app')
+const root = ReactDOM.createRoot(
+	document.getElementById('root')
 )
+
+root.render(<>
+	<App />
+	<MainLoaders />
+</>)

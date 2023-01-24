@@ -1,7 +1,7 @@
 {
-  "id": "com.guiahtv.smarttv",
-  "version": "2.0.1",
-  "versioncode": 2,
+  "id": "com.guiah.media",
+  "version": "1.0.0",
+  "versioncode": 1,
   "vendor": "Leon Rev SA de CV",
   "type": "web",
   "main": "index.html",
