@@ -4,6 +4,7 @@ import HomePage from '../pages/Home'
 // import { onMount } from 'solid-js'
 import { useEffect } from 'react'
 import Menu from './Menu'
+import React from 'react'
 // import VodPage from '../pages/Vod'
 // import LiveTvPage from '../pages/LiveTv'
 import RadioPage from '../pages/Radio'
@@ -38,7 +39,7 @@ export const App = () => {
 			<RadioPage />
 			<MusicPage />
 			<ZonaKids />
-			<MainLoader />
+			{/* <MainLoader /> */}
 		</div>
 	)
 }
